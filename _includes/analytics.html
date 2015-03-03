@@ -1,0 +1,16 @@
+            {% if site.analytics.cnzz.uid %}
+            <script type="text/javascript">
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cspan id='cnzz_stat_icon_{{ site.analytics.cnzz.uid }}'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D{{ site.analytics.cnzz.uid }}' type='text/javascript'%3E%3C/script%3E"));</script>
+            {% endif %}
+            {% if site.analytics.baidu.siteid %}
+            <script>
+              var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?{{ site.analytics.baidu.siteid }}";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+              })();
+            </script>
+            {% endif %}

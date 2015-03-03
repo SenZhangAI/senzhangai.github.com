@@ -1,0 +1,25 @@
+      <footer class="footer text-center">
+        <p>&copy; 2009-{{ site.time | date: '%Y' }} <a href="/" target="_blank" title="{{ site.description }}">{{ site.author.name }}</a> CC BY-NC-SA 3.0. <a href="https://github.com/javachen/javachen-blog-theme" target="_blank" title="https://github.com/javachen/javachen-blog-theme">Theme</a> build with <a href="//jekyllrb.com/" target="_blank" title="Transform your plain text into static websites and blogs.">Jekyll</a>.
+      	{% include analytics.html %}
+        </p>
+        <div id="toTop" style="display: block;">  <a href="#">▲</a><a href="#footer">▼</a>  </div>
+      </footer>
+
+      <script type="text/javascript" src="{{ ASSET_PATH }}/static/js/jquery.min.js"></script>
+      <script type="text/javascript" src="{{ ASSET_PATH }}/static/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="{{ ASSET_PATH }}/static/js/core.js"></script>
+      {% if site.comments.duoshuo.name %}
+      <!-- duoshuo Begin -->
+      <script type="text/javascript">
+        var duoshuoQuery = {short_name:"{{ site.comments.duoshuo.name }}"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] ||
+          document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+      </script>
+      <!-- duoshuo End -->
+      {% endif %}

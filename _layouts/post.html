@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+          <div class="col-md-12">
+            <article class="news-item">
+
+                <h1  class="news-item"> {{ page.title }}  {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}
+                  <time class="small">{{ page.date | date: "%Y.%m.%d" }}</time>
+                </h1>
+
+                <div>
+                {{ content }}
+                </div>
+
+
+                <div id="pay" style="text-align:center;">
+                  ----EOF-----
+                  <br>
+                  {% include support.html %}
+                </div>
+
+                <p class="meta">
+                	{% unless page.category == empty %}
+                      Categories:
+                	    {% for cat in page.category %}
+                    	<a class="btn btn-default btn-xs" href="{{ BASE_PATH }}/categories.html#{{ cat|downcase}}">{{ cat |downcase}}</a>
+                    {% endfor %}
+                	{% endunless %}
+
+                	{% unless page.tags == empty %}
+                      Tags:
+                	    {% for tag in page.tags %}
+                    	<a class="btn btn-default btn-xs" href="{{ BASE_PATH }}/tags.html#{{ tag }}">{{ tag }}</a>
+                    {% endfor %}
+                	{% endunless %}
+                </p>
+          	</article>
+
+          	<ul class="pager">
+          	  {% if page.previous %}
+          	  <li class="previous"><a class="btn btn-xs" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Prev</a></li>
+          	  {% else %}
+          	  <li class="previous disabled"><a class="btn btn-xs" href="#">&larr; Prev</a></li>
+          	  {% endif %}
+          	  {% if page.next %}
+          	  <li class="next"><a class="btn btn-xs" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
+          	  {% else %}
+          	  <li class="next disabled"><a class="btn btn-xs" href="#">Next &rarr;</a></li>
+          	  {% endif %}
+          	</ul>
+
+            {% include comments.html %}
+
+          </div>

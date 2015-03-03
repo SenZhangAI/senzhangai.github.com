@@ -1,0 +1,67 @@
+# Site settings
+title : Jeklly Blog
+tagline:
+url:
+author:
+    name:
+    github:
+    email:
+    twitter:
+    facebook:
+    weibo:
+atom_path: /atom.xml
+rss_path: /rss.xml
+donate_url:
+
+# Outputting
+permalink: /:year/:month/:day/:title
+paginate_path: /page:num
+paginate: 15
+timezone: Asia/Shanghai
+
+# Handling Reading
+safe:         false
+include:      []
+exclude:      [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+keep_files:   []
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+textile_ext:  "textile"
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      true
+unpublished: false
+
+# Plugins
+whitelist: []
+gems:      []
+
+# Conversion
+markdown:    redcarpet
+highlighter: pygments
+lsi:         false
+excerpt_separator: "\n\n"
+
+# Backwards-compatibility
+relative_permalinks: false
+
+# Markdown Processors
+redcarpet:
+  extensions: [ "fenced_code_blocks", "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+
+# comment
+comments:
+  duoshuo:
+    name:
+    rcomments:
+        num: 8
+        avatar: 0
+        time: 0
+        title: 0
+        admin: 0
+        length: 12
+analytics:
+    cnzz:
+        uid:

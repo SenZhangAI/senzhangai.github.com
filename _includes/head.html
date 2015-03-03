@@ -1,0 +1,17 @@
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+      <meta name="author" content="{% if site.author.name %}{{ site.author.name }}{% endif %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="{{ BASE_PATH }}/favicon.ico" type="image/x-icon" >
+      <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html,'' }}/">
+      <link rel="stylesheet" href="{{ BASE_PATH }}/static/css/bootstrap.min.css" media="all">
+      <link rel="stylesheet" href="{{ BASE_PATH }}/static/css/style.css" media="all">
+      <link rel="stylesheet" href="{{ BASE_PATH }}/static/css/pygments.css" media="all">
+      <link rel="stylesheet" href="{{ BASE_PATH }}/static/css/font-awesome.css" media="all">
+
+      <!-- atom & rss feed -->
+      <link href="{{ site.rss_path }}" type="application/rss+xml" rel="alternate" title="{{ site.title }} RSS Feed">
+      <link href="{{ site.atom_path }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} ATOM Feed">
+    </head>

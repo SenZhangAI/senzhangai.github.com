@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+  <body>
+    <div class="container">
+    {% include header.html %}
+
+      <div class="wrapper">
+        <div class="row">
+          <div id="search-loader" style="display:none;text-align:center">
+            <img src="/images/loading.gif">
+          </div>
+{{ content }}
+        </div>
+      </div>
+
+{% include footer.html %}
+
+    </div>
+  </body>
+</html>

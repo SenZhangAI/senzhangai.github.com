@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /page*
+Disallow: /static
+Sitemap: /sitemap.xml
