@@ -1,11 +1,11 @@
 # Site settings
-title : Jeklly Blog
+title : Sen's Blog
 tagline:
 url:
 author:
-    name:
-    github:
-    email:
+    name: Sen Zhang
+    github: SenZhangAI
+    email: szhang_hust@qq.com
     twitter:
     facebook:
     weibo:
@@ -49,7 +49,16 @@ relative_permalinks: false
 
 # Markdown Processors
 redcarpet:
-  extensions: [ "fenced_code_blocks", "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+  extensions: [ "fenced_code_blocks",
+                "hard_wrap",
+                "autolink",
+                "tables",
+                "strikethrough",
+                "superscript",
+                "with_toc_data",
+                "highlight",
+                "prettify",
+                "no_intra_emphasis"]
 
 # comment
 comments:
@@ -64,4 +73,4 @@ comments:
         length: 12
 analytics:
     cnzz:
-        uid:
+        uid: 1254858699
