@@ -41,16 +41,21 @@ tags: [Design Pattern, Strategy Pattern]
 
 1. 创建一个`weapon`的基类
 2. `elf`类中加入`weapon`基类指针
-    ```cpp
+
+    ``` cpp
     //类指针就相当于继承了啊，真爽
     weapon* pweapon;// = null_ptr;
     ```
+
 3. 拿武器，例如`sword`就是：
+
     ```cpp
     pweapon= new sword(); //sword继承自weapon
     ```
+
     > delete怎么办？会把`pweapon`删除掉吧？
 4. 攻击就是：
+
     ```cpp
     elf.attack();
     // 以下是elf::attack的定义
@@ -58,7 +63,10 @@ tags: [Design Pattern, Strategy Pattern]
         return pweapon -> attack();
     }
     ```
+
+
 5. 换武器就是：
+
     ```cpp
      /* 之所以用动态new的方式而不是直接用一个实例gun
       * 是因为我觉得一个实例如果多人同时使用会造成性能瓶颈吧（猜测）
