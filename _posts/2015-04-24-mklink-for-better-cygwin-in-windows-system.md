@@ -43,7 +43,7 @@ explorer.exe target
 mklink命令的使用方式：
 1. 在cmd中运行，需要Administrator权限。所以要右键单击cmd选择`run as Administrator`。
 2. 命令格式为：
-{% highlight cmd %}
+{% highlight bat %}
 mklink /D Link Target
 {% endhighlight %}
 注意`link`和`target`的顺序，在ln命令中则是`ln -s Target Link`的顺序
@@ -58,7 +58,7 @@ linux下我们都想用简单的方式直接输入几个字母+tab就能启动�
 第二个想法是，用Cygwin下的`ln`命令 ---失败 
 例如我要将我的Sublime Text做成快捷方式，方便打开文件或文件夹则用：
 
-{% highlight cmd %}
+{% highlight bat %}
 mklink /D ~/bin/sublime C:/mySublimeTextPath/sublime_text.exe
 {% endhighlight %}
 
@@ -67,7 +67,7 @@ mklink /D ~/bin/sublime C:/mySublimeTextPath/sublime_text.exe
 比如在cygwin下要频繁打开某个很长路径的文件夹，每次输入cd都是一件很痛苦的事情，（顺带说一下，cygwin也可以输入`cd C：`命令到C盘。对应于Cygwin中的`/cygdrive/c`目录。）
 那么只需来一次`mklink`命令搞定：
 
-{% highlight cmd %}
+{% highlight bat %}
 mklink /D ~/shortcut C:/long/long/path/folder
 {% endhighlight %}
 
