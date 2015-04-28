@@ -125,7 +125,17 @@ Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux
 <http://blog.javachen.com/2014/01/21/all-things-about-jekyll/>
 
 ## V 补充
+
+### data url
+
+网页中如果加载小图标，可以将图标制作成data url。这样就能直接在网页中嵌入自己的个性图标（最好是小图片），例如将favicon.ico制作成data-url嵌入
+
 在线制作data url：[http://dataurl.net/#dataurlmaker](http://dataurl.net/#dataurlmaker)
+
+### markdown引擎的选择
+
+这个折腾了很长时间，一言难尽。
+
 
 ## VI TODO
 

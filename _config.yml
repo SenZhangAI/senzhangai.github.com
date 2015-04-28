@@ -14,7 +14,7 @@ rss_path: /rss.xml
 donate_url:
 
 # Outputting
-permalink: /:year/:month/:day/:title
+permalink: /:categories/:title
 paginate_path: /page:num
 paginate: 15
 timezone: Asia/Shanghai
