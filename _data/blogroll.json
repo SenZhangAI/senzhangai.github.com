@@ -6,9 +6,21 @@
     {
         "title": "Self Shadow",
         "url": "http://blog.selfshadow.com/"
-    }
+    },
     {
         "title": "Milo Yip-cnblog",
         "url": "http://www.cnblogs.com/miloyip/"
+    },
+    {
+        "title": "KlayGE 游戏引擎",
+        "url": "http://www.klayge.org/"
+    },
+    {
+        "title": "空明流转-cppblog",
+        "url": "http://www.cppblog.com/lingjingqiu/"
+    },
+    {
+        "title": "空明流转-cnblog",
+        "url": "http://www.cnblogs.com/lingjingqiu/"
     }
 ]
