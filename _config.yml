@@ -1,6 +1,6 @@
 # Site settings
 title : Sen's Blog
-tagline:
+tagline: 高瞻远瞩
 url:
 author:
     name: Sen Zhang
@@ -9,6 +9,7 @@ author:
     twitter:
     facebook:
     weibo:
+    zhihu: sen-zhang-73
 atom_path: /atom.xml
 rss_path: /rss.xml
 donate_url:

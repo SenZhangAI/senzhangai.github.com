@@ -1,6 +1,10 @@
 [
     {
         "title": "JavaChen's Blog",
-        "url": "//blog.javachen.com/"
+        "url": "blog.javachen.com/"
+    },
+    {
+        "title": "Self Shadow",
+        "url": "blog.selfshadow.com/"
     }
 ]

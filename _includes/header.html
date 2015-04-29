@@ -31,7 +31,12 @@
     {% if site.author.weibo %}
     <li><a href="http://weibo.com/{{ site.author.weibo }}" target="_blank" title="Weibo"><span class="fa fa-weibo fa-2x"></span></a></li>
     {% endif %}
-
+    {% if site.author.zhihu %}
+    <li><a href="http://www.zhihu.com/people/{{ site.author.zhihu }}" target="_blank" title="Zhihu"><span class="icon-stack fa-lg addin">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="iconfont icon-zhihu fa-stack-1x fa-inverse"></i>>
+    </span></a></li>
+    {% endif %}
     <li><a href="{{ '/rss.xml' }}" target="_blank" title="RSS"><span class='fa fa-rss fa-2x'></span></a></li>
   </ul>
 </header>
