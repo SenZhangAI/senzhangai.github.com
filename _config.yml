@@ -64,8 +64,10 @@ redcarpet:
 
 # comment
 comments:
+  disqus:
+    name: senzhang
   duoshuo:
-    name:
+    name: Sen # if no disqus.name
     rcomments:
         num: 8
         avatar: 0
