@@ -217,3 +217,9 @@ table tbody tr:hover {
 #pay h4{
 	display:none;
 }
+
+/*for disqus*/
+li.dsq-widget-item {
+ list-style-type: disc!important;
+}
+/*end for disqus*/

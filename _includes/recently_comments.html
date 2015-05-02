@@ -1,6 +1,13 @@
-{% if site.comments.duoshuo.name %}
 <section>
   <h4>Recently Comments</h4>
-  <ul class="ds-recent-comments" data-num-items="{{ site.comments.duoshuo.rcomments.num }}" data-show-avatars="{{ site.comments.duoshuo.rcomments.avatar }}" data-show-time="{{ site.comments.duoshuo.rcomments.time }}" data-show-title="{{ site.comments.duoshuo.rcomments.title }}" data-show-admin="{{ site.comments.duoshuo.rcomments.admin }}" data-excerpt-length="{{ site.comments.duoshuo.rcomments.length }}"></ul>
+  {% if site.comments.disqus.name %}
+  <ul id="RecentComments" class="dsq-widget">
+  <script type="text/javascript" src="http://{{site.comments.disqus.name}}.disqus.com/recent_comments_widget.js?num_items={{ site.comments.disqus.rcomments.num }}&hide_mods={{ site.comments.disqus.rcomments.hide_mods }}&hide_avatars={{ site.comments.disqus.rcomments.hide_avatars }}&avatar_size={{ site.comments.disqus.rcomments.avatar_size }}&excerpt_length={{ site.comments.disqus.rcomments.excerpt_length }}"></script>
+  </ul>
+  {% else %}
+    {% if site.comments.duoshuo.name %}
+
+      <ul class="ds-recent-comments" data-num-items="{{ site.comments.duoshuo.rcomments.num }}" data-show-avatars="{{ site.comments.duoshuo.rcomments.avatar }}" data-show-time="{{ site.comments.duoshuo.rcomments.time }}" data-show-title="{{ site.comments.duoshuo.rcomments.title }}" data-show-admin="{{ site.comments.duoshuo.rcomments.admin }}" data-excerpt-length="{{ site.comments.duoshuo.rcomments.length }}"></ul>
+    {% endif %}
+  {% endif %}
 </section>
-{% endif %}
