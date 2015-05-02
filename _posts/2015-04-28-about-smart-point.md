@@ -78,6 +78,7 @@ Animal b = a;
 ```
 
 以下是C++代码：
+
 ```cpp
 Animal a = new Animal(); //C++
 Animal b = a;
@@ -87,19 +88,23 @@ Animal b = a;
 
 但有些情况需要用到`reference` 而不是 `copy`， 例如：
 
->在编写OOP程序时，value语义带来太多的困扰，例如TCP连接中我封装一个accept函数接收请求，那么应该是这样的：
-``` cpp
+>在编写OOP程序时，value语义带来太多的困扰，例如TCP连接中我封装一个`accept`函数接收请求，那么应该是这样的：
+
+>``` cpp
 Socket accept();
 ```
-这就带来一个问题，采用对象做返回值，这里面有一个对象的复制的过程，但是Socket因为某些原因，我让他继承了boost::noncopyable，总之就是Socket失去了复制和赋值的能力，那么该怎么办？
+
+>这就带来一个问题，采用对象做返回值，这里面有一个对象的复制的过程，但是Socket因为某些原因，我让他继承了`boost::noncopyable`，总之就是Socket失去了复制和赋值的能力，那么该怎么办？
 我们首先想到指针，在accept内部new生成一个对象，然后返回指针。但是问题更多，这个对象何时析构？ 过早析构，程序发生错误，不进行析构，又造成了内存泄露。
 这里的解决方案就是智能指针，而且是引用计数型的智能指针。
-```cpp
+
+>```cpp
 typedef boost::shared<Socket> SocketPtr;
 SocketPtr accept();
 ```
-这样外部就可以用智能指针去接收，那么何时析构？当然是引用计数为0，也就是我不再需要这个Socket的时候析构。
-这样，我们利用了SockerPtr，实现了跟Java类似的Reference语义。
+
+>这样外部就可以用智能指针去接收，那么何时析构？当然是引用计数为0，也就是我不再需要这个Socket的时候析构。
+这样，我们利用了`SockerPtr`，实现了跟Java类似的Reference语义。
 
 #### 如何实现智能指针
 
