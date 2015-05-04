@@ -23,14 +23,14 @@ layout: default
       {% unless page.category == empty %}
         Categories:
         {% for cat in page.category %}
-          <a class="btn btn-default btn-xs" href="{{ BASE_PATH }}/categories.html#{{ cat|downcase}}">{{ cat |downcase}}</a>
+          <a class="tags tags-default tags-xs" href="{{ BASE_PATH }}/categories.html#{{ cat|downcase}}">{{ cat |downcase}}</a>
         {% endfor %}
       {% endunless %}
 
       {% unless page.tags == empty %}
         Tags:
         {% for tag in page.tags %}
-          <a class="btn btn-default btn-xs" href="{{ BASE_PATH }}/tags.html#{{ tag }}">{{ tag }}</a>
+          <a class="tags tags-default tags-xs" href="{{ BASE_PATH }}/tags.html#{{ tag }}">{{ tag }}</a>
         {% endfor %}
       {% endunless %}
     </p>

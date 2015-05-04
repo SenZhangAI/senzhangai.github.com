@@ -61,6 +61,8 @@ redcarpet:
                 "superscript",
                 "with_toc_data",
                 "highlight",
+                "footnotes",
+                "quote",
                 "prettify",
                 "no_intra_emphasis"]
 
@@ -80,7 +82,8 @@ comments:
         # Character-length of the excerpt (1000 by default)
         excerpt_length : 20
   duoshuo:
-    name: senzhang # if no disqus.name, this will actived
+    # if no disqus.name, this will actived
+    name: senzhang 
     rcomments:
         num: 8
         avatar: 0

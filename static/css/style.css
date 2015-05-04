@@ -273,20 +273,20 @@ li.dsq-widget-item {
 /*for index date*/
 
 /*for Categories and Tags*/
-.btn-xs, .btn-group-xs>.btn {
+.tags-xs {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
-.btn-default {
+.tags-default {
   color: #017e66;
   background-color: #E7F2ED;
   border-color: #E7F2ED;
 }
 
-.btn {
+.tags {
   display: inline-block;
   padding: 0px 0px;
   margin-bottom: 0;
@@ -306,5 +306,10 @@ li.dsq-widget-item {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+
+.tags:hover {
+  color: #fff;
+  background-color: #017e66;
 }
 
