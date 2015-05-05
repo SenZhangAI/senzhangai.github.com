@@ -1,12 +1,12 @@
-{% if site.comments.disqus.name %}
-<div id="comments">
-  <div id="disqus_thread"></div>
-</div>
-{% else %}
-  {% if site.comments.duoshuo.name %}
+{% if site.comments.duoshuo.name %}
   <div id="comments">
     <div class="ds-thread" {% if page.id %}data-thread-key="{{ page.id }}"{% endif %}  data-title="{% if page.title %}{{ page.title }}{% endif %}"></div>
   </div>
+{% else %}
+  {% if site.comments.disqus.name %}
+    <div id="comments">
+      <div id="disqus_thread"></div>
+    </div>
   {% endif %}
 {% endif %}
 
