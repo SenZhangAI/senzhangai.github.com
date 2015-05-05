@@ -83,13 +83,13 @@ comments:
         excerpt_length : 20
   duoshuo:
     # if no disqus.name, this will actived
-    name: senzhang 
+    name: senzhang
     rcomments:
         num: 8
         avatar: 0
         time: 0
         title: 0
-        admin: 0
+        admin: 1
         length: 20
 analytics:
     cnzz:

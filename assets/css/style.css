@@ -258,6 +258,26 @@ table tbody tr:hover {
 	display:none;
 }
 
+/*duoshuo*/
+#ds-recent-comments li.ds-comment{
+  list-style-type: disc!important;
+  border-top: none!important;
+}
+#ds-recent-comments li.ds-comment div {
+  display: inline;
+  margin-right: 5px!important;
+  border-right: 2px;
+}
+#ds-recent-comments li.ds-comment div a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #e85e81;
+}
+#ds-recent-comments li.ds-comment .ds-excerpt{
+  text-decoration: none;
+}
+/*end duoshuo*/
+
 /*for disqus*/
 li.dsq-widget-item {
  list-style-type: disc!important;
@@ -311,5 +331,6 @@ li.dsq-widget-item {
 .tags:hover {
   color: #fff;
   background-color: #017e66;
+  text-decoration: none;
 }
 
