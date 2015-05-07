@@ -9,7 +9,14 @@
 <script type="text/javascript" src="{{ ASSET_PATH }}/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{ ASSET_PATH }}/assets/js/core.js"></script>
 
+<script type="text/javascript" src="{{ ASSET_PATH }}/assets/js/toc.js"></script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#toc').toc();
+});
+</script>
 
 {% if site.comments.duoshuo.name %}
   <!-- 多说公共JS代码 -->
