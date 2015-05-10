@@ -134,12 +134,22 @@ blockquote p{margin:15px 0; color: #999999}
 
 }
 
+.wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
 .wrapper .small {
 	color:rgba(119,119,119,0.8)
 }
 
 .wrapper pre {
-	font-size: 1.2em;
+  font-size: 1.2em;
+  border: none;
+  border-left: solid 6px #558abb;
+  background: #f5f2f0;
+  word-wrap:normal;
+  word-break:normal;
 }
 
 .wrapper pre code{
@@ -305,7 +315,9 @@ li.dsq-widget-item {
   border-radius: 4px;
 }
 
-.tags:hover {
+.tags:hover,
+.tags:focus,
+.tags:active {
   color: #fff;
   background-color: #017e66;
   text-decoration: none;
