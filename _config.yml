@@ -58,7 +58,7 @@ redcarpet:
                 "autolink",
                 "tables",
                 "strikethrough",
-                "superscript",
+     # DON'T USE"superscript", never use this with Mathjax,this will cause bug
                 "with_toc_data",
                 "highlight",
                 "footnotes",

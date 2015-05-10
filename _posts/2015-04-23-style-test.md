@@ -139,15 +139,8 @@ def print_hi(name)
 end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
+# this is a very long comments to check the word wrap style,=========================================================================================================================================================================================================
 ```
-
-```
-# using ```xxx
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-
 
 ```bash
 ~ $ gem install jekyll
@@ -192,8 +185,9 @@ This is a "quote"
 
 #### Latex
 
+use mathjax for $\LaTex$.
 
-试一试inline>>>> <div display="inline">$E=MC^2$ </div><<<<inline
+a inline $E=MC^2$ sentence.
 
 <div>
 $$
@@ -205,6 +199,9 @@ $$
 $$
 </div>
 
+#### keyboard
+
+这是<kbd>ctrl</kbd>+<kbd>A</kbd>,<kbd>alt + F4</kbd>
 
 [^1]: 这是引用1.
 [^2]: 这是引用2.
