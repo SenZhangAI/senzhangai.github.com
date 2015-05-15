@@ -381,7 +381,7 @@ Ajax全称是**Asynchronous JavaScript and XML**，本质是**异步**。
 
 Ajax的核心控制器是XMLHttpRequest对象，创建方法为：
 
-```javasript
+```javascript
 // IE所有支持版本
 var msXMLAllversion = ["Msxml2.xmlhttp.5.0", "Msxml2.xmlhttp.4.0", 
   "Msxml2.xmlhttp3.0", "Msxml2.xmlhttp", "Microsoft.xmlhttp"]
