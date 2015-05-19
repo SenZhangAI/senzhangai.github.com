@@ -4,7 +4,7 @@ title: "连接Windows和Cygwin的桥梁,mklink和explorer"
 description: "介绍一种利用mklink和explorer更好地使用Cygwin的技巧"
 keywords: "mklink, explorer, cygwin"
 category: "programming"
-tags: [mklink, explorer, cygwin]
+tags: [mklink, explorer, Cygwin]
 ---
 
 在Windows系统下如果要体验linux的某些有用的东东可以装个cygwin，
@@ -55,7 +55,7 @@ linux下我们都想用简单的方式直接输入几个字母+tab就能启动�
 我通常做法是建立一个`~/bin`文件夹，里面专门放快捷命令，然后在PATH中添加`~/bin`。
 
 第一个想法是，直接建立该程序的快捷方式放到该文件夹里。---失败
-第二个想法是，用Cygwin下的`ln`命令 ---失败 
+第二个想法是，用Cygwin下的`ln`命令 ---失败
 例如我要将我的Sublime Text做成快捷方式，方便打开文件或文件夹则用：
 
 {% highlight bat %}
