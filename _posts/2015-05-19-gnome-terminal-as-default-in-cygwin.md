@@ -30,7 +30,7 @@ Cygwin/X上默认的终端是Xterm， 但是配置比较麻烦，需要非常细
 方法是将`/etc/X11/xinit/startxwinrc`拷贝到`~/.startxwinrc`中，即：
 
 ```bash
-cp  /etc/X11/xinit/startxwinrc ~/.startxwinrc
+~ $ cp /etc/X11/xinit/startxwinrc ~/.startxwinrc
 ```
 
 然后把`.startxwinrc`中的`/usr/bin/xterm`终端程序替换为gnome-terminal终端程序`/usr/bin/gnome-terminal`
@@ -40,7 +40,7 @@ cp  /etc/X11/xinit/startxwinrc ~/.startxwinrc
 启动Xwin的方法为在Cygwin终端中执行:
 
 ```bash
-startxwin
+~ $ startxwin
 ```
 
 或者在windows系统中双击`XWin Server`图标。
