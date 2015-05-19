@@ -3,7 +3,7 @@ layout: post
 title: "Windows系统上利用github+Jykell搭建个人博客"
 description: "Windows系统上，利用github主页以及jekyll搭建个人博客"
 keywords: "github, jykell, redcarpet, cygwin, blog"
-category: "Programming"
+category: "tools"
 tags: [github, jykell, redcarpet, Cygwin, markdown]
 ---
 
