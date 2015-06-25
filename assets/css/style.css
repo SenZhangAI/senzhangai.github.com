@@ -158,7 +158,14 @@ blockquote p{margin:15px 0; color: #999999}
 
 .wrapper ul,ol {
 	margin-bottom:10px;
+  font-size: 16px;
 }
+
+#toc ul,ol {
+  padding-left: 20px;
+}
+
+
 .wrapper hr {
 	border-color:rgba(102,102,102,0.8)
 }
