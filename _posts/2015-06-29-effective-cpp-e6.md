@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++填坑系列：tip6 如何显示拒绝编译器自动生成的函数"
+title: "C++填坑系列：tip6 如何显式拒绝编译器自动生成的函数"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
 category: c++
@@ -104,3 +104,20 @@ class HomeforSale : private Uncopyable {
 };
 ```
 
+
+### RAII
+
+RAII（resource acquisition is initialization，资源获取即初始化）是一个C++的技巧，或者说是属于C++的设计模式，跟本主题有一定的关系，所以稍微补充一下。
+
+所谓资源获取即初始化，我觉得可以理解为**通过类初始化来获取资源**，因为类生命周期结束后即会通过析构函数自动释放掉资源，而无需考虑资源释放的问题，这就很爽了。
+
+例如智能指针就是将指针封装成类的RAII技巧。
+
+既然是资源，那就具有唯一性，**大多数情况下不能被复制**，所以就需要如上所述的uncopyable 技巧，要么自己定义，要么也可以直接用
+
+关于RAII这里不详细展开了，
+更多参见： [【C++设计技巧】C++中的RAII机制](http://www.cnblogs.com/gnuhpc/archive/2012/12/04/2802307.html)
+
+           <http://www.jellythink.com/archives/101>
+
+           <http://blog.csdn.net/hunter8777/article/details/6327704>

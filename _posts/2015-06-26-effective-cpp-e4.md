@@ -48,13 +48,14 @@ C++为类中提供类成员的初始化列表
 5.数组成员是不能在初始化列表里初始化的。
 6.不能给数组指定明显的初始化。
 
-可见base classes总是更早于其derived classes被初始化。
+可见base classes总是更早于其derived classes被初始化。如无特别说明，将调用base class的default 构造函数。
 
 同class内，初始化顺序与其在class内的声明顺序相同。
 
 个人分析：这是跟类的数据结构顺序有关的，通常derived 类的顺序是:
+其中虚表指针vptr如果没有virtual函数就没有
 
-     [ base member ] [ derived class member ] [ vptr ]
+     [ base member ] [ base vptr ] [ derived class member ] [ derived vptr ]
 
 
 
