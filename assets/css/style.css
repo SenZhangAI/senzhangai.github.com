@@ -137,8 +137,13 @@ blockquote p{margin:15px 0; color: #999999}
 }
 
 .wrapper img {
+  clear: both;
+  display: block;
+  margin: auto;
   max-width: 100%;
   height: auto;
+  border:1px solid rgba(0,0,0,0.17);
+  box-shadow:0 1px 10px rgba(170,170,170,0.8);
 }
 
 .wrapper .small {
