@@ -28,10 +28,12 @@ h1 {
 
 h2 {
     font-size: 1.75em;
+    padding-top: 20px;
     padding-bottom: 0.3em;
     line-height: 1.225;
     font-weight: bold;
     border-bottom: 1px solid #eee;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -147,7 +149,7 @@ blockquote p{margin:15px 0; color: #999999}
   font-size: 1.2em;
   border: none;
   border-left: solid 6px #558abb;
-  background: #f5f2f0;
+  background: #fcf6f2;
   word-wrap:normal;
   word-break:normal;
 }
@@ -336,9 +338,6 @@ li.dsq-widget-item {
 }
 .clickable-header:hover {
   text-decoration:underline;
-}
-.top-level-header {
-  display:inline;
 }
 .back-to-top {
   margin-left:5px;
