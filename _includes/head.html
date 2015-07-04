@@ -22,8 +22,43 @@
   <link href="{{ site.rss_path }}" type="application/rss+xml" rel="alternate" title="{{ site.title }} RSS Feed">
   <link href="{{ site.atom_path }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} ATOM Feed">
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  <script type="text/x-mathjax-config;executed=true">
+      MathJax.Hub.Config({
+        skipStartupTypeset: true,
+        "HTML-CSS": {
+            preferredFont: "TeX",
+            availableFonts: [
+                "STIX","TeX"
+            ],
+            linebreaks: {
+                automatic: true
+            },
+            EqnChunk: 10,
+            imageFont: null
+        },
+        tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]],
+            processEscapes: true
+        },
+        TeX: $.extend({
+            noUndefined: {
+                attributes: {
+                    mathcolor: "red",
+                    mathbackground: "#FFEEEE",
+                    mathsize: "90%"
+                }
+            },
+            Safe: {
+                allow: {
+                    URLs: "safe",
+                    classes: "safe",
+                    cssIDs: "safe",
+                    styles: "safe",
+                    fontsize: "all"
+                }
+            }
+        }, undefined),
+        messageStyle: "none"
+      });
   </script>
   <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
