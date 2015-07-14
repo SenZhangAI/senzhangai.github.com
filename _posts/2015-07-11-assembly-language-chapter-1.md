@@ -2,7 +2,7 @@
 layout: post
 title: "汇编语言 第1章 基础知识"
 description: "汇编语言笔记要点"
-keywords: assembly, 汇编, 机器码
+keywords: assembly, 汇编, 机器码, 8086
 category: 汇编
 tags: [汇编, 底层]
 ---
