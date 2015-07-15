@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "汇编语言 第5章 [BX]和LOOP"
+title: "汇编语言 第4、5章 [BX]和LOOP"
 description: "汇编语言笔记要点"
 keywords: assembly, 汇编, 机器码, 8086
 category: 汇编
