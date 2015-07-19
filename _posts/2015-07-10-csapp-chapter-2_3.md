@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CSAPP要点总结 第2章 信息的表示和处理 part2 浮点数"
+title: "CSAPP要点总结 第2章 信息的表示和处理 part3 浮点数"
 description: "学习《深入理解计算机系统》第2章 信息的表示和处理 part2 浮点数表示和运算"
 keywords: CSAPP, 操作系统, 计算机系统, 汇编, 优化
 category: CSAPP
