@@ -5,7 +5,7 @@ description: "汇编语言笔记要点"
 keywords: assembly, 汇编, 机器码, 8086, 寄存器
 category: 汇编
 tags: [汇编, 底层]
-----
+---
 
 ## 内部中断的产生
 当8086 CPU内部发生下面情况时，将产生相应中断信息。
