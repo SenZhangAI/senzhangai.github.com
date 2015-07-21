@@ -4,7 +4,7 @@ title: "汇编语言 第10章 CALL和RET指令"
 description: "汇编语言笔记要点"
 keywords: assembly, 汇编, 机器码, 8086
 category: 汇编
-tags: [汇编, 底层]
+tags: [汇编, 底层, 中断, call和return]
 ---
 
 call和ret都是跳转指令，修改ip或者cs:ip

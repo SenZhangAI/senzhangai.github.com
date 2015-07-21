@@ -229,6 +229,12 @@ df = 1，每次操作后si、di递减；
 
 #### 串传送指令
 格式：movsb（move string byte）
+
+顺带说一下 string 串 和stream 流的区别，故名思意，一串是静态的，
+所以静态的文本，字符串就是string。
+stream 流 是动态的，所以比如输入输出之类，数据不会长期存在，后续数据会覆盖。
+所以stream比较适合针对I/O
+
 功能：相当于以下步骤:
 
 ```
@@ -273,4 +279,4 @@ ZF (Zero Flag)
 PF (Parity Flag)
 CF (Carry Flag) 已涉及
 
-IF、TF、AF未涉及。
+IF、TF、AF未涉及。（TF、IF用于中断）

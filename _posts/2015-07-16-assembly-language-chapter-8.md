@@ -4,7 +4,7 @@ title: "汇编语言 第8、9章 定位与跳转"
 description: "汇编语言笔记要点"
 keywords: assembly, 汇编, 机器码, 8086
 category: 汇编
-tags: [汇编, 底层]
+tags: [汇编, 底层, 跳转]
 ---
 
 ## 第8章 数据处理的两个基本问题
