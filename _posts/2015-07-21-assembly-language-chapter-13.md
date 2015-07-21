@@ -2,9 +2,9 @@
 layout: post
 title: "汇编语言 第13章 int指令"
 description: "汇编语言笔记要点"
-keywords: assembly, 汇编, 机器码, 8086, 寄存器
+keywords: assembly, 汇编, 机器码, 8086, 寄存器, BIOS
 category: 汇编
-tags: [汇编, 底层, int指令]
+tags: [汇编, 底层, int指令, BIOS]
 ---
 
 ## int指令
