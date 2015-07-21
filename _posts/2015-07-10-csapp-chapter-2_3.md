@@ -30,12 +30,12 @@ E代表阶码，
 对于双精度，s = 1(第63位), M = 11(第52到62位), E = 52(第0到51位)
 如下图所示：
 
-![IEEE浮点标准格式]({{ '/assets/images/csapp2_fp_format.jpg' }})
+![IEEE浮点标准格式]({{ '/assets/images/csapp/csapp2_fp_format.jpg' }})
 
 对于浮点数还分成了三类，分别用于不同场合的浮点数表示，
 如下图所示：
 
-![IEEE浮点类型]({{ '/assets/images/csapp2_fp_cases.jpg' }})
+![IEEE浮点类型]({{ '/assets/images/csapp/csapp2_fp_cases.jpg' }})
 
 ### 1) 规格化的值（normalized value）
 即当exp的位不全为0且不全为1（单精度对应8位 255、双精度对于11位 2047）时，如上图。
@@ -112,7 +112,7 @@ E之所以这样做,主要是为了平滑得从最小norm值过渡到denorm值
 值得说明的是非规格化数是均匀分布的，且自然过渡到规格化数。
 而规格化数不是，如下图：
 
-![规格化数和非规格化数的分布]({{ '/assets/images/csapp2_normal_denormal.jpg' }})
+![规格化数和非规格化数的分布]({{ '/assets/images/csapp/csapp2_normal_denormal.jpg' }})
 
 这是因为对于规格化数，每当E幂指数+1，精度则减少一半。
 对于单精度，规格化数的最小精度为 2^-23 * 2^-126
@@ -129,7 +129,7 @@ E之所以这样做,主要是为了平滑得从最小norm值过渡到denorm值
 对于单精度，可表示最小精度是 $1.4 \times 10^{-45}$，最大值是 $3.4 \times 10^{38}$
 对于双精度，可表示最小精度是 $4.9 \times 10^{-324}$。最大值是 $1.8 \times 10^{308}$
 
-![以非负数为例取值范围]({{ '/assets/images/csapp2_fp_range.jpg' }})
+![以非负数为例取值范围]({{ '/assets/images/csapp/csapp2_fp_range.jpg' }})
 
 ## 舍入
 IEEE浮点数格式定义了4种不同舍入方法，

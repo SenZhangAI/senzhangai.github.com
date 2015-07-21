@@ -102,11 +102,11 @@ CSAPP为CMU的教材，其地位和价值毋庸置疑，英文有第三版，中
 大致结构是：
 寄存器 <- L1缓存 <- L2缓存 <- L3缓存 <- 内存 <- 磁盘 <- 远程存储
 
-![存储器层次结构]({{ '/assets/images/csapp1_member_struct.jpg' }})
+![存储器层次结构]({{ '/assets/images/csapp/csapp1_member_struct.jpg' }})
 
 高速缓存的位置如下图所示
 
-![高速缓存存储器]({{ '/assets/images/csapp1_cache.png' }})
+![高速缓存存储器]({{ '/assets/images/csapp/csapp1_cache.png' }})
 
 ## 操作系统管理硬件
 操作系统作用有二，一是防止应用程序恶意破环，而是在应用与各种硬件之间建立统一的桥梁。
