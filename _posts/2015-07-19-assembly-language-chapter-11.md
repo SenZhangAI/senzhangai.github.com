@@ -280,3 +280,5 @@ PF (Parity Flag)
 CF (Carry Flag) 已涉及
 
 IF、TF、AF未涉及。（TF、IF用于中断）
+TF（Test Flag）用于debug中的单步执行中断指令
+IF（Interrupt Flag）用于可屏蔽外中断的屏蔽指令，详见第15章
