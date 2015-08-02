@@ -285,15 +285,15 @@ int fact_for(int n) {
 _fact_for:
 LFB0:
     .cfi_startproc
-    movl    4(%esp), %ecx ;n => %ecx
-    cmpl    $1, %ecx ;if n <=1 return 1
+    movl    4(%esp), %ecx #n => %ecx
+    cmpl    $1, %ecx      #if n <=1 return 1
     jle L4
-    movl    $1, %eax ;set result to 1
-    movl    $2, %edx ;set i to 2
+    movl    $1, %eax      #set result to 1
+    movl    $2, %edx      #set i to 2
 L3:
-    imull   %edx, %eax ;result *= i
-    addl    $1, %edx   ;i++
-    cmpl    %edx, %ecx ;if n >= i
+    imull   %edx, %eax    #result *= i
+    addl    $1, %edx      #i++
+    cmpl    %edx, %ecx    #if n >= i
     jge L3
     rep ret
 L4:
@@ -319,8 +319,8 @@ LFE0:
 例如：
 
 ``` asm
-cmpl %ebx %eax ;compare long, %eax : %ebx
-cmovl %ecx %edx ;mov if less, if %eax < %ebx then mov %ecx %edx
+cmpl %ebx %eax  #compare long, %eax : %ebx
+cmovl %ecx %edx #mov if less, if %eax < %ebx then mov %ecx %edx
 ```
 `cmovl a b`指的是如果
 
@@ -387,14 +387,14 @@ LFB0:
     pushl   %ebx
     .cfi_def_cfa_offset 8
     .cfi_offset 3, -8
-    movl    8(%esp), %ecx  ;get x
-    movl    12(%esp), %edx ;get y
-    movl    %edx, %ebx     ;Copy y to %ebx
-    subl    %ecx, %ebx     ;%ebx = y - x
-    movl    %ecx, %eax     ;Copy x
-    subl    %edx, %eax     ;%eax = x - y
-    cmpl    %edx, %ecx     ;Compare x:y
-    cmovl   %ebx, %eax     ;if x < y, %eax = y-x
+    movl    8(%esp), %ecx  #get x
+    movl    12(%esp), %edx #get y
+    movl    %edx, %ebx     #Copy y to %ebx
+    subl    %ecx, %ebx     #%ebx = y - x
+    movl    %ecx, %eax     #Copy x
+    subl    %edx, %eax     #%eax = x - y
+    cmpl    %edx, %ecx     #Compare x:y
+    cmovl   %ebx, %eax     #if x < y, %eax = y-x
     popl    %ebx
     .cfi_restore 3
     .cfi_def_cfa_offset 4
@@ -500,46 +500,46 @@ _switch_eg:
 LFB0:
     .cfi_startproc
     movl    8(%esp), %eax
-    subl    $100, %eax      ;%eax = n - 100
+    subl    $100, %eax      #%eax = n - 100
     cmpl    $6, %eax
-    ja  L9                  ;if %eax > 6 or < 0 jump to default
-    jmp *L4(,%eax,4)        ;jump to 4*%eax + L4
+    ja  L9                  #if %eax > 6 or < 0 jump to default
+    jmp *L4(,%eax,4)        #jump to 4*%eax + L4
     .section .rdata,"dr"
     .align 4
 L4:
-    .long   L3              ;4*0 + L4  ;case 100
-    .long   L5              ;4*1 + L4  ;case 101
-    .long   L6              ;4*2 + L4  ;case 102
-    .long   L7              ;4*3 + L4  ;case 103
-    .long   L8              ;4*4 + L4  ;case 104
-    .long   L9              ;4*5 + L4  ;default
-    .long   L8              ;4*6 + L4  ;case 106
+    .long   L3              #4*0 + L4  ;case 100
+    .long   L5              #4*1 + L4  ;case 101
+    .long   L6              #4*2 + L4  ;case 102
+    .long   L7              #4*3 + L4  ;case 103
+    .long   L8              #4*4 + L4  ;case 104
+    .long   L9              #4*5 + L4  ;default
+    .long   L8              #4*6 + L4  ;case 106
     .text
     .p2align 4,,10
 L6:
-    addl    $2, 4(%esp)     ;case 102 result +=2
+    addl    $2, 4(%esp)     #case 102 result +=2
 L7:
     movl    4(%esp), %eax
-    addl    $3, %eax        ;case 103 result +=3
+    addl    $3, %eax        #case 103 result +=3
     ret
     .p2align 4,,10
 L8:
     movl    4(%esp), %eax
-    addl    $4, %eax        ;case 106 result +=4
+    addl    $4, %eax        #case 106 result +=4
     ret
     .p2align 4,,10
 L3:
     movl    4(%esp), %eax
-    addl    $1, %eax        ;case 100 result +=1
+    addl    $1, %eax        #case 100 result +=1
     ret
     .p2align 4,,10
 L5:
     movl    4(%esp), %eax
-    addl    $5, %eax        ;case 101 result +=5
+    addl    $5, %eax        #case 101 result +=5
     ret
     .p2align 4,,10
 L9:
-    xorl    %eax, %eax      ;default, will set %eax = 0
+    xorl    %eax, %eax      #default, will set %eax = 0
     ret
     .cfi_endproc
 LFE0:
