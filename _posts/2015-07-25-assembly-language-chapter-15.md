@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "汇编语言 第14章 外中断"
+title: "汇编语言 第15章 外中断"
 description: "汇编语言笔记要点"
-keywords: assembly, 汇编, 机器码, 8086, 寄存器, 外中断, 键盘
+keywords: assembly, 汇编, 机器码, 8086, 寄存器, 外中断, 键盘虚拟码
 category: 汇编
 tags: [汇编, 底层, 外中断]
 ---

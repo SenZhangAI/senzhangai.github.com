@@ -4,7 +4,7 @@ title: "CSAPP要点总结 第3章 程序的机器级表示 part1 basic"
 description: "学习《深入理解计算机系统》第3章 程序的机器级表示 part1 basic"
 keywords: CSAPP, 操作系统, 计算机系统, 汇编, 优化, 机器码
 category: CSAPP
-tags: [ computer system ]
+tags: [汇编, computer system ]
 ---
 
 ## 前言

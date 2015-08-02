@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "CSAPP要点总结 第3章 程序的机器级表示 part2 汇编寻址与运算指令"
-description: "学习《深入理解计算机系统》第3章 程序的机器级表示 part1 汇编寻址与运算指令"
+description: "学习《深入理解计算机系统》第3章 程序的机器级表示 part2 汇编寻址与运算指令"
 keywords: CSAPP, 操作系统, 计算机系统, 汇编, 优化, 机器码
 category: CSAPP
-tags: [ computer system ]
+tags: [汇编, computer system ]
 ---
 
 ## ATT和Intel汇编代码格式
@@ -46,11 +46,11 @@ long double   | Extended precision |       t      |     10/12
 ## 访问信息
 如下图为**IA32的整数寄存器**，共8个：
 
-![IA32的整数寄存器]({{ '/assets/images/csapp/csapp3_2.jpg' }})
+![IA32的整数寄存器]({{ '/assets/images/csapp/csapp3_2.JPG' }})
 
 对比给出x86-64的寄存器：
 
-![x86-64的整数寄存器]({{ '/assets/images/csapp/csapp3_35.jpg' }})
+![x86-64的整数寄存器]({{ '/assets/images/csapp/csapp3_35.JPG' }})
 
 在平坦寻址中，对于%ax，&al这样的特殊寄存器的需求已经极大降低了。主要为了向后兼容。
 
@@ -80,11 +80,11 @@ long double   | Extended precision |       t      |     10/12
 
 操作数格式汇总如下：
 
-![操作数格式]({{ '/assets/images/csapp/csapp3_3.jpg' }})
+![操作数格式]({{ '/assets/images/csapp/csapp3_3.JPG' }})
 
 ### 数据传送指令
 
-![数据传送指令]({{ '/assets/images/csapp/csapp3_4.jpg' }})
+![数据传送指令]({{ '/assets/images/csapp/csapp3_4.JPG' }})
 
 需要注意的是零扩展和符号扩展，类似于右移中的逻辑扩展和算术扩展。
 
@@ -102,7 +102,7 @@ long double   | Extended precision |       t      |     10/12
 ## 算术与逻辑操作
 基本的算术与逻辑操作汇总如下图：
 
-![基本的算术与逻辑操作]({{ '/assets/images/csapp/csapp3_7.jpg' }})
+![基本的算术与逻辑操作]({{ '/assets/images/csapp/csapp3_7.JPG' }})
 
 上图中 S代表Source，D代表Destination，k代表一个数或者%cl
 
@@ -156,7 +156,7 @@ SAR算术右移，正数右补0，负数右补1，用在补码。
 乘法扩展到64位，而除法，可得到**商**和**余数**，
 这与古老的8086的乘除法方式一致。具体如下：
 
-![基本的算术与逻辑操作]({{ '/assets/images/csapp/csapp3_9.jpg' }})
+![基本的算术与逻辑操作]({{ '/assets/images/csapp/csapp3_9.JPG' }})
 
 其中cltd即convert long to double，用来辅助补码除法计算的。
 （Intel汇编格式对应命令为cdq convert double to quard）
