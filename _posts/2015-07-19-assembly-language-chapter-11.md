@@ -4,14 +4,14 @@ title: "汇编语言 第11章 标志寄存器"
 description: "汇编语言笔记要点"
 keywords: assembly, 汇编, 机器码, 8086, 寄存器
 category: 汇编
-tags: [汇编, 底层]
+tags: [汇编, 底层, 寄存器]
 ---
 
 ## 8086寄存器总结
 ### ax、bx、cx、dx通用寄存器
 除了通用用途，且可分割为byte外（即al ah之类），还有额外用途：
 
-1. ax可用于**乘法、除法**，保存被除数或者某个乘数的值，以及结果
+1. ax(Accumulator, 累加器)可用于**乘法、除法**，保存被除数或者某个乘数的值，以及结果，以及程序返回，用累加器进行操作可能需要更少时间。
 2. bx可以作为**指定内存地址**，例如 [bx] ,默认代表 ds:[bx]的内存地址，
 也可用cs:[bx]、ss:[bx]等。
 3. cx可用与loop循环次数。
@@ -273,12 +273,19 @@ pushf将标志寄存器的值压栈，popf将数据从栈中弹出，送入标�
 目前而言，13个寄存器全部涉及，
 标志位寄存器中的
 OF (Overflow Flag)
-DF (Directiong Flag)
+DF (Direction Flag)
 SF (Sign Flag)
 ZF (Zero Flag)
 PF (Parity Flag)
 CF (Carry Flag) 已涉及
 
 IF、TF、AF未涉及。（TF、IF用于中断）
-TF（Test Flag）用于debug中的单步执行中断指令
-IF（Interrupt Flag）用于可屏蔽外中断的屏蔽指令，详见第15章
+TF（Trap Flag）用于debug中的单步执行中断指令
+IF（Interrupt-enable Flag）用于可屏蔽外中断的屏蔽指令，详见第15章
+
+### 进阶
+此文为第一次学习寄存器的总结，包括AX、BX、CX、DX的用途，BP的用途AF的用途等还没有彻底认识。
+
+而如下level2 文中详解了相关部分，当然，level 2中有些地方不够详尽，例如借位、溢出的区别，比如IF屏蔽的本质，好在能从本章和第15章中得到解答，所以最好两篇文章综合来看。
+
+level 2： [[转载]寄存器总结 level 2]({% post_url 2015-08-03-register-summary-level-2 %})
