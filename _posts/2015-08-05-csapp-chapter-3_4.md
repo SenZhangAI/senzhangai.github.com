@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CSAPP要点总结 第3章 程序的机器级表示 part4 procedures"
-description: "学习《深入理解计算机系统》第3章 程序的机器级表示 part3 汇编实现过程流"
-keywords: CSAPP, 操作系统, 计算机系统, 汇编, 优化, 机器码, 控制
+description: "学习《深入理解计算机系统》第3章 程序的机器级表示 part4 procedures"
+keywords: CSAPP, 操作系统, 计算机系统, 汇编, 优化, 机器码, 子函数
 category: CSAPP
 tags: [汇编, computer system ]
 ---
@@ -74,3 +74,5 @@ tags: [汇编, computer system ]
 ### 递归过程
 
 开销很大，会不断加栈，C语言中递归总的有一个if来返回，汇编也一样，需要cmp比较厚条件跳转。
+
+递归有较大优化的空间。
