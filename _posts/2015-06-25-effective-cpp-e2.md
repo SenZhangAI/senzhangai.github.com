@@ -10,7 +10,6 @@ tags: [c++]
 ## tip2 尽量用const，enum，inline代替 #define
 
 ### 优点：
-
 1. 出错信息是Pi而不是宏定义的3.1415926，这是由于宏定义的标记会被预处理器移走，无法出现在记号表（symbol table）中。
 2. 对于浮点常量，可能比使用宏导致较小的代码量。
 3. 最大的好处其实不在于类型检测，而是宏没有自己的namespace，而const有。
@@ -38,8 +37,6 @@ const float Area = 12*15; //编译更快
 ```cpp
 const double Pi = 3.1415926
 ```
-
-
 
 #### 补充 关于extern 与static
 
@@ -73,7 +70,6 @@ const std::string authorName_str("Sen");//更好
 ```
 
 ### enum hack
-
 即用`enum{max = 10};`代替`const int max_int = 10;`, 这样有以下好处：
 
 enum强制不允许取地址（有点像#define），这样不论编译器是否优秀都能足够优化。

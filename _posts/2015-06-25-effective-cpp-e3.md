@@ -7,6 +7,15 @@ category: c++
 tags: [c++]
 ---
 
+### const与指针
+
+```cpp
+char sample[]="Hello world";
+const char *p = sample; //non-const pointer, const data,
+// so const char *p == const (char *p)
+char * const p = sample; //const pointer, non-const data
+```
+
 ### 迭代器的const写法
 
 ```cpp
@@ -27,8 +36,9 @@ std::vector<int>::const_iterator const_iter = vec.begin();
 2. 更健壮，便于查错
 
 ### const成员函数
-
 成员函数声明为const是为了确认该函数可以作用于const对象上，没有声明为const则不行，以下是例子：
+
+注： 对于成员函数的const关键字，其本质是作用于this, 即this类型为`const MyClass* this`, this指向的数据不可改变，所以this可以作用于const实例，所以该函数可用于const实例。
 
 ``` cpp
 class MyClass {
@@ -47,20 +57,19 @@ constClass.getMember();
 
 MyClass non_constClass;
 non_constClass.getMember();
-
-//结论:
-// 如果有重载：
-//     non const实例(Text t;)调用non const成员函数
-//         const实例(const Text t;)调用    const成员函数
-
-// 如果没有重载
-// non const实例在没有non const成员函数情况下，可以调用const函数
-// 而  const实例只能调用const函数，不能调用非const函数
-// 因此，要想有const实例，一定要对可声明const的函数声明为const
+/* 结论:
+ * 如果有重载：
+ *     non const实例(Text t;)调用non const成员函数
+ *   const实例(const Text t;)调用    const成员函数
+ *
+ * 如果没有重载
+ * non const实例在没有non const成员函数情况下，可以调用const函数
+ * 而  const实例只能调用const函数，不能调用非const函数
+ * 因此，要想有const实例，一定要对可声明const的函数声明为const
+ */
 ```
 
 #### bitwise constness和logical constness
-
 对于const成员函数的判断标准有两种观点，bitwise constness和logical constness
 
 bitwise constness 顾名思义指的类中每一个bit都不会因成员函数而改变才算作const 成员函数。这个特点对编译器而言实现很容易做到，只需要检测成员函数的赋值动作即可。
@@ -70,7 +79,6 @@ bitwise constness 顾名思义指的类中每一个bit都不会因成员函数�
 logical constness 主张一个const成员函数可以修改对象内某些bits
 
 ##### 错误示例1-符合const bitwise的成员函数，但不应作为const处理
-
 以下典型例子只对指针取值，因指针并未改变，所以从bitwise角度应该是const，
 然而指针所指之物却是可变，这与该函数本身的目标不一致。
 
@@ -90,7 +98,6 @@ private:
 ```
 
 ##### 正确解法
-
 应该把const 实例和non-const实例分开处理，一个返回const保证不被修改；一个返回non-const，保证可被修改。
 
 ``` cpp
@@ -115,7 +122,6 @@ private:
 ```
 
 ##### 错误示例2-不符合const bitwise的成员函数，但应作为const处理
-
 试举一例(有些牵强)，代码略
 假设上例中有一个`reverse`函数将`pText`指针指向末尾后反输出
 那么pText改变了，不满足bitwise。
@@ -123,7 +129,6 @@ private:
 故应该也适用于const成员函数
 
 #### mutable确保const函数内部分成员可以被赋值
-
 要想满足上述需求，即在const成员函数中修改部分成员的内容，则**需要告诉编译器有些变量即便对于const实例也需要被修改**，即将这些变量用mutable修饰。
 例如对于上述例子，应将`char *pText` 改为 `mutable char* pText`，即：
 
@@ -137,7 +142,6 @@ private:
 ```
 
 #### non-const与const的重复问题
-
 不难看出，很多情况下const是为了确保const成员函数与其对应的non-const成员函数绝大多数都是相同的，仅仅只是返回结果一个是const，一个是非const，**出现重复了**。
 
 解决办法，第一个想到的是把重复的部分剥离出来单独做出一个private函数，然后const和non-const版本都调用该函数，但这个单独分出的函数意义不明确了，而且调用函数也是重复了代码。
