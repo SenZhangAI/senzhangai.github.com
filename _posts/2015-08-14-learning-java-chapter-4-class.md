@@ -273,6 +273,12 @@ public static int getNextId() {
 1. 该方法不需要访问对象状态，不需要this(例如上述pow(x, a))
 2. 该方法需要访问类的静态域(例如上述getNextId())
 
+#### 静态方法的调用形式与非静态有区别
+例如，如果MyClass里有静态方法`static int func(MyClass a, MyClass.b)`
+调用格式是`MyClass.func(a, b);`
+而如果是非静态方法，调用格式是：
+`a.func(b)`
+
 #### C++注释-Java与C++的区别
 对于静态域和静态方法，Java的意义与C++相同。只是格式上不同，例如Java的`Math.PI`在C++中是`Math::PI`。
 

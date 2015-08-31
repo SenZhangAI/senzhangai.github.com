@@ -187,6 +187,8 @@ private:
 6. 对于有些const实例返回值为const，而non-const实例返回值为non-const等存在差异的情况，则需要用重载。
 7. 6中所述情况non-const和const重载函数很多重复代码，
 优化方法是用non-const调用const版本，并利用cast改变const属性。
+8. const关键字是修饰隐式参数this的，也就是`const MyClass* this`,
+这样，this就能用于const实例，也就可以在const实例中执行const成员函数了。
 
 ``` cpp 
 // ******* const成员函数 与 non-const成员函数 的调用规则: *******
