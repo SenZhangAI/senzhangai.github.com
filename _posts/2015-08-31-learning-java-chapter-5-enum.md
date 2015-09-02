@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Java学习 第5章 枚举类"
+title: "Java学习 第5章 小节 枚举类"
 description: "《Java核心技术1 基础知识》《Core Java for the impatient》笔记"
 keywords: Java, 语法, 笔记, 枚举类
 category: Java
@@ -83,10 +83,11 @@ for (Size s : Size.values()) {
 }
 ```
 
-values方法是编译器自动加入的扩展方法，返回包含所有枚举值的数组，查看源码查不到，参见：[values方法]<http://stackoverflow.com/questions/13659217/values-method-of-enum>
+values方法是编译器自动加入的扩展方法，返回包含所有枚举值的数组，查看源码查不到，参见：[values方法](http://stackoverflow.com/questions/13659217/values-method-of-enum)
 
-#### 比较两个枚举值一定不要用equals方法，应该用==
-因为Enum.equal()方法比较两地址，
+#### 注意比较两个枚举值一用quals方法，还是用==
+因为Enum.equal()方法比较两地址，所以比较枚举值的时候要特别注意，
+网上看了相关内容，有说法枚举用在switch中会调用equals方法比较，比较直涌==，比较地址用equals。但这个结论没有考证。
 
 ### Java枚举小结——特殊类
 总体而言，Java的枚举本质是类，因此扩展能力好（扩展方法、域），功能更强大！而C++等语言中枚举只是int类型的标签。
