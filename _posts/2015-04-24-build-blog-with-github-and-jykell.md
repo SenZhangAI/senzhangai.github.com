@@ -134,11 +134,5 @@ Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux
 
 ### markdown引擎的选择
 
-这个折腾了很长时间，一言难尽。
-
-
-## VI TODO
-
-加入对Latex语法的支持。
-
-修改部分页面风格。
+采用redcarpet引擎
+具体参见博文： [解决redcarpet中Mathjax渲染问题及优化redcarpet的配置]({% post_url 2015-04-30-using-mathjax-with-redcarpet-in-jekyll %})
