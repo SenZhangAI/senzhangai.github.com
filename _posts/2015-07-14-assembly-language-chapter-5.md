@@ -26,6 +26,13 @@ DOS利用PSP来和被加载的程序之间进行通信。
 
 如果非.exe载入文件方式，而是直接在debug中编辑，则无psp信息，则此时初始化的CS=DS
 
+补充：以上知识点可能过于老旧，毕竟是用在8086上的文件格式，下面补充一下Linux的标准可执行文件格式ELF：
+参见： [ELF-百度百科](http://baike.baidu.com/subview/1090277/10973487.htm#viewPageContent) [ELF-wikipedia](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)
+
+>在计算机科学中，是一种用于二进制文件、可执行文件、目标代码、共享库和核心转储的标准文件格式。
+>是UNIX系统实验室（USL）作为应用程序二进制接口（Application Binary Interface，ABI）而开发和发布的，也是Linux的主要可执行文件格式。
+>1999年，被86open项目选为x86架构上的类Unix操作系统的二进制文件标准格式，用来取代COFF。因其可扩展性与灵活性，也可应用在其它处理器、计算机系统架构的操作系统上。
+
 ## [BX]
 即对于数据区域DS:[addr]而言，用寄存器BX中的值代表addr
 

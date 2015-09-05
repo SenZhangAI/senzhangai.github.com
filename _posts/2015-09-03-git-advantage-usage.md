@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "git 高级用法remote add"
+title: "git remote add用法示例"
 description: "git的用法实践"
 keywords: git
 category: tools
