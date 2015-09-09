@@ -33,7 +33,7 @@ tags: [git]
 这一步骤是为了避免每次`git push`都要输入帐户名以及密码的麻烦：
 
 ```
-~/.vim/bundle $ git remote set-url origin git@github.com:YourGithubName/vim-snippets.git
+~/.vim/bundle/vim-snippets $ git remote set-url origin git@github.com:YourGithubName/vim-snippets.git
 ```
 
 或者直接在步骤2中采用：
@@ -45,7 +45,7 @@ tags: [git]
 #### step 4：将原仓库加入为远程仓库
 
 ```bash
-~/.vim/bundle $ git remote add upstream https://github.com/honza/vim-snippets
+~/.vim/bundle/vim-snippets $ git remote add upstream https://github.com/honza/vim-snippets
 ```
 
 其中`upstream`只是一个标签，可以取任意其他名字。
@@ -62,10 +62,11 @@ upstream        https:/github.com/honza/vim-snippets (push)
 ## 同步原始仓库
 参见： <http://git-scm.com/docs/git-remote>
 
-如果要同步原始的仓库，可以用以下命令：
+如果要同步原始的仓库，并推送到自己的分支，可以用以下命令：
 
 ```
-~/.vim/bundle $ git fetch upstream
+~/.vim/bundle/vim-snippets $ git pull upstream master
+~/.vim/bundle/vim-snippets $ git push origin master
 ```
 
-当然，由于也改变代码，这样和可能会出现冲突，需要在rebase的时候合并。
+当然，由于可能自己本地也改变代码，这样merge的时候可能会出现冲突，所以可以先fetch而不用pull再rebase或者merge。

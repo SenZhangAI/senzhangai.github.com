@@ -17,7 +17,8 @@ tags: [Java]
 [Eclipse 下载地址](http://www.eclipse.org/downloads/)
 [Netbean 下载地址](https://netbeans.org/downloads/)
 [Intelij IDEA 下载地址](https://www.jetbrains.com/idea/download/)
-我尝试用的是Intelij IDEA
+我尝试用的是Intelij IDEA，用了一段时间，发现实在是太爽了，尤其智能补全，做的相当出色，
+具体参考：[十大Intellij IDEA快捷键](http://blog.csdn.net/dc_726/article/details/42784275)
 
 下载安装IDE后只能算有了架子，可以当编辑器用，
 要想编译Java还需要装JDK（Java Development Kit）

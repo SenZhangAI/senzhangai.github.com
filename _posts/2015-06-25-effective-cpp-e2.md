@@ -97,3 +97,9 @@ inline T Max_Temp(const T& a, const T& b) {
 
 1. 对于单纯常量，最好用const或者enum代替#define
 2. 对于宏macro，最好用inline tempelate代替
+
+### 补充
+[c++ const常量的实现机制](http://blog.csdn.net/gsyzhu/article/details/8243230)
+
+其中很有趣的现象是，如果const作为局部变量，编译器可能就像对待宏一样将其首先替换为对应值了（C++跟C还不一样，C++ 局部const值可以通过指针改动，C则报错），
+而如果作为全局const的话，该值将被共享，因此放在`.rodata`段，所以C++中局部const可以被指针改动，但全局const在`.rodata`段，改动将报错。
