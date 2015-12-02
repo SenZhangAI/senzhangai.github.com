@@ -30,6 +30,12 @@ tags: [Java]
 
 此外，有Intellij IDEA的[Solarized 配色风格](https://github.com/jkaving/intellij-colors-solarized)
 
+Intellij IDEA确实好用，实用技巧参见：
+[十大Intellij IDEA快捷键](http://blog.csdn.net/dc_726/article/details/42784275)
+
+需要说明的是Intellij IDEA虽然很好用，但非常吃性能，电脑不好卡成翔，如需要有所改善可以参考：
+<http://www.zhihu.com/question/35203203>
+
 ## Java基础
 ### 注释
 Java除了C++常用的`//...`单行注释和`/* ... */`多行注释外，
