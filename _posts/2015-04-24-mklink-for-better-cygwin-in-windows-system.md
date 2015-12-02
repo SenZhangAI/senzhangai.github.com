@@ -7,6 +7,14 @@ category: "tools"
 tags: [mklink, explorer, Cygwin]
 ---
 
+2015.12.01 补充：
+之所以用mklink是因为ln似乎对windows的文件夹不起作用，
+然后实际上Cygwin早就考虑了这一点，考虑了与windows之间的交互。
+Cygwin 将`C:`、`D:`等盘符挂载在`/cygdrive/c`以及`/cygdrive/d`等位置，
+因此完全可以用cygwin中的`ln`命令来连接或者生成快捷方式。
+
+以下为原文：
+
 在Windows系统下如果要体验linux的某些有用的东东可以装个cygwin，
 
 比如说需要用到Vim,Emacs,python或者我在搭建博客时用到的jekyll等。
@@ -62,6 +70,15 @@ linux下我们都想用简单的方式直接输入几个字母+tab就能启动�
 mklink /D ~/bin/sublime C:/mySublimeTextPath/sublime_text.exe
 {% endhighlight %}
 
+补充：
+后发现可以用`ln`实现，比`mklink`方便，命令如下：
+
+```bash
+$ ln -s /cygdrive/c/mySublimeTextPath/sublime_text.exe /usr/bin/sublime_text
+```
+
+感觉放在/usr/bin中更方便，免得还要添加到PATH环境变量。
+
 #### 技巧3 建立cygwin下windows文件夹的"快捷方式"
 
 比如在cygwin下要频繁打开某个很长路径的文件夹，每次输入cd都是一件很痛苦的事情，（顺带说一下，cygwin也可以输入`cd C：`命令到C盘。对应于Cygwin中的`/cygdrive/c`目录。）
@@ -72,6 +89,13 @@ mklink /D ~/shortcut C:/long/long/path/folder
 {% endhighlight %}
 
 则每次只需要`cd shortcut`了
+
+补充：
+后发现mklink还是太麻烦了，可以直接用`ln`实现，方法是：
+
+```bash
+$ ln -s /cygdrive/c/long/long/path/folder ~/shortcut
+```
 
 #### 技巧3 `共享`cygwin 和windows下的某些配置文件夹。
 
