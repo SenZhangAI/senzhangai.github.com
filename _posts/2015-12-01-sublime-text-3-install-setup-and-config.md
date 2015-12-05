@@ -12,7 +12,7 @@ tags: [sublime text]
 所以现在较为完整地总结一下吧，
 如果能做到像vim那样自动化安装就好了，可惜比较麻烦，以后有待改进。
 
-此外，为了避免同时用vim和sublime text的学习成本，我觉得坚持只用vim
+此外，为了避免同时用vim和sublime text的学习成本，我觉得坚持尽可能只用vim
 
 ## 1. install Package-Control
 
@@ -20,6 +20,12 @@ tags: [sublime text]
 详情参见：
 
 <https://packagecontrol.io/installation>
+
+对于sublime text 3而言，复制粘贴如下代码块：
+
+```
+import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```
 
 ## 2. 安装必要的package
 Sublime Text所有的package可在如下链接中检索：
@@ -78,7 +84,6 @@ Git: Graph All (gga)
 因为直接在windows环境变量path中添加`D:\Cygwin\bin`即可。
 
 
-
 ### C Improved
 自带的C高亮弱爆了
 
@@ -131,3 +136,30 @@ ST默认的autoComplete仅考虑当前文件，
 	"trim_trailing_white_space_on_save": true
 }
 ```
+
+## 5. 对vim模式的支持
+默认sublime是忽略vim模式的，如上`"ignored_packages":[Vintage]`。
+如果喜欢用vim模式，可以用如下user-setting：
+
+```javascript
+{
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"create_window_at_startup": false,
+	"font_size": 14.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80
+	],
+	"save_on_focus_lost": true,
+	"show_encoding": true,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
+```
+
+同时，为了光标为block，更好看，需要安装软件包：[Block Cursor Everywhere](https://packagecontrol.io/packages/Block%20Cursor%20Everywhere)
