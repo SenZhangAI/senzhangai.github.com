@@ -145,6 +145,16 @@ mkpasswd -l > /etc/passwd
 ```bash
 $ git clone git@github.com:SenZhangAI/oh-my-zsh-sen ~/tmp/oh-my-zsh-sen
 $ cd ~/tmp/oh-my-zsh-sen
-$ bash ~/tmp/oh-my-zsh-sen/install.sh
+$ ./install.sh
+# modify the plugins config in ~/.zshrc
 $ source ~/.zshrc
+```
+
+需要注意的是，添加对其他插件的支持不能在custom中直接设置，这是因为`oh-my-zsh.sh`
+中首先`source all plugins` 然后才`source all custom config`。
+因此只能在`.zshrc`中修改，例如：
+
+```bash
+# plugins=(git) # the original config
+plugins=(git z vi-mode zsh-syntax-highlighting)
 ```
