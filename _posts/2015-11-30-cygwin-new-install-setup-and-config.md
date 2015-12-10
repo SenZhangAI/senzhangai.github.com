@@ -27,6 +27,7 @@ gcc-core
 gcc-g++
 make
 cmake
+gdb
 git
 git-completion
 bash-completion # 这两个自动补全还是需要滴
@@ -44,9 +45,15 @@ tree
 
 # Option
 ## shell zsh (if use oh-my-zsh)
-zsh
+zsh # 优点是兼容bash，功能更强，配合oh-my-zsh暴爽
+
+## clang
+clang # 推荐安装，类似于gcc的c-family编译器，更好
+libclang # 如果用vim的补全插件 clang_complete
+libclang-devel
 
 ## vim-silver-searcher (if use vim-ag)
+### 以下插件都是为了在cygwin上安装silver-searcher(ag)需要的
 automake # 只安装一个版本的automake，否则所有版本都默认安装了。。
 pkg-config
 libpcre-devel
@@ -62,7 +69,7 @@ ctags # 代码查看
 cscope # 同ctags，不过更强，我的vim中包含了cscope的配置。
 
 ## lua for vim-neocomplete
-如果需要用到vim-neocomplete，则需要对lua提供支持
+lua # 如果需要用到vim-neocomplete，则需要对lua提供支持
 
 ## jekyll (if test jekyll blog on cygwin)
 ruby
@@ -102,6 +109,30 @@ $ ./install.sh
 
 ### 5. 配置bash
 主要就是添加部分注释掉的alias,以及添加`alias vi='vim'`
+实际上如果用zsh，这部分也可以不配置，但配置了更好。
+最终`.bashrc`文件中的配置如下：
+
+```bash
+# Default to human readable figures
+alias df='df -h'
+alias du='du -h'
+#
+# Misc :)
+alias less='less -r'                          # raw control characters
+# alias whence='type -a'                        # where, of a sort
+alias grep='grep --color'                     # show differences in colour
+alias egrep='egrep --color=auto'              # show differences in colour
+alias fgrep='fgrep --color=auto'              # show differences in colour
+#
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=tty'                 # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -al'                              # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+alias vi='vim'
+```
 
 ### 6. 环境变量配置
 将Cygwin中bin文件夹，例如：`D:\Cygwin\bin`加入windows系统的**PATH**环境变量中去。
