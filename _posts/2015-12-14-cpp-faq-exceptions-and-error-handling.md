@@ -568,7 +568,7 @@ void g() {
 ```
 
 ### How do I change the string-length of an array of char to prevent memory leaks even if/when someone throws an exceptions?
-最重要的一条就是**不要用原始的 `char*` ** ，取而代之用string之类的class代替。
+最重要的一条就是**不要用原始的**`char*` ，取而代之用string之类的class代替。
 因为**arrays are evil**。
 
 举个例子：
@@ -835,7 +835,7 @@ public:
 
     ~File_handle() { fclose(p); }
 
-    operator FILE*（） { return p; }
+    operator FILE*() { return p; }
 
     // ...
 };
