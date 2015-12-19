@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++ FAQ C11 第一部分overview"
+title: "C++ FAQ C11 1 Overview"
 description: "C++ FAQ网站上的学习笔记"
 keywords: C++, C++11
 category: C++
