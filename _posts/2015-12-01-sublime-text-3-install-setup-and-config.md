@@ -135,6 +135,7 @@ ST默认的autoComplete仅考虑当前文件，
 	],
 	"save_on_focus_lost": true,
 	"show_encoding": true,
+    "default_line_ending": "unix",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
@@ -160,6 +161,7 @@ ST默认的autoComplete仅考虑当前文件，
 	],
 	"save_on_focus_lost": true,
 	"show_encoding": true,
+    "default_line_ending": "unix",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
