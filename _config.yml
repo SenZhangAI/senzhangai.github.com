@@ -18,6 +18,38 @@ atom_path: /atom.xml
 rss_path: /rss.xml
 donate_url:
 
+# Comment
+comments:
+  duoshuo:
+    name: senzhang
+    rcomments:
+        num: 8
+        avatar: 0
+        time: 0
+        title: 0
+        admin: 1
+        length: 20
+  disqus:
+    # In my architecture, duoshuo has higher priority then disqus,
+    # because duoshuo is quicker then disqus in China.
+    # if not only use in China, disqus is better.
+    # disqus.name will be actived if duoshuo's name is null(Just delete it).
+    name: senzhang
+    rcomments:
+        # Number of comments to show
+        num: 8
+        # Hide moderators' comments (1 for hidden, 0 for disabled)
+        hide_mods: 0
+        # Hide display images (1 for hidden, 0 for shown)
+        hide_avatars: 1
+        # Avatar size in pixels (32 by default)
+        avatar_size: 32
+        # Character-length of the excerpt (1000 by default)
+        excerpt_length: 20
+analytics:
+    cnzz:
+        uid: 1254858699
+
 # Outputting
 permalink: /:categories/:title
 paginate_path: /page:num
@@ -66,32 +98,3 @@ redcarpet:
                 "quote",
                 "prettify",
                 "no_intra_emphasis"]
-
-# comment
-comments:
-  disqus:
-    name: senzhang
-    rcomments:
-        # Number of comments to show
-        num: 8
-        # Hide moderators' comments (1 for hidden, 0 for disabled)
-        hide_mods: 0
-        # Hide display images (1 for hidden, 0 for shown)
-        hide_avatars: 1
-        # Avatar size in pixels (32 by default)
-        avatar_size: 32
-        # Character-length of the excerpt (1000 by default)
-        excerpt_length : 20
-  duoshuo:
-    # if no disqus.name, this will actived
-    name: senzhang
-    rcomments:
-        num: 8
-        avatar: 0
-        time: 0
-        title: 0
-        admin: 1
-        length: 20
-analytics:
-    cnzz:
-        uid: 1254858699
