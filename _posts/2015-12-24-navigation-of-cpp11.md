@@ -35,6 +35,9 @@ tags: [C++, C++11]
 
 [Linq](https://github.com/pfultz2/Linq)
 
+[C++ REST SDK - casablanca](https://casablanca.codeplex.com/)
+微软出品的C++11风格代码
+
 ## 书
 《Modern C++ Design》作者Andrei Alexandrescu可是Loki的作者，模板元编程很烧脑。
 
