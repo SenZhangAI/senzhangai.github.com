@@ -43,8 +43,12 @@
         "title": "顾露 - blog",
         "url": "http://gulu-dev.com/"
     },
-        {
+    {
         "title": "Rachel_Zhang - csdn",
         "url": "http://blog.csdn.net/abcjennifer"
+    },
+    {
+        "title": "twoon - cnblog",
+        "url": "www.cnblogs.com/catch/"
     }
 ]
