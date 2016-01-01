@@ -94,6 +94,16 @@ ST默认的autoComplete仅考虑当前文件，
 ### IMESupport
 解决中文输入法单词候选框不跟随光标的问题。
 
+### AutoFileName
+当需要插入某个文件时可以自动提示，特别有用。
+例如C++的include或者html中的链接。
+
+### PlainTasks
+这个插件专门处理todo等任务计划，十分十分强大。
+正因为其功能强大，所以即使只是用来处理任务计划的，我也将其放入必备插件中。
+安装后可以看其简单的使用指南：
+  Preferences → Package Settings → PlainTasks → Tutorial
+
 ### Emmet
 虽然我未来不打算做前端开发，但Emmet这样的神器不装实在太可惜了，总会有用到的场合。
 
@@ -114,6 +124,41 @@ ST默认的autoComplete仅考虑当前文件，
 
 ### Cscope
 不得不说，Cscope真的很强大，只是sublime的插件没用过，不知道是否好用。
+
+### Pandoc
+此插件必须系统安装了 [Pandoc](http://www.pandoc.org/)才行，
+用于将Markdown等各种格式文件转换成pdf，html等各种格式输出。
+
+### Markdown相关
+#### 高亮插件 - Markdown Light
+简介：
+实际上这一类插件相当于又做了另一个“Markdown”的语法高亮配色。
+所以有时候没有激活的情况下可以在 `View -> Syntax` 中查看选择相应配色。
+
+同功能的插件包括：
+Markdown Editing(亮色暗色主题都不好看, 无行号, 需要说明的是，此插件之所以敢叫editing，是因为其配置选项很多，且有snippet快捷键之类，
+然而一方面配置依然不灵活，高亮我觉得做的不好，令人惋惜)
+Markdown Extend + Monikai Extend(这两个搭配才能完整实现高亮，且对列表等细节没有高亮，个人认为不好)
+
+Issue：
+根据我的测试，还是Markdown Light高亮插件较好，但也存在不足之处。
+就是我的Markdown内嵌Latex语法并不能实现高亮，包括bash也不能高亮
+当然Latex语法高亮估计也没有什么插件支持。
+对于snippet实在没有可以自己加嘛。
+
+配置暗色风格的方式：
+Settings — More → Syntax Specific — User 加入如下配置后重新打开：
+
+```javascript
+{
+    "color_scheme": "Packages/MarkdownLight/MarkdownDark.tmTheme"
+}
+```
+
+#### 预览插件 - Omni​Markup​Previewer
+此插件可以生成html在浏览器中预览，
+同款插件也包括Markdown Preview之类。
+但对我而言用处不大。
 
 ## 4. 修改user-setting
 
