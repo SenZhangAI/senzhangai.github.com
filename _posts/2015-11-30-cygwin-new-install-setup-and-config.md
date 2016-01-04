@@ -139,7 +139,7 @@ alias vi='vim'
 
 ### 6. 各种ln
 通过软链接定义各种快捷方式，例如将windows的Desktop、Documents、Downloads等链接过来。
-也可以建立软件的快捷方式，这里假设在Cygwin中使用Windows下的Sublime Test
+也可以建立软件的快捷方式，这里假设在Cygwin中使用Windows下的Sublime Text
 
 ```bash
 $ ln -s /cygdrive/c/Users/Sen/Desktop ~/Desktop

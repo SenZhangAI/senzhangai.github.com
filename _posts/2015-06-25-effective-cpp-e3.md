@@ -7,6 +7,71 @@ category: c++
 tags: [c++]
 ---
 
+### 20160104 补充
+再读《inside C++ object model》之后(第四章 Function语意学开始的例子)，
+对于const又有了新的认识，所以这里补充相关内容，
+这部分内容是我自己的理解，所以不一定正确，但我有把握应该是对的。
+
+#### 先修知识-关于const、static、virtual
+首先，对于类的成员函数而言有三种修饰符，
+分别是`static`，`const`和`virtual`。
+且这三种修饰符是**互不兼容的**。
+即static函数一定不是const。
+原因是它们代表了互不兼容的不同的语意。
+static说明没有this指针
+const/non-const说明this指针是const/non-const形式的，
+virtual说明函数由vtbl间接调用实现运行期多态。
+
+#### const成员函数的深入理解及例子
+
+```cpp
+//1. static成员函数相当于普通的非成员函数，没有this指针
+    static void MyClass::function_static();
+    //等价于
+    function_static();
+
+    //因为没有this指针，所以也不能操作实例中的成员数据或者虚表(自然也就不可能为virtual了)
+    //但通常操作static数据成员没有问题，毕竟static数据成员不含this指针。
+
+//2. nonstatic 普通成员函数
+    //其实编译器将其转换成了非成员函数，只不过加上this指针，以针对不同类实例
+    void MyClass::function_normal();
+    //等价于
+    void function_normal(MyClass *const this);
+
+    //2-2. nonstatic const 成员函数，都是const是修饰this指针的，现在才终于理解了，如下：
+        void MyClass::function_const() const;
+        //等价于
+        void function_const(const MyClass *const this);
+        //**注意** 这里this指针不仅要求指针不能变，指针所指对象也不能变
+        //所以包括旧文中总结的const、non-const规则实际上就是const和non-const指针的重载
+
+
+    //对于const实例，其指针必定是const的，所以决议时只能是const成员函数
+
+    //对于non-const实例，其指针是non-const，决议时优先non-const成员函数，
+    //如果没有则决议const成员函数
+
+//3. virtual成员函数
+    //virtual成员函数通常通过虚表指针、虚表实现运行期动态
+
+    virtual void MyClass::function_virtual();
+    //相当于在运行期执行
+    ( * obj.vptr[2] ) ( &obj );
+
+    //其中obj.vptr[2]是函数指针，上述格式为调用该函数，数字2是我假设给的，实际根据虚函数多少
+    //&obj为this指针
+    //virtual函数更多内容以后再开篇博客综述
+```
+
+如上从C++语意学层面理解const、non-const、static成员函数
+
+关于重载则是name mangling机制，就是根据不同类名、不同函参设计一个唯一的命名，
+然后再决议觉得调用哪个函数，内容就不扩展了。
+
+====
+以下为旧文
+
 ### const与指针
 
 ```cpp
@@ -24,7 +89,7 @@ char * const p = sample; //const pointer, non-const data
 std::vector<int> vec;
 
 // iter 不能移动，但所指向的数，即*iter可变
-const std::vector<int>::iterator iter = vec.begin(); 
+const std::vector<int>::iterator iter = vec.begin();
 
 //const_iter 可以移动，但所指的数不能变
 std::vector<int>::const_iterator const_iter = vec.begin();
@@ -44,7 +109,7 @@ std::vector<int>::const_iterator const_iter = vec.begin();
 class MyClass {
 public:
     void getMember(void) const; //因为是get，不会改变成员，故声明为const
-    void getMember(void);      
+    void getMember(void);
     //虽然也可以被声明为non-const（此处重载），但意义不一样，对于const实例不能用。
 private:
     int member = 10;
@@ -91,7 +156,7 @@ public:
     };
     inline char& operator[] (std::size_t position) const { //不应该声明为const
         return pText[position];
-    }; 
+    };
 private:
     char* pText;
 };
@@ -161,12 +226,12 @@ public:
     };
 
     inline char& operator[] (std::size_t position) {
-        return 
+        return
             const_cast< char& > ( // 再将const函数的返回的const属性去掉
               static_cast< const CTextBlock_Cast& > (*this)
               // 先将non-const的class转换为const便于调用其函数
                 [position] // 调用函数，即(*this)[position]
-            ); 
+            );
     };
 
 private:
@@ -190,9 +255,9 @@ private:
 8. const关键字是修饰隐式参数this的，也就是`const MyClass* this`,
 这样，this就能用于const实例，也就可以在const实例中执行const成员函数了。
 
-``` cpp 
+``` cpp
 // ******* const成员函数 与 non-const成员函数 的调用规则: *******
-// 如果有重载：
+// 如果有重载(即同时有const版和非const版成员函数)：
 //     non const实例(Text t;)调用non const成员函数
 //         const实例(const Text t;)调用    const成员函数
 
