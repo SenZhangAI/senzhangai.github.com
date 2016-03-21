@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++并发编程 part2 thread基本用法"
+title: "C++并发编程实战 part2 thread基本用法"
 description: "《C++ Concurrency in Action》阅读笔记"
 keywords: C++, concurrency, C++11, Thread, Mutex
 category: C++
@@ -211,7 +211,9 @@ std::thread t(f, 3, "Hello");
 ### 形参为string&，实参为char*时可能出现的问题
 **string literal**是C++中的概念，实际上就是字符串常量，
 为兼容C语言，C++将所有字符串字面值后都有编译器末尾添上空字符。
-实参为字符串字面值而实参为string的情况，有一个`char const*`转`std::string`的过程(未考证)。
+实参为字符串字面值而实参为string的情况，有一个`char const*`转`std::string`的过程(未考证)
+猜测原因是如果std::thread参数含string，那么thread.h中就得`#include <string>`或者前置声明，
+显然这是两个独立的部分，没必要，所以应该是默认`char*`。
 
 当形参为string&，而实参为`char const*`（字符串字面值或者字符串数组），
 因为存在一个`char const*`转`std::string`的过程，而如果转化过程中detach了，

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++并发编程 part1"
+title: "C++并发编程实战 part1"
 description: "《C++ Concurrency in Action》阅读笔记"
 keywords: C++, concurrency, C++11, Thread, Mutex
 category: C++
