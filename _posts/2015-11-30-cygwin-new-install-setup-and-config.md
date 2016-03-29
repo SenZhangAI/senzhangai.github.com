@@ -54,7 +54,7 @@ libclang-devel
 
 ## vim-silver-searcher (if use vim-ag)
 ### 以下插件都是为了在cygwin上安装silver-searcher(ag)需要的
-automake # 只安装一个版本的automake，否则所有版本都默认安装了。。
+automake
 pkg-config
 libpcre-devel
 liblzma-dev
@@ -95,7 +95,7 @@ $ clip < ~/.ssh/id_rsa.pub
 
 ```bash
 $ git config --global user.email szhang.hust@gmail.com
-$ git config --global user.email "Sen Zhang"
+$ git config --global user.name "Sen Zhang"
 ```
 
 ### 4. 配置 vim
