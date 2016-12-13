@@ -73,7 +73,10 @@ lua # 如果需要用到vim-neocomplete，则需要对lua提供支持
 
 ## jekyll (if test jekyll blog on cygwin)
 ruby
-ruby-gems
+ruby-devel
+rubygems
+libffi
+libffi-devel
 ```
 
 ### 2. 配置ssh-keys for github
