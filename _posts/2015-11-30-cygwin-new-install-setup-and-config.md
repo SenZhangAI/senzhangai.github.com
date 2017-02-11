@@ -14,7 +14,7 @@ tags: [cygwin]
 ## 基础功能安装
 ### 1. 下载[cygwin]及初步配置
 
-下载链接： [setup-x86](http://www.cygiwn.com/setup-x86.exe)
+下载链接： [cygwin-install](https://cygwin.com/install.html)
 
 初步配置：
 
@@ -163,8 +163,10 @@ zsh的优点是几乎完全兼容bash的命令，且定制化极强，其方便�
 
 #### 下载并自动安装oh-my-zsh
 
+参见： <https://github.com/robbyrussell/oh-my-zsh>
+
 ```bash
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 #### 设置默认shell为zsh
@@ -189,9 +191,12 @@ $ ./install.sh
 $ source ~/.zshrc
 ```
 
-需要注意的是，添加对其他插件的支持不能在custom中直接设置，这是因为`oh-my-zsh.sh`
+需要注意的是，添加对其他好用的插件的支持不能在custom中直接配置，这是因为`oh-my-zsh.sh`
 中首先`source all plugins` 然后才`source all custom config`。
-因此只能在`.zshrc`中修改，例如：
+
+故配置插件这一步骤不太容易实现自动化。
+
+因此需要手动在`.zshrc`配置文件中修改，例如将`.zshrc`文件中的如下行修改为：
 
 ```bash
 # plugins=(git) # the original config
