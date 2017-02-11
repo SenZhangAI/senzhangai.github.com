@@ -195,5 +195,5 @@ $ source ~/.zshrc
 
 ```bash
 # plugins=(git) # the original config
-plugins=(git z vi-mode zsh-syntax-highlighting)
+plugins=(git z zsh-syntax-highlighting)
 ```
