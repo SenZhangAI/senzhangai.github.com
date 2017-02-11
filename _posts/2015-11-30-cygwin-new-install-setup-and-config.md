@@ -80,7 +80,7 @@ libffi-devel
 ```
 
 ### 2. 配置ssh-keys for github
-因经常用github，所以先配置好ssh-key，步骤参见[github-Generating-SSH-keys](help.github.com/articles/generating-ssh-keys)
+因经常用github，所以先配置好ssh-key，步骤参见[github-Generating-SSH-keys](https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 简单来说就是：
 
@@ -152,11 +152,16 @@ $ ln -s /cygdrive/c/YourPathToSoftware/Sublime_Text.exe /usr/bin/sublime_text
 ```
 
 ## 进阶功能可选安装
-### 1. oh-my-zsh
+### 1. [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 如果习惯了bash，当然不需要zsh，但是用过oh-my-zsh之后，基本对bash无爱了。
 所以虽说可选安装，但还是强烈建议安装。
 
-#### 下载并自动安装
+zsh的优点是几乎完全兼容bash的命令，且定制化极强，其方便程度，比如命令或者路径的智能提示，不是bash能比的。
+
+然而它的缺点一方面是linux系统并不会默认安装，另一个方面是配置很麻烦，于是就有人写了非常强大的zsh的配置文件`oh-my-zsh`
+所以安装zsh同时再安装oh-my-zsh配置文件即可。
+
+#### 下载并自动安装oh-my-zsh
 
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
