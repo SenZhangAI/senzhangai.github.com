@@ -3,7 +3,7 @@ layout: post
 title: "Android Studio安装攻略"
 description: "install Android Studio"
 keywords: Android Studio, install, performance, intellij, IDEA
-category: tools
+category: Tools
 tags: [android]
 ---
 

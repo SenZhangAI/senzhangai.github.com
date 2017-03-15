@@ -2,8 +2,8 @@
 layout: post
 title: "今天状态不好"
 description: "今天状态不好。要注意视力及颈椎健康"
-keywords: 
-category: life
+keywords:
+category: Life
 tags: []
 ---
 

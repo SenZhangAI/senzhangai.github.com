@@ -3,7 +3,7 @@ layout: post
 title: "项目文档生成工具介绍"
 description: "介绍比较好用的项目文档生成工具readthedocs, sphinx, mkdocs"
 keywords: "read the docs, sphinx, mkdocs, 项目文档, 托管, 生成"
-category: tools
+category: Tools
 tags: [read the docs, sphinx, mkdocs]
 ---
 

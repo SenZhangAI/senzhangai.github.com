@@ -3,7 +3,7 @@ layout: post
 title: "learning skills by a MIT student"
 description: "关于MIT学生的一篇高效学习技巧的总结"
 keywords: 高效学习、MIT、技巧、费曼技巧
-category: study
+category: Study
 tags: [study, learning, effective]
 ---
 

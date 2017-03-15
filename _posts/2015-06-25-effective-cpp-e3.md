@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip3 尽可能用const"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 

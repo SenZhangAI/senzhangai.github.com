@@ -3,7 +3,7 @@ layout: post
 title: "git remote add用法示例"
 description: "git的用法实践"
 keywords: git
-category: tools
+category: Tools
 tags: [git]
 ---
 

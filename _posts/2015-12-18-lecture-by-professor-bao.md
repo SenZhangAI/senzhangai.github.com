@@ -3,7 +3,7 @@ layout: post
 title: "鲍虎军教授的讲座纪要"
 description: "备受打击（吊打）的一次讲座"
 keywords: 图形学, 学术, 虚拟现实, 前言
-category: life
+category: Life
 tags: [computer graphics]
 ---
 

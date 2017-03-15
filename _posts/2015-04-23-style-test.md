@@ -2,7 +2,7 @@
 layout: post
 title: "Style Test"
 description: "Discription:Style Test"
-category: "default"
+category: "Default"
 tags: [Test,Style]
 summary: "测试默认风格"
 ---
@@ -11,7 +11,7 @@ summary: "测试默认风格"
 
 ---
 
-# 这是标题h1 
+# 这是标题h1
 ## 这是标题h2
 ### 这是标题h3
 #### 这是标题h4
@@ -49,7 +49,7 @@ summary: "测试默认风格"
 
 > 这是*斜体*
 > 这是code formate `#include<iostream>`
->  >nested Blockquote 
+>  >nested Blockquote
 > 这是引用[Baidu链接用"[]()"实现](www.baidu.com)
 
 以下是Multiple lines Code format

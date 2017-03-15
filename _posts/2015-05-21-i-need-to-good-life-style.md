@@ -3,7 +3,7 @@ layout: post
 title: "近来作息习惯不好"
 description: "近来作息习惯不好，睡眠很晚，需要调整回来！"
 keywords: "生活习惯， 健康， 睡眠"
-category: "life"
+category: "Life"
 tags: [反思, 健康]
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "第一次面试小结——网易游戏"
 description: "第一次电话面试的总结及面试中没回答上的问题的思路"
 keywords: "面试，C++，图形学"
-category: life
+category: Life
 tags: [面试, 智能指针, 图形学]
 ---
 

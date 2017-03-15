@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip4 确保对象使用前被初始化"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 

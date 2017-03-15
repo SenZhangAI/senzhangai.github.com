@@ -3,7 +3,7 @@ layout: post
 title: "please find a better way to study"
 description: "有感而发，感觉自己学习效率不高"
 keywords: study method, memory, 记忆法, 学习
-category: life
+category: Life
 tags: [study method]
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Cygwin 配置小结"
 description: "我的cygwin安装配置"
 keywords: cygwin, jekyll, vim, oh-my-zsh
-category: tools
+category: Tools
 tags: [cygwin]
 ---
 

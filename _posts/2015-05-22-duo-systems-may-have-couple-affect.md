@@ -3,7 +3,7 @@ layout: post
 title: "双系统下被引导系统也受引导系统影响"
 description: "发现ubuntu中蓝牙启动也会影响到被引导的windows系统的蓝牙启动"
 keywords: "双系统, 蓝牙, 没有显示, 正常"
-category: debug
+category: Debug
 tags: [debug]
 ---
 

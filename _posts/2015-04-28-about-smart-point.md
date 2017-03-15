@@ -3,7 +3,7 @@ layout: post
 title: "关于C++的智能指针"
 description: "关于智能指针的实现原理，意义以及使用场合"
 keywords: "C++，智能指针"
-category: programming
+category: Programming
 tags: [C++, 智能指针]
 ---
 

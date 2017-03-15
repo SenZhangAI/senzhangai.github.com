@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip5 了解C++默默编写并调用哪些函数"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip6 如何显式拒绝编译器自动生成的函数"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 
@@ -20,19 +20,19 @@ tags: [c++]
 参考自 <http://blog.chinaunix.net/uid-722885-id-124903.html>
 
 第一:private,public,protected的访问范围:
- 
-private: 只能由该类中的函数、其友元函数访问,不能被任何其他访问，该类的对象也不能访问. 
-protected: 可以被该类中的函数、子类的函数、以及其友元函数访问,但不能被该类的对象访问 
+
+private: 只能由该类中的函数、其友元函数访问,不能被任何其他访问，该类的对象也不能访问.
+protected: 可以被该类中的函数、子类的函数、以及其友元函数访问,但不能被该类的对象访问
 public: 可以被该类中的函数、子类的函数、其友元函数访问,也可以由该类的对象访问
 注：友元函数包括两种：设为友元的全局函数，设为友元类中的成员函数
 
 第二:类的继承后方法属性变化:
 
-使用private继承,父类的所有方法在子类中变为private; 
-使用protected继承,父类的protected和public方法在子类中变为protected,private方法不变; 
+使用private继承,父类的所有方法在子类中变为private;
+使用protected继承,父类的protected和public方法在子类中变为protected,private方法不变;
 使用public继承,父类中的方法属性不发生改变;
- 
- 
+
+
 水平访问：声明了某类的一个对象，访问其成员函数和数据成员；一般只有public区（不含protected区!）的成员函数和数据成员，可以被水平访问。
 垂直访问：一个类从某个基类派生，派生类访问基类的成员函数和数据成员；一般只有public和protected区的成员函数和数据成员，可以被垂直访问。
 再次提到：可以提供访问行为的主语为“函数”。类体内的访问没有访问限制一说，即private函数可以访问public/protected/private成员函数或数据成员，同理，protected函数，public函数也可以任意访问该类体中定义的成员public继承下，基类中的public和protected成员继承为该子类的public和protected成员（成员函数或数据成员），然后访问仍然按类内的无限制访问。
@@ -72,7 +72,7 @@ template<typename _CharT, typename _Traits>
     { //省略 };
 
 template <typename _CharT, typename _Traits>
-    class basic_ostream<_CharT, _Traits>::sentry 
+    class basic_ostream<_CharT, _Traits>::sentry
     //class basic_ostream中的类sentry
     { //省略 };
 // ...
@@ -98,7 +98,7 @@ private:
   Uncopyable operator= (const Uncopyable&);
 };
 
-class HomeforSale : private Uncopyable { 
+class HomeforSale : private Uncopyable {
                    //这种继承实现的方式有可能带来多重继承的问题
     // ...
 };

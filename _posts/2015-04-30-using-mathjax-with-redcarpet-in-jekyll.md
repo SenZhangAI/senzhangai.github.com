@@ -3,7 +3,7 @@ layout: post
 title: "解决redcarpet中Mathjax渲染问题及优化redcarpet的配置"
 description: "解决redcarpet中不能渲染Mathjax的问题，并优化redcarpet配置支持大部分GFM"
 keywords: "mathjax, redcarpet, jekyll, blog"
-category: "tools"
+category: "Tools"
 tags: [mathjax, redcarpet]
 ---
 

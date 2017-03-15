@@ -3,7 +3,7 @@ layout: post
 title: "配置Cygwin/X默认终端为gnome-terminal"
 description: "将Cygwin/X图形界面的终端由xterm改为gnome-terminal"
 keywords: "Cygwin, gnome-terminal, xterm, 默认, 终端, 好用"
-category: "tools"
+category: "Tools"
 tags: [Cygwin, gnome-terminal, Xwin]
 ---
 

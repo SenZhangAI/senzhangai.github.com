@@ -3,7 +3,7 @@ layout: post
 title: "连接Windows和Cygwin的桥梁,mklink和explorer"
 description: "介绍一种利用mklink和explorer更好地使用Cygwin的技巧"
 keywords: "mklink, explorer, cygwin"
-category: "tools"
+category: "Tools"
 tags: [mklink, explorer, Cygwin]
 ---
 

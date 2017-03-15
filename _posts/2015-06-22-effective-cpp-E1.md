@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip1 视C++为一个语言联邦"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 

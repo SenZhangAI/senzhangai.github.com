@@ -3,7 +3,7 @@ layout: post
 title: "JavaScript笔记"
 description: "关于JavaScript的语言特点的分析，以及关键知识点整理"
 keywords: "JavaScript, 笔记"
-category: programming
+category: Programming
 tags: [JavaScript]
 ---
 
@@ -234,12 +234,12 @@ document.body.appendChild(node2);
 
 ### CSS选择器
 
-**类规则** .list 
+**类规则** .list
 
 **ID规则** #header 理论上ID意思是唯一，如果getElementById出现重复则错误，
 通常ID规则用来制定页面整体框架。
 
-**嵌套规则** 例如 li a{...}  
+**嵌套规则** 例如 li a{...}
 
 ## 事件
 
@@ -383,7 +383,7 @@ Ajax的核心控制器是XMLHttpRequest对象，创建方法为：
 
 ```javascript
 // IE所有支持版本
-var msXMLAllversion = ["Msxml2.xmlhttp.5.0", "Msxml2.xmlhttp.4.0", 
+var msXMLAllversion = ["Msxml2.xmlhttp.5.0", "Msxml2.xmlhttp.4.0",
   "Msxml2.xmlhttp3.0", "Msxml2.xmlhttp", "Microsoft.xmlhttp"]
 var XHR = null;
 // 判断是否原生支持XMLHttpRequest
@@ -420,8 +420,8 @@ XHR.onreadystatechange = function(){ // do something
   if(XHR.readyState==4 && XHR.statue==200){
 
   //处理回调事件
-  }  
-}; 
+  }
+};
 
 ```
 

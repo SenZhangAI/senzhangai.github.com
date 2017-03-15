@@ -3,7 +3,7 @@ layout: post
 title: "Go在Windows下的环境配置，Cygwin-Sublime-vim"
 description: "Go install in Windows"
 keywords: Go, cygwin, sublime, vim
-category: tools
+category: Tools
 tags: [Go, install]
 ---
 

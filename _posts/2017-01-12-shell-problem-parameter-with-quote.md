@@ -3,7 +3,7 @@ layout: post
 title: "Shell脚本编写中参数传递的问题,未解决"
 description: "shell problem parameter with quote"
 keywords: shell, parameter, quote
-category: debug
+category: Debug
 tags: [bug]
 ---
 

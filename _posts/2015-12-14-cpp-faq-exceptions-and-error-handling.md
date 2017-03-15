@@ -3,7 +3,7 @@ layout: post
 title: "C++ Faq: Exceptions and Error Handling"
 description: "来自isocpp官网的FAQ专题"
 keywords: c++, cpp, Exceptions, Error Handling
-category: c++
+category: C++
 tags: [c++, exception]
 ---
 

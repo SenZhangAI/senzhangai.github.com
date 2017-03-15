@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip2 尽量用const，enum，inline代替 #define"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 

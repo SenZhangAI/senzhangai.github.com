@@ -3,7 +3,7 @@ layout: post
 title: "Design Model Study Strategy Pattern"
 description: "关于设计模式的学习实践：1. 策略模式"
 keywords: "Design Pattern, Strategy Pattern"
-category: "programming"
+category: "Programming"
 tags: [Design Pattern, Strategy Pattern]
 ---
 

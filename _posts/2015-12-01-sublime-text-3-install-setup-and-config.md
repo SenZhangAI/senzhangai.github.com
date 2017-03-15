@@ -3,7 +3,7 @@ layout: post
 title: "我的Sublime Text 3配置"
 description: "my setup and config for Sublime Text 3"
 keywords: sublime text, setting, setup, 配置, 安装, config
-category: tools
+category: Tools
 tags: [sublime text]
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "C++填坑系列：tip7 为多态基类声明virtual析构函数"
 description: "C++填坑，主要来自effective c++"
 keywords: c++, cpp, effective
-category: c++
+category: C++
 tags: [c++]
 ---
 
@@ -66,7 +66,7 @@ public:
   virtual ~AbstractVirtual() = 0;
 };
 
-AbstractVirtual::~AbstractVirtual() { } 
+AbstractVirtual::~AbstractVirtual() { }
 //需要提供定义。因为derived class会调用base class的析构函数，不定义将出现linkage error
 ```
 
