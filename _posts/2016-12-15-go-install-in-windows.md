@@ -9,6 +9,8 @@ tags: [Go, install]
 
 ## 前言
 
+实际证明最好用的还是Jetbrain的gogland，各种省心，所以以下内容只好成为一段历史。
+
 Windows下估计Sublime配置使用Go比较通用。
 但我觉得用Cygwin有些场合，有些操作会方便一些，Vim没试过，但应该也适合某些场合使用。
 故写此文配置Go使得方便应用与Windows环境下的Sublime以及仿Linux环境下的vim。
