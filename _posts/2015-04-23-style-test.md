@@ -76,7 +76,7 @@ y = sin(x)
 
 #### URL autolinking:
 
-<www.baidu.com>
+<http://www.baidu.com>
 
 <https://github.com>
 <http://youku.com>
