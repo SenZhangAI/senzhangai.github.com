@@ -76,25 +76,10 @@ whitelist: []
 gems:      []
 
 # Conversion
-markdown:    redcarpet
+markdown:    kramdown
 highlighter: pygments
 lsi:         false
 excerpt_separator: "\n\n"
 
 # Backwards-compatibility
 relative_permalinks: false
-
-# Markdown Processors
-redcarpet:
-  extensions: [ "fenced_code_blocks",
-                "hard_wrap",
-                "autolink",
-                "tables",
-                "strikethrough",
-     # DON'T USE"superscript", never use this with Mathjax,this will cause bug
-                "with_toc_data",
-                "highlight",
-                "footnotes",
-                "quote",
-                "prettify",
-                "no_intra_emphasis"]
