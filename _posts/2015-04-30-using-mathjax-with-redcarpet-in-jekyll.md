@@ -7,6 +7,11 @@ category: "Tools"
 tags: [mathjax, redcarpet]
 ---
 
+## 更新
+
+此文已废，因为Github今后（jekyll 3.0以后）仅支持用kramdown作为渲染引擎，
+且kramdown现在已经默认对GFM支持，且效果非常好了，所以改用kramdown吧。
+
 ## 心路历程
 
 这个不得不吐槽一下，首先测试了jekyll上的四个markdown渲染引擎。
