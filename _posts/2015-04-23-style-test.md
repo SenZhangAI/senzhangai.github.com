@@ -70,23 +70,23 @@ y = sin(x)
 
 # GitHub Flavored Markdown
 
-####GFM ignores underscores in words. like this:
+#### GFM ignores underscores in words. like this:
 
 > do_this_and_do_that_and_another_thing.
 
-####URL autolinking:
+#### URL autolinking:
 
 <www.baidu.com>
 
 <https://github.com>
 <http://youku.com>
 
-####Strikethrough:
+#### Strikethrough:
 
 ~~Mistaken text.~~
 
 
-####Syntax highlighting
+#### Syntax highlighting
 
 ```ruby
 # using highlight
@@ -110,7 +110,7 @@ print_hi('Tom')
 
 > We use [Linguist](https://github.com/github/linguist) to perform language detection and syntax highlighting. You can find out which keywords are valid by perusing [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-####Tables
+#### Tables
 
 这是表格：
 
@@ -120,7 +120,7 @@ First Header  | Second Header
 ~~Content Cell~~  | **Content Cell**
 Content Cell  | *Content Cell*
 
-####Task List
+#### Task List
 
 tasks lists are my favorite: (此特性没有)
 
