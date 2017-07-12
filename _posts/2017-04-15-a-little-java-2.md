@@ -3,7 +3,7 @@ layout: post
 title: "a little java, a few patterns(2)"
 description: "一本设计模式的好书，第四章，也讨论了点Java访问者模式"
 keywords: design pattern, visitor, 访问者
-category: DesignPattern,
+category: DesignPattern
 tags: [design pattern]
 ---
 

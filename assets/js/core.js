@@ -89,7 +89,7 @@
       var html = '<h3>Search Result:</h3>';
       for (var i = 0; i < matches.length; i++) {
         var match = matches[i];
-        html += '<article class="news-item"><h4><a href="' + match.link + '">' + htmlEscape(match.title) + '</a></h4>';
+        html += '<article class="news-item"><h4><a href="' + match.link.replace(/\/$/g,'') + '">' + htmlEscape(match.title) + '</a></h4>';
         html += '<section><p>' + htmlEscape(match.content) + '</p></section>';
         html += '<footer><p>Update: ' + match.date + '</p></footer></article>';
       }
