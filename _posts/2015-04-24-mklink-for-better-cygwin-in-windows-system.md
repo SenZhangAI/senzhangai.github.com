@@ -21,7 +21,7 @@ Cygwin 将`C:`、`D:`等盘符挂载在`/cygdrive/c`以及`/cygdrive/d`等位置
 
 通常Cygwin可以看成Windows下的一个独立的软件，那么要想让Cygwin能在
 
-Windos下发挥更大的作用。我觉得以下技巧一定能对您有所帮助。
+Windows下发挥更大的作用。我觉得以下技巧一定能对您有所帮助。
 
 #### 技巧1 利用explorer命令。在Cygwin下打开Windows下只需要双击的文件或文件夹
 
@@ -31,9 +31,9 @@ Windos下发挥更大的作用。我觉得以下技巧一定能对您有所帮�
 
 其实很简单，cygwin下已经默认设置了`explorer.exe`命令（软链接了windows中的explorer.exe）。只要输入
 
-{% highlight bash %}
+``` bash
 explorer.exe target
-{% endhighlight %}
+```
 
 即可，target可以是文件或者文件夹。如果是文件夹就在windows下打开了该文件夹。
 **注意target不能加'\''即`explorer.exe target` 正确。`explorer.exe target\`错误**
@@ -51,9 +51,11 @@ explorer.exe target
 mklink命令的使用方式：
 1. 在cmd中运行，需要Administrator权限。所以要右键单击cmd选择`run as Administrator`。
 2. 命令格式为：
-{% highlight bat %}
+
+``` bat
 mklink /D Link Target
-{% endhighlight %}
+```
+
 注意`link`和`target`的顺序，在ln命令中则是`ln -s Target Link`的顺序
 
 #### 技巧2 建立cygwin下windows程序的"快捷方式"
@@ -66,9 +68,9 @@ linux下我们都想用简单的方式直接输入几个字母+tab就能启动�
 第二个想法是，用Cygwin下的`ln`命令 ---失败
 例如我要将我的Sublime Text做成快捷方式，方便打开文件或文件夹则用：
 
-{% highlight bat %}
+``` bat
 mklink /D ~/bin/sublime C:/mySublimeTextPath/sublime_text.exe
-{% endhighlight %}
+```
 
 补充：
 后发现可以用`ln`实现，比`mklink`方便，命令如下：
@@ -84,9 +86,9 @@ $ ln -s /cygdrive/c/mySublimeTextPath/sublime_text.exe /usr/bin/sublime_text
 比如在cygwin下要频繁打开某个很长路径的文件夹，每次输入cd都是一件很痛苦的事情，（顺带说一下，cygwin也可以输入`cd C：`命令到C盘。对应于Cygwin中的`/cygdrive/c`目录。）
 那么只需来一次`mklink`命令搞定：
 
-{% highlight bat %}
+``` bat
 mklink /D ~/shortcut C:/long/long/path/folder
-{% endhighlight %}
+```
 
 则每次只需要`cd shortcut`了
 

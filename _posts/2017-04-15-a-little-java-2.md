@@ -23,6 +23,14 @@ tags: [design pattern]
 而此书中的visitor class貌似不是这个意思。
 但从某种意义上来说也算是访问另一个类了。
 
+-------------
+
+** 更新 **
+
+答案在第六章揭晓，第六章才是完全版的visitor模式！
+
+-------------
+
 对于java的访问者模式，示例代码如下：
 
 ```java
@@ -150,6 +158,7 @@ Visitor2: 这是元素2
 
 之前写过一个htmlparser也是需要双分派，貌似c++还需要dynamic_cast而java不需要，
 直接获得了其实际类型。
+
 <https://github.com/SenZhangAI/htmlParser/blob/master/src/htmlRander.cpp>
 
 C++之所以需要dynamic_cast，
@@ -160,6 +169,10 @@ java应该也是通过类似dynamic_cast等方式，目的在于获得确切类�
 
 另外，对于visitor模式，不局限于双分派的场景，很多时候不需要严格的双分派策略，
 例如渲染，直接用`RanderHTML()`、`RanderPlainText()`等函数，就可以很好的处理问题。
+
+还有，访问者是接口，而被访问的元素是抽象类，因为是抽象类，
+所以可以将类的共同成员方法或者域汇集到抽象类中，
+而访问者只提供操作，所以用接口最合适。
 
 #### Java 访问者模式小结
 优势：

@@ -33,7 +33,6 @@ class Pepper extends Seasoning {}
 **abstract class** introduces a datatype,
 **class** introduces a variants.
 
-
 ### Tips
 ```
 When specifying a collection of data,
@@ -116,6 +115,7 @@ float totalPrice =
     (+ price(x) total-price(cdr(x))))
 ```
 
+补充：
 当子类中有共同的域或者方法时，放到抽象类里，
 例如这里的`x`,`y`以及`boolean closerTo(Point p)`方法。
 
