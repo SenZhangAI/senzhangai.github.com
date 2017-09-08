@@ -14,6 +14,8 @@ tags: [gitlab]
 
 更新源步骤参见：<https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/>
 
+改国内源的方法不一定凑效，或许下载后手动安装更方便。
+
 ## 2. 安装gitlab
 
 安装步骤参见： <https://about.gitlab.com/installation/#centos-7>
