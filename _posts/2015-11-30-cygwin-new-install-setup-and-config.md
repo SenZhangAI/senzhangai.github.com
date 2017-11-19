@@ -58,6 +58,7 @@ automake
 pkg-config
 libpcre-devel
 liblzma-dev
+zlib-devel
 
 ## astyle for code Formatter
 astyle # 我通常会在vim中用，并设置快捷键
