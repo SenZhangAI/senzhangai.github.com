@@ -7,6 +7,11 @@ category: Programming
 tags: [rest, api, design]
 ---
 
+## 2018.1.6 更新
+本文对于RESTful理解还不透彻，后来才了解到http的错误码是应用层，作为RESTful错误码映射挺好，
+至于可能与中间代理的错误码混淆的问题，这个可以在返回中再加自定义的特殊的错误码解决，撞错误码的概率相对较低。
+RESTful 的error code规则就是大家都遵循的一种规范，方便大家理解api，实践中应该也很好用，我的设计也是个差不多的方案，但没必要再设计个规则。
+
 ## 争论
 关于RESTful API 错误码到底如何返回，存在一些争论，
 有的认为直接用http的错误码，
@@ -86,7 +91,7 @@ Actually, using HTTP status codes for REST is even more confusing down the road:
 ## 支持用http的错误码的观点
 ### 题外话 Http Error Code 错误码选择导图
 
-在StackOver 的问题 REST API error return good practices, 有一条比较不错的回答“”
+在StackOverFlow 的问题 REST API error return good practices, 有一条比较不错的回答:
 
 <https://stackoverflow.com/a/34324179/4854570>
 
@@ -100,18 +105,23 @@ Actually, using HTTP status codes for REST is even more confusing down the road:
 这样似乎还能让大家更便于理解错误码。毕竟RESTful API某种程度上，让前后端“彻底”(虽然不可能达到)分离，
 前后端之间的约定好资源访问的规则，当然对错误码的规则也标准化最好。
 
-然而，我不太认同这样的观点，参见stackoverflow中的问题
+然而，我不太认同这样的观点，stackoverflow中有关于RESTful api返回错误码的很多问题，随便举一例：
 
 <https://stackoverflow.com/questions/2380554/rest-mapping-application-errors-to-http-status-codes?noredirect=1&lq=1>
 
 可以看到，即使对于同一个问题的返回错误码，不同的人回答的结果不同，
 这种返回错误没办法做到完全明确。即使有规定，现实API的返回错误也很难用http的错误码完全覆盖。
 
-关于返回http错误码，其实我觉得有另一个好处，例如，假设对于内部错误500，
+另一个缺陷引用一段知乎上找的网友的话：
+
+```
+全部返回200好像是天朝国情，如果异常时返回其他状态可能会被运营商劫持到导航页
+```
+
+关于返回http错误码，其实我觉得主要有一个好处，例如，假设对于内部错误500，
 无论是来自于 Apache、Nginx的错误，还是后端设计的api内部错误，或者http server的错误，
 都希望回复User ：“系统正在升级中，请耐心等待。。。”
 这样，用http 500将减少判断条件。
-
 
 ## 我的思考
 我个人认为有个更好的处理方式
