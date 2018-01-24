@@ -2,7 +2,7 @@
 layout: post
 title: "安装 arch linux"
 description: "install arch linux"
-keywords:
+keywords: arch
 category:
 tags: []
 ---
@@ -131,6 +131,28 @@ vi /etc/hostname  添加主机名 Arch
 其中会获得 `Kernel driver in use: haha` `Kernel modules: haha`
 然后`dmesg | grep haha` 会得到dev的初始化信息，
 
+#### 无线网卡
+无线网卡为TPLINK的USB无线网，
+参考 <https://wiki.archlinux.org/index.php/Wireless_network_configuration>
+
+因为是USB网卡，不是主板PCI网卡，所以`lspci`没用，用`dmesg | grep usbcore`得知网卡为`r8188eu`，应该是Realtek的，
+在 <https://wireless.wiki.kernel.org/en/users/drivers/rtl819x>
+中找到其驱动为`rtl8xxxu`
+但是坑爹的是Archwiki中说有问题，用第三方的
+<https://github.com/lwfinger/rtl8188eu>
+
+首先是内核版本不一致，尝试`# mkinitcpio -p linux`
+
+make 失败，提示`No rule to make target 'modules'`
+查看issue，原因是没有`kernel headers`
+
+`sudo ip link set wxxxxxx up`, 终于安装成功
+
+```bash
+sudo pacman -Syu
+sudo pacman -S linux-headers
+```
+
 ### grub
 
 ```
@@ -147,7 +169,11 @@ vi /etc/hostname  添加主机名 Arch
     # grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-grub -install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --boot-directory=/boot
+`grub -install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --boot-directory=/boot`
+
+注意其中`x86_64-efi`是64位，`i386-efi`是32位，
+efibootmgr是生成`.efi`，GRUB安装脚本需要的启动项(stub entries),
+dosfstools可能不需要。
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -206,6 +232,9 @@ X实现了图形显示，但没有窗口管理 WM(Windows Manager)，所以如�
 提示有16个extra要装，我原本想只装部分，继续折腾，但看官方貌似意思都装，就都装吧。
 
 然后`startxfce4`即可看到进入了。
+
+### 另一个有趣的窗口管理i3wm
+TODO
 
 #### 登陆管理
 
