@@ -20,20 +20,7 @@ donate_url:
 
 # Comment
 comments:
-  duoshuo:
-    name: senzhang
-    rcomments:
-        num: 8
-        avatar: 0
-        time: 0
-        title: 0
-        admin: 1
-        length: 20
   disqus:
-    # In my architecture, duoshuo has higher priority then disqus,
-    # because duoshuo is quicker then disqus in China.
-    # if not only use in China, disqus is better.
-    # disqus.name will be actived if duoshuo's name is null(Just delete it).
     name: senzhang
     rcomments:
         # Number of comments to show
