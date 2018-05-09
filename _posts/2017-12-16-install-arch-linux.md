@@ -44,17 +44,18 @@ Windows下可用的制作U盘启动的程序可以选择
 
 我的方案如下(为什么1T的硬盘我要纠结这久，才分100G?)，到时看使用情况，看哪个分区吃紧。
 
-`/boot/efi` `dev/sdx1` 600M（推荐大于550M） EFI系统（vfat）
-`/` `dev/sdx2` 20G(包含usr情况下要大一点，如果是服务器usr单独分区可以较小) ext4
-`/home` `dev/sdx3` 60G（无明确推荐，根据用户情况） ext4
-`/var` `dev/sdx4` 15G（推荐8-12GB） ext4
+| **dir**     | **dev**    | **size**                                                    | **format**      |
+|:------------|:-----------|:------------------------------------------------------------|:----------------|
+| `/boot/efi` | `dev/sdx1` | 600M（推荐大于550M）                                        | EFI系统（vfat） |
+| `/`         | `dev/sdx2` | 20G(包含usr情况下要大一点，如果是服务器usr单独分区可以较小) | ext4            |
+| `/home`     | `dev/sdx3` | 60G（无明确推荐，根据用户情况）                             | ext4            |
+| `/var`      | `dev/sdx4` | 15G（推荐8-12GB）                                           | ext4            |
 
 我觉得内存够大，不想要swap分区，否则2G应该ok。
 
 ### 挂载分区
 
-先格式化`mkfs.ext4 /dev/sdx2`
-然后`mount dev/sdx2 /mnt` 将sdx2挂载到根目录，`mount dev/sdx1 /mnt/boot/efi` 挂载到boot，其他类似
+先格式化`mkfs.ext4 /dev/sdx2`，然后`mount dev/sdx2 /mnt` 将sdx2挂载到根目录，`mount dev/sdx1 /mnt/boot/efi` 挂载到boot，其他类似
 
 ### 安装Arch
 
@@ -62,48 +63,55 @@ Windows下可用的制作U盘启动的程序可以选择
 
 参考 <https://wiki.archlinux.org/index.php/Mirrors>
 
-```
-# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-# 排序
-# rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
-# 更新源
-# pacman -Syyu
+```bash
+$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+$ # 排序
+$ rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+$ # 更新源
+$ pacman -Syyu
 ```
 
 然后用Arch的安装脚本安装`pacstrap /mnt base`，源很快，安装非常顺序，只要一两分钟。
 我除了装`base` 也装了`base-devel`，因为看到里面很多多很常用。
 
 ### 自动生成fstab
-```
-# genfstab -U /mnt >> /mnt/etc/fstab
+
+```bash
+$ genfstab -U /mnt >> /mnt/etc/fstab
 ```
 ### Chroot
-```
-# arch-chroot /mnt
+
+```bash
+$ arch-chroot /mnt
 ```
 ### Timezone
-```
-# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-# # 例如:
-# ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# hwclock --systohc
+```bash
+$ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+$ # 例如:
+$ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+$ hwclock --systohc
 ```
 
 ### 键盘与字体
-/etc/vconsole.conf 添加 KEYMAP=us, 也可以不设置，默认为us
+
+`/etc/vconsole.conf` 添加 `KEYMAP=us`, 也可以不设置，默认为us
 
 关于字体参考：
 <http://www.cnblogs.com/xlmeng1988/archive/2013/01/16/locale.html>
 
-vi /etc/locale.conf    添加一行LANG=en_US.UTF-8
-vi /etc/locale.gen     把en_US.UTF-8 UTf-8,zh_CN.GBK GBK,zh_CN.UTF-8 UTF-8,zh_CN GB2312前面的注释去掉
-locale-gen               更新语言环境
-
-locale  查看是否有问题
+```bash
+$ vi /etc/locale.conf    # 添加一行LANG=en_US.UTF-8
+$ vi /etc/locale.gen     # 把en_US.UTF-8 UTf-8,zh_CN.GBK GBK,zh_CN.UTF-8 UTF-8,zh_CN GB2312前面的注释去掉
+$ locale-gen             # 更新语言环境
+$ locale                 # 查看是否有问题
+```
 
 ### 主机名
-vi /etc/hostname  添加主机名 Arch
+
+```bash
+$ vi /etc/hostname  添加主机名 Arch
+```
 
 ### 网络配置
 首先改/etc/hosts文件
@@ -112,16 +120,16 @@ vi /etc/hostname  添加主机名 Arch
 
 然后
 
-```
-有线连接：
+```bash
+# 有线连接：
 
-# systemctl start dhcpcd    # 连接
-# systemctl enable dhcpcd   # 以后自动连接
+$ systemctl start dhcpcd    # 连接
+$ systemctl enable dhcpcd   # 以后自动连接
 
-无线连接：
+# 无线连接：
 
-# pacman -S iw wpa_supplicant dialog
-# wifi-menu    # 连接
+$ pacman -S iw wpa_supplicant dialog
+$ wifi-menu    # 连接
 ```
 更多详细的网络配置参见：
 
@@ -149,24 +157,24 @@ make 失败，提示`No rule to make target 'modules'`
 `sudo ip link set wxxxxxx up`, 终于安装成功
 
 ```bash
-sudo pacman -Syu
-sudo pacman -S linux-headers
+$ sudo pacman -Syu
+$ sudo pacman -S linux-headers
 ```
 
 ### grub
 
-```
-    BIOS 系统：
+```bash
+# BIOS 系统：
 
-    # pacman -S grub os-prober
-    # grub-install --target=i386-pc /dev/<目标磁盘>
-    # grub-mkconfig -o /boot/grub/grub.cfg
+$ pacman -S grub os-prober
+$ grub-install --target=i386-pc /dev/<目标磁盘>
+$ grub-mkconfig -o /boot/grub/grub.cfg
 
-    UEFI 系统：
+# UEFI 系统：
 
-    # pacman -S dosfstools grub efibootmgr
-    # grub-install --target=x86_64-efi --efi-directory=<EFI 分区挂载点> --bootloader-id=grub
-    # grub-mkconfig -o /boot/grub/grub.cfg
+$ pacman -S dosfstools grub efibootmgr
+$ grub-install --target=x86_64-efi --efi-directory=<EFI 分区挂载点> --bootloader-id=grub
+$ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 `grub -install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --boot-directory=/boot`
@@ -208,7 +216,7 @@ X实现了图形显示，但没有窗口管理 WM(Windows Manager)，所以如�
 然后`pacman -Ss xf86-video` 查看有哪些包可以装，
 我的是AMD卡，所以`pacman -S xf86-video-ati`或者应该也可`xf86-video-amdgpu`
 
-可能还需要 pacman -S mesa  (3D支持),暂时不装
+可能还需要 `pacman -S mesa`  (3D支持),暂时不装
 
 然后安装xorg，
 简单的直接`pacman -S xorg`都装上，但作为不折腾不舒服的人，
@@ -246,7 +254,9 @@ TODO
 
 ### 其他安装
 
-pacman -S vim neovim  openssh git curl wget yaourt（AUR安装必备） lantern(翻墙)
+```bash
+$ pacman -S vim neovim  openssh git curl wget yaourt lantern
+```
 
 #### 解决乱码
 firefox 打开发现中文部分字体是乱码，
@@ -272,7 +282,7 @@ firefox 打开发现中文部分字体是乱码，
 
 `.xinitrc` 为startx命令启动时执行的脚本，而`.xprofile`为用gdm等启动器进入用户界面时执行的脚本。
 
-```
+```bash
 export LANG=en_US.UTF-8
 export LANGUAGE=zh_CN:en_US
 export LC_CTYPE=zh_CN.UTF-8
@@ -304,14 +314,15 @@ passwd   添加root用户的密码
 
 ##### 添加用户
 
-```
-# useradd -m -g users -s /usr/bin/bash <用户名>
-# # 该命令创建一个名为 <用户名> 的用户，指定登陆 shell 为 bash，所属主用户组 users，用户文件夹位于 /home/<用户名>。
-# passwd <用户名>   # 设置密码
+```bash
+$ useradd -m -g users -s /usr/bin/bash <用户名>
+$ # 该命令创建一个名为 <用户名> 的用户，指定登陆 shell 为 bash，所属主用户组 users，用户文件夹位于 /home/<用户名>。
+$ passwd <用户名>   # 设置密码
 ```
 
 所以执行
-```
+
+```bash
 useradd -m -g wheel -s /usr/bin/zsh sen
 passws sen
 ```
@@ -324,7 +335,7 @@ passws sen
 
 因为将用户作为wheel组，简单起见，只需要注释掉如下中的NOPASSWD行
 
-```
+```bash
 # Uncomment to allow people in group wheel to run all commands
 # %wheel        ALL=(ALL)       ALL
 # Same thing without a password
