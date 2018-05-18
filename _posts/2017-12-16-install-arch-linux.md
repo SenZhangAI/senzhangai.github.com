@@ -187,7 +187,17 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 然后 `umount \mnt && reboot` 即可
 
+### Win10 Arch 双系统
+
+如果是bios + MBR 方案，可以参考[这篇文章](https://www.jianshu.com/p/27ea66e1838c)，步骤基本没问题。
+
+原理是在Win系统的引导程序中添加选项，跳到Linux的引导程序，在ArchWiki中提到单独划分一个Window可识别的分区，但如上文所示，可以通过`ntfs-3g`支持，因此不需要单独划拨一个后期用不上的分区。
+
+注意还需要处理Windows与Linux时间不一致的问题。
+
 ## 图形界面
+
+我尝试在grub之前安装图形界面，虽然可以成功，但鼠标用不了，这是因为安装环境中没有鼠标驱动，在新Arch系统中装了鼠标驱动没用，而安装grub，启动新系统后能生效。
 
 首先得了解 X, X11(X11R6), Xorg，Xfree86 , gnome, kde, Xfce之类都是些什么，
 简单来说 X 是一种图形协议标准，X11R6 是X协议下的当前的最重要的版本， X Protocol version 11 Release 6
