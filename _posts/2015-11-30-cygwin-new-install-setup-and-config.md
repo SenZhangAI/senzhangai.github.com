@@ -98,7 +98,7 @@ $ clip < ~/.ssh/id_rsa.pub
 ### 3. 配置git global
 
 ```bash
-$ git config --global user.email szhang.hust@gmail.com
+$ git config --global user.email "szhang.hust@gmail.com"
 $ git config --global user.name "Sen Zhang"
 ```
 
