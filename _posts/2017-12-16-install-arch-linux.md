@@ -191,9 +191,17 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 如果是bios + MBR 方案，可以参考[这篇文章](https://www.jianshu.com/p/27ea66e1838c)，步骤基本没问题。
 
+官方参考: <https://wiki.archlinux.org/index.php/Dual_boot_with_Windows>
+
 原理是在Win系统的引导程序中添加选项，跳到Linux的引导程序，在ArchWiki中提到单独划分一个Window可识别的分区，但如上文所示，可以通过`ntfs-3g`支持，因此不需要单独划拨一个后期用不上的分区。
 
 注意还需要处理Windows与Linux时间不一致的问题。
+
+解决办法是修改Windows时间为UTC格式，通过命令行修改注册表:
+
+```
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
+```
 
 ## 图形界面
 
