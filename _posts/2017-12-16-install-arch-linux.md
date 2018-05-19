@@ -23,7 +23,11 @@ tags: []
 
 其中方案2 相对方案1 更优，所以选 UEFI + GPT 方案。详见<https://www.zhihu.com/question/28471913>
 
-Windows下可用的制作U盘启动的程序可以选择
+Windows下可用的制作U盘启动的程序可以选择[Rufus](https://rufus.akeo.ie/)
+
+ArchWiki中也介绍了用`dd`命令的办法处理，ArchWiki中说装完系统后U盘格式化恢复前需要清除iso9660文件系统标识（执行`sudo wipefs --all /dev/sdx`），否则U盘变得不可用，
+然而执行此命令后格式化依然失败。
+遇到这种情况，可通过usboot工具恢复解决，但估计会影响U盘寿命，所以最好不用`dd`命令方式
 
 ## 基本的系统安装
 
@@ -288,7 +292,7 @@ firefox 打开发现中文部分字体是乱码，
 
 即可解决firefox字体乱码问题，就是有些丑。
 
-##### 配置系统语言环境
+##### 配置系统语言环境及输入法
 
 参考[Linux的locale, LC_ALL 和LANG](http://blog.csdn.net/nicolase/article/details/42499521)
 以及[linux下locale中的各环境变量的含义](https://www.cnblogs.com/yinheyi/p/7247295.html)
@@ -296,14 +300,29 @@ firefox 打开发现中文部分字体是乱码，
 
 了解locale，LC_CTYPE之类是什么
 
+输入法简单起见，我选择fcitx框架及其sougou拼音输入法，
+
+
+```bash
+$ sudo pacman -S fcitx fcitx-configtool
+$ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
+$ sudo pacman -S fcitx-sogoupinyin
+```
+
 配置`~/.xinitrc ~/.xprofile`, 然后启动时输入`startx` 即可执行此脚本，如果直接`startxfce4`则不会执行此脚本
 
 `.xinitrc` 为startx命令启动时执行的脚本，而`.xprofile`为用gdm等启动器进入用户界面时执行的脚本。
 
 ```bash
-export LANG=en_US.UTF-8
-export LANGUAGE=zh_CN:en_US
-export LC_CTYPE=zh_CN.UTF-8
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+# export LANG=en_US.UTF-8
+# export LANGUAGE=zh_CN:en_US
+# export LC_CTYPE=zh_CN.UTF-8
+
+fcitx &
 
 exec startxfce4
 ```
