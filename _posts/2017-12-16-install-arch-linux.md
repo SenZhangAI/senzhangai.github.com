@@ -266,6 +266,22 @@ X实现了图形显示，但没有窗口管理 WM(Windows Manager)，所以如�
 ### 另一个有趣的窗口管理i3wm
 TODO
 
+### WIFI图形界面
+
+通过命令行`wifi-menu`的方式也足够使用，但图形界面更为方便直观，
+不同的桌面环境不一样，我用的xfce，与gnome，KDE等安装所需的软件包不太一样。
+wifi管理图形界面我选用[NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager)，因为其支持项最多。
+
+```bash
+$ sudo pacman -S networkmanager
+$ sudo pacman -S network-manager-applet # xfce4(GTK+ 3)
+$ sudo systemctl start NetworkManager # 启动 network manager
+$ sudo systemctl enable NetworkManager # 重启时自动启动 network manager
+$ nm-applet # 执行一次wifi GUI客户端，panel上应该会出现相应通知，下次启动也应该会有
+```
+
+GUI客户端连wifi跟Windows系统差不多，操作也较为简单，但是注意加密wifi的账号密码写错了不会有提示，这一点不是很方便。
+
 #### 登陆管理
 
 安装 Xfce4 的登陆管理器， 看有人推荐slim，lxdm，gdm
