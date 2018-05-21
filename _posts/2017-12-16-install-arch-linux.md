@@ -143,28 +143,6 @@ $ wifi-menu    # 连接
 其中会获得 `Kernel driver in use: haha` `Kernel modules: haha`
 然后`dmesg | grep haha` 会得到dev的初始化信息，
 
-#### 无线网卡
-无线网卡为TPLINK的USB无线网，
-参考 <https://wiki.archlinux.org/index.php/Wireless_network_configuration>
-
-因为是USB网卡，不是主板PCI网卡，所以`lspci`没用，用`dmesg | grep usbcore`得知网卡为`r8188eu`，应该是Realtek的，
-在 <https://wireless.wiki.kernel.org/en/users/drivers/rtl819x>
-中找到其驱动为`rtl8xxxu`
-但是坑爹的是Archwiki中说有问题，用第三方的
-<https://github.com/lwfinger/rtl8188eu>
-
-首先是内核版本不一致，尝试`# mkinitcpio -p linux`
-
-make 失败，提示`No rule to make target 'modules'`
-查看issue，原因是没有`kernel headers`
-
-`sudo ip link set wxxxxxx up`, 终于安装成功
-
-```bash
-$ sudo pacman -Syu
-$ sudo pacman -S linux-headers
-```
-
 ### grub
 
 ```bash
@@ -199,11 +177,17 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 原理是在Win系统的引导程序中添加选项，跳到Linux的引导程序，在ArchWiki中提到单独划分一个Window可识别的分区，但如上文所示，可以通过`ntfs-3g`支持，因此不需要单独划拨一个后期用不上的分区。
 
+```bash
+# 支持及自动识别NTFS文件系统
+$ sudo pacman -S ntfs-3g #ntfs文件支持
+$ sudo pacman -S gvfs # 自动mount文件系统
+```
+
 注意还需要处理Windows与Linux时间不一致的问题。
 
 解决办法是修改Windows时间为UTC格式，通过命令行修改注册表:
 
-```
+```cmd
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
 ```
 
@@ -289,12 +273,6 @@ GUI客户端连wifi跟Windows系统差不多，操作也较为简单，但是注
 参见Wiki <https://wiki.archlinux.org/index.php/Display_manager>
 
 其实最好是自动登陆，所以酷不酷炫也就无所谓了，不过我先试一试直接在Xinitrc中执行`exec startxfce4`
-
-### 其他安装
-
-```bash
-$ pacman -S vim neovim  openssh git curl wget yaourt lantern
-```
 
 #### 解决乱码
 firefox 打开发现中文部分字体是乱码，
@@ -395,3 +373,17 @@ passws sen
 # %wheel        ALL=(ALL)       NOPASSWD: ALL
 ```
 
+## 其他安装的软件包汇总
+
+```bash
+$ pacman -S zsh git vim neovim curl tree openssh yaourt firefox screenfetch sudo
+$ pacman -S numix-circle-icon-theme-git numix-gtk-theme numix-icon-theme-git # xfce 图标及主题美化
+$ pacman -S deepin-screenshot
+$ pacman -S you-get # bilibili YouTube等视频下载
+$ pacman -S electronic-wechat-git # 微信
+$ pacman -S foxit-reader # pdf阅读
+$ pacman -S goland goland-jre go # JetBrains go IDE
+$ pacman -S pycharm # JetBrains python IDE
+$ pacman -S rubymine # JetBrains ruby IDE
+$ yaourt -S ttf-iosevka ttf-iosevka-term # 适合编程的字体
+```
