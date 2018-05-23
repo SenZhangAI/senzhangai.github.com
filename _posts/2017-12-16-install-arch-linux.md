@@ -26,8 +26,8 @@ tags: []
 Windows下可用的制作U盘启动的程序可以选择[Rufus](https://rufus.akeo.ie/)
 
 ArchWiki中也介绍了用`dd`命令的办法处理，ArchWiki中说装完系统后U盘格式化恢复前需要清除iso9660文件系统标识（执行`sudo wipefs --all /dev/sdx`），否则U盘变得不可用，
-然而执行此命令后格式化依然失败。
-遇到这种情况，可通过usboot工具恢复解决，但估计会影响U盘寿命，所以最好不用`dd`命令方式
+然后执行 `sudo mkfs.ntfs -F /dev/sdx`。
+遇到这种情况，windows下可通过usboot工具恢复解决，但估计会影响U盘寿命，所以最好不用`dd`命令方式
 
 ## 基本的系统安装
 
