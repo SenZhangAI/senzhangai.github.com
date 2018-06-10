@@ -32,10 +32,11 @@ http是无状态的，而用户在进行一系列web服务操作时往往需要�
 ### Sessions Guidelines
 
 1. 重要的数据不应保存在session中以免丢失，因为session只是临时的会话，用户logout时（而不是关闭浏览器时）清除session，同时session也有失效时间，以免越积越多。
-清除session不同的框架应该有不同的处理策略，有直接从内存中清楚的，有记录在硬盘上再取的等等。
+清除session不同的框架应该有不同的处理策略，有直接从内存中清除的，有记录在硬盘上再取的等等。
 2. 大的Objects不应保存在session中，而应保存在数据库里，Session中保存这些Objects的Id，一方面如果修改了Objects的结构，数据在硬盘里没有丢失，容易兼容原有的session，另一方面也避免暂用过多内存。
 
 ### Session Storage
+Cookies限制4kB，不应存大量数据
 cookies对用户而言可见，所以重要数据应加密，秘钥应妥善保管
 
 ### 重放攻击(Replay Attacks)
