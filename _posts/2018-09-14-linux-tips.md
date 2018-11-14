@@ -20,6 +20,26 @@ $ lsof -i
 $ who
 ```
 
+## 网络
+
+### SSH隧道
+
+远程的服务器，例如阿里云可能对外网屏蔽了很多端口，或者比如远程服务器的redis仅支持本地端口`127.0.0.1`访问，现在仅知道ssh登录，然而想在远程服务器上测试，跑不了怎么办？
+
+答案就是通过SSH隧道，原理就是一个代理，将本地的地址和端口号映射到远程服务器。
+
+本地先运行ssh隧道：
+
+```sh
+# ssh -L local_port:remote_ip:remote_port remote_user@remote_ip
+ssh -L 9999:127.0.0.1:6379 root@remote_ip
+```
+然后本地测试一下是否可以访问远程原本无法访问的redis服务器：
+
+```sh
+redis-cli -p 9999
+```
+
 ## zsh
 
 ### profile
