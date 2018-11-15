@@ -50,10 +50,13 @@ redis-cli -p 9999
 zsh -xv
 ```
 
-
 例如我发现我卡在`eval "$(chef shell-init zsh)"` 这一步，这一步是用来初始化[chef](https://github.com/chef/chef)环境，
 参见[Configuring ChefDK](https://docs.chef.io/chefdk_setup.html)
 
 类似的，我也曾可能卡在nvm的初始化`source $(brew --prefix nvm)/nvm.sh`
 
 因为不是每次都用到这些功能，所以干脆做成一个alias快捷命令，即可解决。
+
+## 其他
+
+Centos不重启修改hostname的方法: `hostnamectl set-hostname NewName`
