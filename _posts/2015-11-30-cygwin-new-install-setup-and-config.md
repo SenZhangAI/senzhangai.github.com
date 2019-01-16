@@ -152,6 +152,17 @@ $ ln -s /cygdrive/c/Users/Sen/Downloads ~/Downloads
 $ ln -s /cygdrive/c/YourPathToSoftware/Sublime_Text.exe /usr/bin/sublime_text
 ```
 
+### 修复cygwin与windows文件权限不一致的问题
+
+编辑 `/etc/fstab`，修改为：
+
+```
+none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
+```
+
+参见<https://stackoverflow.com/questions/5828037/cygwin-sets-file-permission-to-000>
+
+
 ## 进阶功能可选安装
 ### 1. [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 如果习惯了bash，当然不需要zsh，但是用过oh-my-zsh之后，基本对bash无爱了。
