@@ -49,11 +49,11 @@ typedef struct listNode {
 
 ```c
 typedef struct list {
-    listNode* head;
-    listNode* tail;
-    void* (*dup)(void* ptr);
-    void (free)(void * ptr);
-    int (*match)(void* ptr, void* key);
+    listNode *head;
+    listNode *tail;
+    void *(*dup)(void *ptr);
+    void (*free)(void *ptr);
+    int (*match)(void *ptr, void *key);
     unsigned long len;
 } list;
 ```
@@ -65,7 +65,7 @@ typedef struct list {
 
 ```c
 typedef struct listIter {
-    listNode* next;
+    listNode *next;
     int direction;
 }
 ```
@@ -98,8 +98,11 @@ typedef struct dictEntry {
 因为key和v都有`void* val`这种多态类型，
 也需要指定该类型对应的特性函数，例如指定该类型hash值怎么计算而来(如下hashFunction函数指针)，如何销毁，如何比较，如何复制。
 
-值得注意的是没有`dictEntry`中没有一个枚举Tag来说明`union v`中到底是何种类型，这个先大胆猜测一下，应该Hash表的`hashth`这一个上层的数据结构中表示，
-由或许以`hash`作为模板，特化为内置的`intHash`，`doubleHash`的不同数据结构。
+值得注意的是`dictEntry`中没有一个枚举Tag来说明`union v`中到底是何种类型，这个先大胆猜测一下，应该Hash表的`hashth`这一个上层的数据结构中用类似多态函数表的方式来特化不同dict，而从顶层dict的角度没必要知道其具体类型，看代码发现是这种方式，
+
+另一种可能是以`hash`作为模板，特化为内置的`intHash`，`doubleHash`的不同数据结构，最后看代码，发现Redis源码采用第一种方式，这是因为如果特化为具体类型以后，需要针对每种类型写特定的函数(函数签名决定了`doSomething(intHash* h)`函数不能传入`doubleHash*`类型，所以得写多个函数)。
+
+如下及实现不同类型的多态函数：
 
 ```c
 typedef struct dictType {
@@ -113,7 +116,7 @@ typedef struct dictType {
 ```
 
 在看看`dictht`数据结构，`dictEntry** table`是表指针，为什么是指针的指针呢？
-因为我们桶+链表实现的字典基础元素不是`dictEntry`而是`dictEntry*`，
+因为我们桶+链表实现的字典基础元素不是`dictEntry`而是`dictEntry *`，
 
 ```c
 /* This is our hash table structure. Every dictionary has two of this as we
@@ -126,7 +129,8 @@ typedef struct dictht {
 } dictht;
 ```
 
-在看看最顶层的`dict`数据结构
+再看看最顶层的`dict`数据结构:
+
 ```c
 typedef struct dict {
     dictType *type;
@@ -136,3 +140,44 @@ typedef struct dict {
     unsigned long iterators; /* number of iterators currently running */
 } dict;
 ```
+
+其中`dictType *type`用于支持不同类型的多态函数，`void *privdata`是不同类型多态函数的特定参数。
+
+#### 分析
+
+dict有两个重要的内容
+
+1. 尽可能做到perfect hash，即尽可能少出现哈希冲突(hash collision)，这就跟`hashFunction`有关。
+
+2. **扩容**，如果当前的hash桶太小，哈希冲突的概率增大时需要扩容。
+
+扩容需要考虑以下几个问题:
+
+* hash扩容的时机选择，hash在怎么时候扩容较优，
+
+* hash扩容过程中如何保证访问正确性，直觉上感觉应将扩容期尽可能缩短。
+
+#### Hash算法
+
+旧版Redis采用[MurmurHash2](https://github.com/aappleby/smhasher)算法,该算法优点是即使输入的key有规律，依然有较好的随机分布性，且计算速度快。
+
+当前最新版Redis采用`SipHash`算法，
+
+#### 扩容Rehash算法
+
+Redis采用的方式是用两个hash表`dictht ht[2]`，`ht[0]`专门用于常规的访问，
+`ht[1]`专门用在扩容的时候，扩容结束时交换`ht[0]`和`ht[1]`。
+
+这样就能保证扩容时只需要管`ht[1]`，对于`ht[0]`数据索引位置不需要更改，即可正确访问到，扩容期访问数据我估计是先访问`ht[0]`，没找到再找`ht[1]`，
+
+`ht[0]`和`ht[1]`的桶尺寸不一样，所以索引mask不一样，需要区分开。
+正好关于桶尺寸的参数在`dictht`数据结构中(`dictht->size`和`dictht->sizemask`)
+
+这里有个问题，扩容结束后`ht[0]`与`ht[1]`交换的那一瞬间，应该有一个互斥锁才对，但`dict`数据结构中并没有一个`lock`私有变量，待进一步分析(再看一遍代码发现是用rehashidx记录rehash进度，实现的互斥)。
+
+第二个子问题，扩容时`ht[1]`数据执行次数越少越好，越快进入常规状态越好。
+
+第三个子问题，如果在rehash的时候插入新数据，应该插入`ht[1]`，第二、三子问题跟rehash的算法非常相关，可以说rehash算法才是这个dict的精髓
+
+##### rehash算法
+
