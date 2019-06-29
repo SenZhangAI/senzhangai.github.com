@@ -17,7 +17,8 @@ virtualbox用拷贝的Centos镜像不能直接联网，简单来说，是旧的�
 Host-only相当于虚拟机和宿主机通过交叉线相连；
 NAT，宿主机相当于虚拟机的路由器；
 
-Host-only 允许 虚拟机与宿主机互访，但其不能直接访问外网
+Host-only 允许 虚拟机与宿主机互访，但其不能直接访问外网。
+
 NAT，允许虚拟机访问主机，并间接允许虚拟机连接外网，但外网访问不了虚拟机
 
 其中NAT接口用dhcp方式，host-only接口用静态ip，例如`192.168.56.xxx`
@@ -26,14 +27,15 @@ NAT，允许虚拟机访问主机，并间接允许虚拟机连接外网，但�
 例如全局host-only ip选用`192.168.56.2`，虚拟机host-only ip选用`192.168.56.101`等。
 
 全局host-only设置: 在virtualbox首页面点击 管理，主机网络管理器
+
 虚拟机host-only设置: 点击该虚拟机，设置，网络
 
 按照网上任意一篇`Centos virtualbox 联网`作为关键字的帖子即可查看详细配置。
 
 如上硬件配置完成后，还得针对该Ethernet网卡软件配置，通常是`eth0`，`eth1`等，对于Centos文件地址为`/etc/sysconfig/network-scripts/`
-注意通常eth0的MAC小于echo1，
+注意通常eth0的MAC小于echo1，否则NAT，host-only配置反了也出错。
 
-否则NAT，host-only配置反了也出错，然后将对应的NAT配置为dhcp，host-only配置为静态ip，例如如上的例子`192.168.56.101`
+然后将对应的NAT配置为dhcp，host-only配置为静态ip，例如如上的例子`192.168.56.101`
 
 然后`service network restart`，这时候还可能出错，
 因为有个自动缓存的配置不对，文件地址为`/etc/udev/rules.d/70-persistent-net.rules`
@@ -72,7 +74,8 @@ ssh 默认配置即可，无需修改
 
 ## 共享文件夹
 为了在主机上编辑代码，同时在虚拟机上编译执行代码，就需要两端的文件同步，
-对吧virtualbox，最简单的方法应该是设置同步文件夹，直接搜关键词即可，
+
+对于virtualbox，一种方法是设置同步文件夹，直接搜关键词即可，
 例如 <http://www.cnblogs.com/xing901022/p/5774677.html>
 
 权限问题参考：
