@@ -2,9 +2,9 @@ Sen's Blog
 ======
 
 > 该博客使用 jekyll+bootstrap-3+Markdown 搭建。
-> 
+>
 > 使用本主题，请先修改以下内容：
-> 
+>
 > - 修改 _config.yaml
 > - 修改 CNAME
 > - 修改 about.md个人简介中的内容
@@ -21,7 +21,7 @@ Sen's Blog
 * 加入[TOC](https://github.com/ghiculescu/jekyll-table-of-contents)（table of content）功能
 * 加入对[mathjax](https://www.mathjax.org/)的支持
 * 加入知乎图标
-* 加入对[Disqus](https://disqus.com/)的支持，Disqus和多说二选一，默认为多说。
+* 加入对[Disqus](https://disqus.com/)的支持
 
 ## 使用方法
 ### 创建博文

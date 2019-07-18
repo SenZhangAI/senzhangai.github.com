@@ -18,7 +18,7 @@ tags: [github, jykell, redcarpet, Cygwin, markdown]
 
 ## II 名词解释
 
-### 1.[git](http://www.git-scm.com/)
+### 1. [git](http://www.git-scm.com/)
 git是软件开发的分布式版本控制系统。具有多人协作，多台设备代码共享，历史回退。分支管理等功能，可用于辅助软件项目管理。相当于软件界的dropbox吧 ：)，只不过学习曲线有点陡。刚开始有些不习惯。
 
 * git好的在线学习网站：[http://pcottle.github.io/learnGitBranching/](http://pcottle.github.io/learnGitBranching/)
@@ -50,11 +50,12 @@ Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux
 
 
 ## III 搭建过程
-### 0. 参考链接
-- [Github Page说明文档](https://pages.github.com/)
--
 
-### 1. 在[github](https://github.com/)上创建主页仓库
+### 0. 参考链接
+
+- [Github Page说明文档](https://pages.github.com/)
+
+### 1. 在github上创建主页仓库
 主要步骤是：
 
 1. [创建github账户](https://github.com/join)，例如账户名为YourName
