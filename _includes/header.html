@@ -1,53 +1,52 @@
 <!--[if lte IE 9]>
   <div class="alert alert-warning">
-    <p>你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说<a href="http://www.google.com/chrome/" target="_blank" class="alert-link">Google chrome</a>、<a href="http://www.mozilla.org/firefox/" target="_blank" class="alert-link">Mozilla Firefox</a>.</p>
-    <br>
-    <p>如使用IE 9及以上版本, 确保关闭了 <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">"Compatibility view"</a>.</p>
-    <br>
+  <p>你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说<a href="http://www.google.com/chrome/" target="_blank" class="alert-link">Google chrome</a>、<a href="http://www.mozilla.org/firefox/" target="_blank" class="alert-link">Mozilla Firefox</a>.</p>
+  <br>
+  <p>如使用IE 9及以上版本, 确保关闭了 <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">"Compatibility view"</a>.</p>
+  <br>
   </div>
 <![endif]-->
 <header class="header">
-  <div class="title"><a title="{{ site.title }}" href="/">{{ site.title }}</a></div>
-  <ul class="nav navbar-nav navbar-right visible-lg visible-md">
-    <li>
-    <form id="search-form" class="form-group has-success visible-lg" role="form">
-      <input type="text" class="form-control input-sm" placeholder="Search" id="query" style="width: 160px;">
-    </form>
-    </li>
-    <li><a href="{{ '/archive.html' }}" title="Archive"><span class='fa fa-archive fa-2x'></span></a></li>
-    <li><a href="{{ '/categories.html' }}" title="Categories"><span class='fa fa-navicon fa-2x'></span></a></li>
-    <li><a href="{{ '/tags.html' }}" title="Tags"><span class='fa fa-tags fa-2x'></span></a></li>
-    <li><a href="{{ '/about.html' }}" title="About"><span class='fa fa-user fa-2x'></span></a></li>
-    {% if site.author.github %}
-    <li><a href="https://github.com/{{ site.author.github }}" target="_blank" title="Github"><span class='fa fa-github fa-2x'></span></a></li>
-    {% endif %}
-    {% if site.author.googleplus %}
-    <li><a href="https://plus.google.com/{{ site.author.googleplus }}" target="_blank" title="Google+"><span class="fa fa-google-plus fa-2x"></span></a></li>
-    {% endif %}
-    {% if site.author.twitter %}
-    <li><a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" title="twitter"><span class="fa fa-twitter fa-2x"></span></a></li>
-    {% endif %}
-    {% if site.author.facebook %}
-    <li><a href="http://www.facebook.com/{{ site.author.facebook }}" target="_blank" title="facebook"><span class="fa fa-facebook fa-2x"></span></a></li>
-    {% endif %}
-    {% if site.author.weibo %}
-    <li><a href="http://weibo.com/{{ site.author.weibo }}" target="_blank" title="Weibo"><span class="fa fa-weibo fa-2x"></span></a></li>
-    {% endif %}
-    {% if site.author.stackoverflow %}
-    <li><a href="{{ site.author.stackoverflow }}" target="_blank" title="Stackoverflow"><span class="fa fa-stack-overflow fa-2x"></span></a></li>
-    {% endif %}
-    {% if site.author.zhihu %}
-    <li><a href="{{ site.author.zhihu }}" target="_blank" title="Zhihu"><span class="icon-stack fa-lg addin">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="iconfont icon-zhihu fa-stack-1x fa-inverse"></i>
-    </span></a></li>
-    {% endif %}
-    {% if site.author.wiki %}
-    <li><a href="{{ site.author.wiki }}" target="_blank" title="Wiki"><span class="icon-stack fa-lg addin">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-wikipedia-w fa-stack-1x fa-inverse"></i>
-    </span></a></li>
-    {% endif %}
-    <li><a href="{{ '/rss.xml' }}" target="_blank" title="RSS"><span class='fa fa-rss fa-2x'></span></a></li>
-  </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">{{ site.title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="narbarLinks" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarLinks">
+      <ul class="navbar-nav mr-auto">
+        <li class="navbar-item"><a class="nav-link" href="{{ '/archive.html' }}" title="Archive"><span class='fa fa-archive fa-2x'></span></a></li>
+        <li class="navbar-item"><a class="nav-link" href="{{ '/categories.html' }}" title="Categories"><span class='fa fa-navicon fa-2x'></span></a></li>
+        <li class="navbar-item"><a class="nav-link" href="{{ '/tags.html' }}" title="Tags"><span class='fa fa-tags fa-2x'></span></a></li>
+        <li class="navbar-item"><a class="nav-link" href="{{ '/about.html' }}" title="About"><span class='fa fa-user fa-2x'></span></a></li>
+        {% if site.author.github %}
+        <li class="navbar-item"><a class="nav-link" href="https://github.com/{{ site.author.github }}" target="_blank" title="Github"><span class='fa fa-github fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.googleplus %}
+        <li class="navbar-item"><a class="nav-link" href="https://plus.google.com/{{ site.author.googleplus }}" target="_blank" title="Google+"><span class='fa fa-google-plus fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.twitter %}
+        <li class="navbar-item"><a class="nav-link" href="https://twitter.com/{{ site.author.twitter }}" target="_blank" title="Twitter"><span class='fa fa-twitter fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.facebook %}
+        <li class="navbar-item"><a class="nav-link" href="http://www.facebook.com/{{ site.author.facebook }}" target="_blank" title="Facebook"><span class='fa fa-facebook fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.weibo %}
+        <li class="navbar-item"><a class="nav-link" href="http://weibo.com/{{ site.author.weibo }}" target="_blank" title="Weibo"><span class='fa fa-weibo fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.stackoverflow %}
+        <li class="navbar-item"><a class="nav-link" href="{{ site.author.stackoverflow }}" target="_blank" title="Stackoverflow"><span class='fa fa-stack-overflow fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.zhihu %}
+        <li class="navbar-item"><a class="nav-link" href="{{ site.author.zhihu }}" target="_blank" title="Zhihu"><span class='fa fa-zhihu fa-2x'></span></a></li>
+        {% endif %}
+        {% if site.author.wiki %}
+        <li class="navbar-item"><a class="nav-link" href="{{ site.author.wiki }}" target="_blank" title="Wiki"><span class='fa fa-wikipedia-w fa-2x'></span></a></li>
+        {% endif %}
+        <li class="navbar-item"><a class="nav-link" href="{{ '/rss.xml' }}" target="_blank" title="Rss"><span class='fa fa-rss fa-2x'></span></a></li>
+      </ul>
+      <form class="form-inline my-2 my-md-0" id="search-form">
+        <input type="text" class="form-control" placeholder="Search" id="query">
+      </form>
+    </div>
+  </nav>
 </header>
