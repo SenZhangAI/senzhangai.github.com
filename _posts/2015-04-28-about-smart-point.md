@@ -72,7 +72,7 @@ delete p;
 
 
 
-#####关于“将value语义转化为reference语义”
+##### 关于“将value语义转化为reference语义”
 
 以下是JAVA代码：
 

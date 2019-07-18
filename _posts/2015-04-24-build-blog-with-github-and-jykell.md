@@ -45,16 +45,16 @@ git是软件开发的分布式版本控制系统。具有多人协作，多台�
 该格式非常方便书写，并可以通过在线编辑器(例如[MaHua](http://mahua.jser.me/))或者离线编辑器(例如[HarooPad](http://pad.haroopress.com/user.html#download))支持该格式的网站框架(例如github,CSDN)转化为html格式或者pdf格式。）
 
 
-###4. [Cygwin](https://cygwin.com/)
+### 5. [Cygwin](https://cygwin.com/)
 Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux系统上的一些重要软件移植到Windows系统下。总体而言，在windows下装jekyll实在太麻烦了，所以采用此方法。
 
 
-##III 搭建过程
-###0. 参考链接
+## III 搭建过程
+### 0. 参考链接
 - [Github Page说明文档](https://pages.github.com/)
 -
 
-###1. 在[github](https://github.com/)上创建主页仓库
+### 1. 在[github](https://github.com/)上创建主页仓库
 主要步骤是：
 
 1. [创建github账户](https://github.com/join)，例如账户名为YourName
@@ -69,12 +69,12 @@ Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux
 
 >Github提供了网页托管服务...[[more]](http://www.pkuwwt.tk/linux/2013-11-29-build-a-github-website/)
 
-###2. 安装[jekyll](http://jekyllcn.com/)
-####Linux,Unix,Max OS X系统下的安装步骤
+### 2. 安装[jekyll](http://jekyllcn.com/)
+#### Linux,Unix,Max OS X系统下的安装步骤
 对于Linux,Unix,Max OS X用户而言，安装十分简单，参考[http://jekyllcn.com/docs/installation/](http://jekyllcn.com/docs/installation/)
 
-####Windows系统下的安装步骤
-#####方案1. 便携版（直接忽略）
+#### Windows系统下的安装步骤
+##### 方案1. 便携版（直接忽略）
 
 `注：本文只测试了安装版本的jekyll安装，便携版（绿色版）的jekyll未经测试。`
 
@@ -85,12 +85,12 @@ Cygwin可理解为windows系统上的Linux系统的虚拟机，或者说把Linux
 
 缺点是太大了，801M，还不如用Cygwin了，遂放弃。
 
-#####方案2. 安装版(忽略)
+##### 方案2. 安装版(忽略)
 参考链接：[http://jekyll-windows.juthilo.com/](http://jekyll-windows.juthilo.com/)
 
 `注：安装过于繁杂在此略过，链接中步骤很清楚。就不补充了。已测试并成功安装`
 
-#####方案3. 在Cygwin中安装（推荐）
+##### 方案3. 在Cygwin中安装（推荐）
 还是用[Cygwin](https://cygwin.com/)方便啊！
 
 `注：建议用x86版本的Cygwin，X64版本的可能会出现问题`

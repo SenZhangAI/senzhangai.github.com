@@ -24,7 +24,7 @@ tags: [Java]
 要想编译Java还需要装JDK（Java Development Kit）
 [JDK 下载地址](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-需要说明的是JDK的bin路径还得手动添加到系统环境变量（$PATH）中去，所以它的安装路径没有空格比较好，所以windows下装在program file不如单独见一个文件夹安装。
+需要说明的是JDK的bin路径还得手动添加到系统环境变量`$PATH`中去，所以它的安装路径没有空格比较好，所以windows下装在program file不如单独见一个文件夹安装。
 
 安装完毕后，也需要告诉IDE Java的JDK在哪里。
 
@@ -34,6 +34,7 @@ Intellij IDEA确实好用，实用技巧参见：
 [十大Intellij IDEA快捷键](http://blog.csdn.net/dc_726/article/details/42784275)
 
 需要说明的是Intellij IDEA虽然很好用，但非常吃性能，电脑不好卡成翔，如需要有所改善可以参考：
+
 <http://www.zhihu.com/question/35203203>
 
 ## Java基础
@@ -85,48 +86,52 @@ NaN用`Double.NaN`表示。
 浮点常量注意舍入误差，如对精度要求极高，例如金融领域，应该用BigDecimal类
 
 #### 1个char类型
-'A',单引号表示字符，"A",双引号表示字符串。
+`'A'`,单引号表示字符，`"A"`,双引号表示字符串。
 char = 字符 （正确）
 char = 整数 （正确）
 char = \u数字 （unicode 正确）
 需要注意的是Java中，char是16位，用Unicode编码格式表示。
 然而也用Unicode是历史原因，因为当时认为16位共65536个字符足够容忍全世界的语言了，然而，却低估了中、日、韩等象形文字的数量，因此不得不扩充，对于扩充的字符，就需要两个char的空间。
 
-强烈建议不用char类型，具体参见：<http://blog.csdn.net/happylee6688/article/details/33306069>
+强烈建议不用char类型，
 
-> 那么，到底为什么java里不推荐使用char类型呢？其实，1个java的char字符并不完全等于一个unicode的字符。char采用的UCS-2编码，是一种淘汰的UTF-16编码，编码方式最多有65536种，远远少于当今Unicode拥有11万字符的需求。java只好对后来新增的Unicode字符用2个char拼出1个Unicode字符。导致String中char的数量不等于unicode字符的数量。 
+具体参见： <http://blog.csdn.net/happylee6688/article/details/33306069>
 
->然而，大家都知道，char在Oracle中，是固定宽度的字符串类型（即所谓的定长字符串类型），长度不够的就会自动使用空格补全。因此，在一些特殊的查询中，就会导致一些问题，而且这种问题还是很隐蔽的，很难被开发人员发现。一旦发现问题的所在，就意味着数据结构需要变更，可想而知，这是多么大的灾难啊。 
+```
+那么，到底为什么java里不推荐使用char类型呢？其实，1个java的char字符并不完全等于一个unicode的字符。char采用的UCS-2编码，是一种淘汰的UTF-16编码，编码方式最多有65536种，远远少于当今Unicode拥有11万字符的需求。java只好对后来新增的Unicode字符用2个char拼出1个Unicode字符。导致String中char的数量不等于unicode字符的数量。
+
+然而，大家都知道，char在Oracle中，是固定宽度的字符串类型（即所谓的定长字符串类型），长度不够的就会自动使用空格补全。因此，在一些特殊的查询中，就会导致一些问题，而且这种问题还是很隐蔽的，很难被开发人员发现。一旦发现问题的所在，就意味着数据结构需要变更，可想而知，这是多么大的灾难啊。
+```
 
 #### 1个boolean类型
 boolean类型有两个值，true和false，注意，**整型和boolean之间不能隐式转换**。
 
->虽然 Java 虚拟机定义了 boolean 这种数据类型，但是只对它提供了非常有限的支持。在 
-Java 虚拟机中没有任何供 boolean 值专用的字节码指令，在 Java 语言之中涉及到 boolean 
-类型值的运算，在编译之后都使用 Java 虚拟机中的 int 数据类型来代替。 
-  Java 虚拟机直接支持 boolean 类型的数组，虚拟机的 newarray 指令可以创建这种数组。 
+>虽然 Java 虚拟机定义了 boolean 这种数据类型，但是只对它提供了非常有限的支持。在
+Java 虚拟机中没有任何供 boolean 值专用的字节码指令，在 Java 语言之中涉及到 boolean
+类型值的运算，在编译之后都使用 Java 虚拟机中的 int 数据类型来代替。
+  Java 虚拟机直接支持 boolean 类型的数组，虚拟机的 newarray 指令可以创建这种数组。
 boolean 的数组类型的访问与修改共用 byte 类型数组的 baload 和 bastore 指令
 
 同样，关于boolean占1 byte还是1 bit也是众说纷纭，具体要看虚拟机实现。
 
 
 #### 与C++的比较
-#####（1） 大小确定
+##### （1） 大小确定
 首先，Java中对于变量的大小都是确定的，而不像C++那样，只规定变量的最小范围。
 C++这样做目的估计是兼容C，而C这样做，主要是为了适应很多古老的设备，
 有些16位的设备可能int表示16位更好。我觉得看似方便，扩大了适用性，而实际上也给平台移植带来困难。给编程带来了本不需要考虑的困扰，所以我觉得Java这方面更好一点。
 
-#####（2） 二进制数
+##### （2） 二进制数
 Java新版增加了0b1111_1111这类二进制，且可插入下划线，非常人性化。
 
-#####（3） 无unsigned类型
+##### （3） 无unsigned类型
 Java没有unsigned类型，避免了隐式转换可能带来的bug，还有其他的C++的隐式转换被取消掉，这样更好。总体而言，C/C++带有隐式转换更偏底层一点，因为对于寄存器而言，我知道是二进制数就够了，根本不管是不是unsigned，是char还是int。但也更容易出错。
 
-#####（4） 无指针
+##### （4） 无指针
 Java基本类型中没有指针，内存GC管理，这样也避免了一些危险操作，当然C/C++更有灵活性一些。
 
 ### 变量
-Java中的命名很有意思，比C++范围大很多，虽然也是字母+数字，必须字母开头的方式，**但'$' '_'以及unicode中任意可表示字母和数字的字符都算**。
+Java中的命名很有意思，比C++范围大很多，虽然也是字母+数字，必须字母开头的方式，**但`$` `_`以及unicode中任意可表示字母和数字的字符都算**。
 
 变量的声明最好靠近第一次使用的地方。
 
@@ -163,7 +168,7 @@ Java设计哲学是可移植性，所以对于任何运算在不同机器上的�
 如果要严格保持浮点数计算结果一致，应该在main函数上标记`strictfp`关键字，如下：
 
 ```java
-public static strictfp void main(String[] args) {}; 
+public static strictfp void main(String[] args) {};
 ```
 
 ### 自增自减运算
@@ -288,6 +293,7 @@ Unicode多少占用一个代码单元，但也有少数占用两个，这给有�
 略
 
 ### 构建字符串
+
 有时用`+`连接字符串的方式来构建字符串效率较低，毕竟需要另外开辟空间，
 这时候可以用`StringBuilder`
 
@@ -304,6 +310,7 @@ String str = builder.toString(); //将最终字符串赋给str
 
 ## 输入输出
 ### 读取输入
+
 对于控制台输入，需要先构建一个Scanner对象，并于标准输出流`System.in`关联
 
 ```java

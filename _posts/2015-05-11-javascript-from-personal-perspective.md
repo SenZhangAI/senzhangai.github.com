@@ -255,7 +255,7 @@ JS中IE与非IE浏览器DOM标准对于事件的诸多定义都不相同，有�
 
 相对应的监听器删除关键字是``this.removeEventListener(...)||this.detachEvent(...) //非IE||IE``
 
-###事件的目标
+### 事件的目标
 
 或者说事件源来自DOM哪个节点。关键字为``event.target||event.srcElement //非IE||IE``
 

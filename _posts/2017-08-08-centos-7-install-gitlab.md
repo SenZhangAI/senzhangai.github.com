@@ -35,9 +35,9 @@ postfix报错postfix: fatal: parameter inet_interfaces: no local interface found
 
 ``` ruby
 ## GitLab URL
-##! URL on which GitLab will be reachable.
-##! For more details on configuring external_url see:
-##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab
+## ! URL on which GitLab will be reachable.
+## ! For more details on configuring external_url see:
+## ! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab
 
 ## ip 或者 Url都可以，前缀http，如果开了443 https端口应该也可以用https
 #external_url 'http://119.23.28.251'
