@@ -1,279 +1,64 @@
-
 body {
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", 'Microsoft YaHei', '微软雅黑', Arial, 'Lucida Grande', sans-serif;
-  line-height: 1.6;
-  background-color:rgba(204,204,204,0.3);
+  font-family: "Ubuntu Mono", Monaco, Consolas, monospace;
+  line-height: 1.42;
 }
 
-.container {
-	padding:0 5px;
-	width:90%;
-}
-
-:hover,:focus {
-	transition:all 0.3s
-}
-a:hover,a:focus {
-	text-decoration:underline;
-}
-
-h1 {
-    font-size: 2.25em;
-    padding-bottom: 0.3em;
-    color: rgba(0,153,153,0.8);
-    line-height: 1.2;
-    font-weight: bold;
-    border-bottom: 2px solid #eee;
-}
-
-h2 {
-    font-size: 1.75em;
-    padding-top: 20px;
-    padding-bottom: 0.3em;
-    line-height: 1.225;
-    font-weight: bold;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 0;
-}
-
-h3 {
-    position: relative;
-    margin-top: 1.25em;
-    margin-bottom: 16px;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-h4 {
-    position: relative;
-    margin-top: 1.2em;
-    margin-bottom: 14px;
-    font-weight: bold;
-    font-size: 1.25em;
-    color: rgba(0,153,153,0.8);
-}
-
-h5 {
-    position: relative;
-    margin-top: 1.2em;
-    margin-bottom: 14px;
-    font-weight: bold;
-    font-size: 1.25em;
-}
-
-h6 {
-    position: relative;
-    margin-top: 1.2em;
-    margin-bottom: 14px;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #999999
-}
-
-p {
-    font-size: 1.2em;
-}
-
-blockquote{padding: 0px 15px;display:block;text-align:justify;font-size: 15px;border-left: 4px solid #DDD;}
-blockquote p{margin:15px 0; color: #999999}
-
-.header {
-	display:inline
-}
-.header .title {
-	font-size:2.5em;
-	font-weight: normal;
-	display:inline;
-	text-shadow:0 1px 0 #fff,0 1px 1px rgba(170,170,170,0.8)
-}
-.header .title a {
-	color:rgba(0,153,153,0.8)
-}
-.header .title a:hover,.header .title a:focus {
-	color:rgba(0,102,102,0.8)
-}
-.header ul li {
-	margin:4px 0
-}
-.header ul li a {
-	color:rgba(0,153,153,0.8);
-	text-shadow:0 1px 0 #fff,0 1px 1px rgba(170,170,170,0.8)
-}
-.header ul li a:hover,.header ul li a:focus {
-	color:rgba(0,102,102,0.8);
-	background:transparent
-}
-.header ul li form {
-	margin-top:15px
-}
-
-.news-item{
-    border-bottom:1px dashed rgba(0,153,153,0.3);
-    margin-bottom:20px;
-    padding-bottom:5px;
-}
-
-.article-title{
-    border-bottom:1px dashed rgba(0,153,153,0.3);
-    margin-bottom:20px;
-    padding-bottom:5px;
-}
-
-.wrapper {
-	border:1px solid rgba(0,0,0,0.17);
-	box-shadow:0 1px 10px rgba(170,170,170,0.8);
-	background:rgba(253,253,253,0.9);
-	padding:20px 20px 20px 20px;
-	margin:20px 0;
-}
-
-.wrapper a {
-	font-weight: normal;
-
-}
-
-.wrapper a:visited {
-
-}
-
-.wrapper img {
-  clear: both;
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
-  border:1px solid rgba(0,0,0,0.17);
-  box-shadow:0 1px 10px rgba(170,170,170,0.8);
-}
-
-.wrapper .small {
-	color:rgba(119,119,119,0.8)
+.article-title {
+  border-bottom:1px dashed;
+  margin-top:30px;
+  margin-bottom:20px;
+  padding-bottom:5px;
 }
 
 .wrapper pre {
-  font-size: 1.2em;
-  border: none;
-  border-left: solid 6px #558abb;
-  background: #fcf6f2;
+  padding: 12px;
+  border-radius: 3px;
+  background: rgb(246, 248, 250);
   word-wrap:normal;
   word-break:normal;
+  overflow: visible !important;
+  position: relative !important;
 }
 
 .wrapper pre code{
-	font-size: 90%;
-}
-
-.wrapper ul,ol {
-	margin-bottom:10px;
-  font-size: 16px;
-}
-
-#toc ul,ol {
-  padding-left: 20px;
-}
-
-
-.wrapper hr {
-	border-color:rgba(102,102,102,0.8)
-}
-.wrapper .tag-box {
-	display:table;
-	list-style:none outside none
-}
-.wrapper .tag-box li {
-	line-height:1.8;
-	display:inline-block;
-	margin:0 3px
-}
-.wrapper .tag-box li a {
-	padding:2px 4px;
-	background-color:#fefbf3;
-	border-radius:4px
-}
-
-table {
-	margin-bottom:20px;
-	max-width:100%;
-	border:1px solid rgba(50,118,177,0.167);
-	font-size:13px;
-}
-table:hover {
-	border:1px solid rgba(50,118,177,0.35);
-	box-shadow:0 0 3 rgba(50,118,177,0.267);
-	transition:all 0.3s
-}
-table thead tr th {
-	border:1px solid rgba(50,118,177,0.167);
-	border-top:0 none;
-	border-bottom-width:2px;
-	vertical-align:bottom;
-	padding:6px
-}
-table tbody tr td {
-	border:1px solid rgba(50,118,177,0.167);
-	vertical-align:middle;
-	padding:6px
-}
-table thead>tr {
-	background-color:rgba(249,249,249,0.9)
-}
-table tr th[align="center"],table tr td[align="center"] {
-	text-align:center
-}
-table tbody tr:hover {
-	background-color:rgba(235,235,235,0.7);
-	transition:all 0.3s
+  font-size: 90%;
 }
 
 #toTop {
-	width:32px;
-	height:48px;
-	background:#555;
-	background:rgba(85,85,85,0.3);
-	position:fixed;
-	bottom:80px;
-	right:18px;
-	text-align:center;
-	cursor:pointer;
-	display:none
+  width:32px;
+  height:48px;
+  background:#555;
+  background:rgba(185,185,185,0.3);
+  position:fixed;
+  bottom:80px;
+  right:18px;
+  text-align:center;
+  cursor:pointer;
+  display:none
 }
+
 #toTop a {
-	display:block;
-	width:32px;
-	height:24px;
-	font-size:20px;
-	line-height:24px;
-	font-family:verdana,arial;
-	color:rgba(0,153,153,0.8);
-	text-decoration:none;
-	background:0
+  display:block;
+  width:32px;
+  height:24px;
+  font-size:20px;
+  line-height:24px;
+  font-family:verdana,arial;
+  color: rgba(0,153,153,0.5);
+  text-decoration:none;
+  background:0
 }
+
 #toTop a:hover {
-	background:#3d5998
-}
-#search-loader {
-	display:none;
-	text-align:center
-}
-#pay h4{
-	display:none;
+  color: rgba(0,153,153,0.9);
 }
 
-/*disqus*/
-li.dsq-widget-item {
- list-style-type: disc!important;
-}
-/*end disqus*/
-
-/*for index date*/
 .post-date{
-	float:right;
-	padding:5px;
-	font-size:13px;
+  float:right;
+  padding:5px;
+  font-size:13px;
 }
-/*for index date*/
 
-/*for Categories and Tags*/
 .tags-xs {
   padding: 1px 5px;
   font-size: 12px;
@@ -315,16 +100,4 @@ li.dsq-widget-item {
   color: #fff;
   background-color: #017e66;
   text-decoration: none;
-}
-
-/* for TOC */
-.clickable-header {
-  cursor:pointer;
-}
-.clickable-header:hover {
-  text-decoration:underline;
-}
-.back-to-top {
-  margin-left:5px;
-  cursor:pointer;
 }
