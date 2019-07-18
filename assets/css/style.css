@@ -43,7 +43,6 @@ body {
   height:24px;
   font-size:20px;
   line-height:24px;
-  font-family:verdana,arial;
   color: rgba(0,153,153,0.5);
   text-decoration:none;
   background:0
@@ -100,4 +99,19 @@ body {
   color: #fff;
   background-color: #017e66;
   text-decoration: none;
+}
+
+.wrapper .tag-box {
+  display:table;
+  list-style:none outside none
+}
+.wrapper .tag-box li {
+  line-height:1.8;
+  display:inline-block;
+  margin:0 3px
+}
+.wrapper .tag-box li a {
+  padding:2px 4px;
+  background-color:#fefbf3;
+  border-radius:4px
 }
