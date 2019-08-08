@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "linux tips"
-description: "linux tips"
+description: "常用的linux命令"
 keywords: linux tips
 category: programming
 tags: [linux]
@@ -11,13 +11,20 @@ tags: [linux]
 
 整理一些有用linux命令，todo...
 
-## 常用监控命令
+## 常用查看监控命令
 
 ```bash
 # 查看网络占用（macOS）
 $ lsof -i
+# 查看网络占用（Linux）
+$ netstat -nutlp
 # 查看有哪些终端登录
 $ who
+
+# 查看当前目录文件各文件大小
+# -c 除了列出各子项大小，还给一个cumulative total 总计大小
+$ du -ch *
+$ du -sh *
 ```
 
 ## 网络
