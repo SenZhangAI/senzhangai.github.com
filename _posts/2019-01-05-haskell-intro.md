@@ -7,6 +7,19 @@ category: Programming
 tags: [haskell]
 ---
 
+## 安装
+
+参考官网，有三种方案，通常选[stack](https://www.haskell.org/downloads/#stack)方案，用`stack`来管理，ghc也在stack沙箱中运行: `stack ghc`。
+
+只是有时候需要系统环境下安装一个`ghc`,`ghci`用来方便测试，
+就需要[Minimal installers](https://www.haskell.org/downloads/#minimal)方案。但网上推荐的用[ghcup](https://github.com/haskell/ghcup)，只是此方案下载一个巨大的文件不能走国内镜像加速，好在我用的是macOS，可以这样装ghc:
+
+```sh
+brew install ghc
+```
+
+当配置走[清华镜像](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew-bottles/)后，速度很快，哈哈！
+
 ## Values, Types
 
 haskell是纯functional language
