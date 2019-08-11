@@ -11,7 +11,15 @@
 
 <script type="text/javascript" src="{{ ASSET_PATH }}/assets/js/toc.js"></script>
 
-
+<script type="text/javascript">
+  var message_Path = 'assets/live2d/'
+  var home_Path = '{{ BASE_PATH }}/' //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="{{ ASSET_PATH}}/assets/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="{{ ASSET_PATH }}/assets/live2d/js/message.js"></script>
+<script type="text/javascript">
+  loadlive2d("live2d", "{{ ASSET_PATH }}/assets/live2d/model/tia/model.json");
+</script>
 
 <script type="text/javascript">
 $(document).ready(function() {
