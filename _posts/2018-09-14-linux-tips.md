@@ -25,6 +25,10 @@ $ who
 # -c 除了列出各子项大小，还给一个cumulative total 总计大小
 $ du -ch *
 $ du -sh *
+
+# 查询未见编码格式
+$ file -I somefile
+# result: somefile: text/plain; charset=us-ascii
 ```
 
 ## 网络
@@ -67,3 +71,9 @@ zsh -xv
 ## 其他
 
 Centos不重启修改hostname的方法: `hostnamectl set-hostname NewName`
+
+
+## linux库函数
+
+### time
+获取实现应该用linux的`clock_gettime()`或者macOS的`mach_absolute_time()`而不用`gettimeofday()`,因为`gettimeofday`不是单调递增的。
