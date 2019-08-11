@@ -17,7 +17,11 @@ tags: [grammars, parser]
 
 乔姆斯基把方法分成四种类型，即0型、1型、2型和3型。
 
+参见: <https://en.wikipedia.org/wiki/Chomsky_hierarchy#Type-0_grammars>
+
 ### 0型文法
+
+参见: <https://en.wikipedia.org/wiki/Unrestricted_grammar>
 
 ```
 设G=（VN，VT，P，S），如果它的每个产生式α→β是这样一种结构：
@@ -25,12 +29,9 @@ tags: [grammars, parser]
 α∈(VN∪VT)*且至少含有一个非终结符，而β∈(VN∪VT)*，则G是一个0型文法。
 ```
 
-0型文法也称短语文法。
+0型文法也称短语文法，是递归枚举的，任何0型文法都可以用图灵机(Turing)实现。
 
-一个非常重要的理论结果是：0型文法的能力相当于图灵机(Turing)。
-或者说，任何0型文语言都是递归可枚举的， 反之，递归可枚举集必定是一个0型语言。
-
-0型文法是这几类文法中，限制最少的一个，所以我们在试题中见到的,至少是0型文法。
+0型文法是这几类文法中，限制最少的一个。
 
 ### 1型文法
 
@@ -42,25 +43,9 @@ tags: [grammars, parser]
 
 注意：虽然要求|β|>=|α|，但有一特例：α→ε也满足1型文法。
 
-如有A->Ba则|β|=2,|α|=1符合1型文法要求。反之,如aA->a，则不符合1型文法。
+如有A->Ba 则|β|=2,|α|=1，符合1型文法要求。
 
-### 上下文相关(Context-Sensitive Grammar CSG)与上下文无关(Context-Free Grammar, CFG)
-所谓上下文无关(参见[徐辰的知乎问答](https://www.zhihu.com/question/21833944))，
-就是你只要找到符合产生式右边的串，就可以把它归约为对应的非终结符。
-
-比如
-
-```
-aSb -> aaSbb
-S -> ab
-```
-
-这就是上下文相关文法，因为它的第一个产生式左边有不止一个符号，
-
-所以你在匹配这个产生式中的S的时候必需确保这个S有正确的“上下文”，
-也就是左边的a和右边的b，所以叫上下文相关文法。
-
-即我看到一个ab，我不能立刻推出一定是S，也可能是aSb，这就需要再结合上下文判断。
+反之, 如aA->a，则不符合1型文法。
 
 ### 2型文法
 
@@ -77,84 +62,70 @@ S -> ab
 如Ab->Bab 虽然符合1型文法要求,
 但不符合2型文法要求，因为其α=Ab，而Ab不是一个非终结符。
 
-#### 补充
-2 型文法 （上下文无关文法）很容易被误会成“没有上下文”。
-它的“上下文无关”指的是每个产生式规则的展开都和上下文无关，但是不能说它没有上下文
+#### 补充：上下文相关与上下文无关
 
-它的一个重要特点是“括号嵌套”，只要括号的开始和终结符都在同一条规则中，
-它产生的字符串的括号就是嵌套的。譬如它可以产生一族包含 `[]` 和 `()` 正确嵌套的字符串：
+关于上下文相关(Context-Sensitive Grammar CSG)，参见[Wiki](https://en.wikipedia.org/wiki/Context-sensitive_grammar)
 
-```
-{"(a[(b)]c)", "(a)[b]", ...}
-```
+> A **context-sensitive grammar (CSG)** is a formal grammar in which the left-hand sides and right-hand sides of any production rules may be
+> surrounded by a context of terminal and nonterminal symbols. Context-sensitive grammars are more general than context-free grammars, in the
+> sense that there are languages that can be described by CSG but not by context-free grammars
 
-1 型文法 （上下文有关文法）的括号是可以违背嵌套规则的。
-譬如它可以产生一族开括号和闭括号数目相等，但不一定正确嵌套的字符串：
+上下文无关(Context-Free Grammar, CFG)，参见[徐辰的知乎问答](https://www.zhihu.com/question/21833944))，或者Wiki
 
-```
-{"(a([b)]c)", "(a[)b]", ...}
-```
+> In context-free grammars, all rules are **one-to-one, one-to-many, or one-to-none**. These rules can be applied regardless of context.
+> **The left-hand side of the production rule is always a nonterminal symbol**. This means that the symbol does not appear in the resulting formal language.
+> Production rules are simple replacements.
 
-事实上，语法书里展开规则基本都是上下文无关的，**人类语言结构绝大部分都能表示为上下文无关文法**。
 
-只有极其少数的句子是上下文相关文法的，而且看起来也会有点怪：
+比如
 
 ```
-[ John saw a (blue car in an ad yesterday] with bright yellow headlights).
-以上两句混在了一起。
+aSb -> aaSbb
+S -> ab
 ```
+
+因为它的第一个产生式左边(`aSb`)有不止一个符号，所以是上下文相关文法
+
+此外，**上下文相关文法，上下文无关语法和语言的歧义性质无关**
+
+**上下文无关文法也可能有歧义**，例如，对于如下规则：
+
+```
+S -> S1 | S2
+
+S1 -> ab
+
+S2 -> AB
+
+A -> a
+
+B -> b
+```
+
+此规则是CFG，但是对于字符串`"ab"`，一种推导方式是`S -> S1 -> ab`，另一种是`S -> S2 -> AB -> aB -> ab`，所以是有歧义的。
+
+2 型文法 （上下文无关文法）的上下文无关是指每个产生式规则的展开都和上下文无关，就可以无需检查上下文(Production rules are simple replacements)。
 
 ### 3型文法
 
-3型文法也叫正则文法，它对应于有限状态自动机。
+3型文法也叫正则文法，它对应于有限状态自动机。参见 <https://en.wikipedia.org/wiki/Regular_grammar>
 
 ```
 它是在2型文法的基础上满足:A→α|αB（右线性）或A→α|Bα（左线性）。
-且一个语法中，只能选择右线性或左线性的一个规则。
+注意一个语法中，只能选择右线性或左线性的一个规则（A regular grammar is a left or right regular grammar）。
 ```
 
-如有：A->a,A->aB,B->a,B->cB，则符合3型文法的要求。
-
-但如果推导为:A->ab,A->aB,B->a,B->cB或推导为:A->a,A->Ba,B->a,B->cB则不符合3型方法的要求了。
-
-具体的说，例子A->ab,A->aB,B->a,B->cB中的`A->ab`不符合3型文法的定义,
-
-如果把后面的ab,改成“一个非终结符＋一个终结符”的形式（即为aB）就对了。
-
-例子A->a,A->Ba,B->a,B->cB中如果把`B->cB`改为`B->Bc`的形式就对了,
-
-因为A→α|αB（右线性）和A→α|Bα（左线性）两套规则不能同时出现在一个语法中,
-只能完全满足其中的一个,才能算3型文法。
-
 #### 补充
+
 正则表达式用一行非递归规则就能写出来，不能递归引用自己，不能表达嵌套结构。
 （不过 PERL 的正则表达式比较强大，是接近 2 型文法的存在）
 
-lex 或者 StringTokenizer 都可以对应到一个 3 型文法的产生规则。
+其他库比如 lex 或者 StringTokenizer 都可以对应到一个 3 型文法的产生规则。
 
 #### 再补充
 
-0 1 2 3 型都是停机可判定的，
-
-因为 “递归可枚举” 的意思就是存在一个图灵机，
-它可以将一个文法规则能辨认的所有的字符串从短到长，一个一个不带重复的举出来。
-
-那么可以构造另一个图灵机，它一个个枚举可辨认的字符串和输入相比较，
-如果匹配就返回成功，如果枚举字符串长度大于输入就返回失败，总会停机的。
-
-故停机可判定。
-
-0 型文法就是图灵机停机可判定的边界，0 型文法再往上的才是停机不可判定的。
-
-一般来说一个计算机语言的语法是停机可判定的，即你写出来的程序要么编译成功，要么语法错误。
-
-但是 Perl 5 的语法是停机不可判定 的，写成编译器的话，不管怎么修改编译器，
-都存在一个源文件，让编译器无法判断它是否存在语法错误
-
-#### 再再再补充
-
 所谓的3型,即Finite Automata,不需要记忆任何状态，只根据输入进行状态转移。
 
-2型则对应Pushdown Automata，唯一依靠的记忆是栈。
+2型则对应Pushdown Automata，唯一依靠的记忆是栈，例如html的产生式`ELEM -> <TAG>CONTENT</TAG>`，就需要栈。
 
-1型的数学意义多于实际意义
+1型的数学意义多于实际意义。
