@@ -104,7 +104,7 @@ initTips();
     showMessage(text, 12000);
 })();
 
-window.setInterval(showHitokoto,30000);
+//window.setInterval(showHitokoto,30000);
 
 function showHitokoto(){
     $.getJSON('https://v1.hitokoto.cn/',function(result){
@@ -114,7 +114,6 @@ function showHitokoto(){
 
 function showMessage(text, timeout){
     if(Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1)-1];
-    //console.log('showMessage', text);
     $('.message').stop();
     $('.message').html(text).fadeTo(200, 1);
     if (timeout === null) timeout = 5000;
