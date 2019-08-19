@@ -33,6 +33,11 @@ tags: [grammars, parser]
 
 0型文法是这几类文法中，限制最少的一个。
 
+其定义是：
+
+> The characteristic property of a Type 0 grammar is that it may contain rules that transform
+> an arbitrary (non-zero) number of symbols inio an arbitrary (possible zero number of symbols)
+
 ### 1型文法
 
 1型文法也叫上下文有关文法，此文法对应于线性有界自动机。
@@ -42,6 +47,8 @@ tags: [grammars, parser]
 ```
 
 注意：虽然要求|β|>=|α|，但有一特例：α→ε也满足1型文法。
+
+例如 `, N E -> and N` 就不是1型文法，因为左边三个symbol，右边两个。
 
 如有A->Ba 则|β|=2,|α|=1，符合1型文法要求。
 

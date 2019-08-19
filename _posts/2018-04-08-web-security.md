@@ -8,7 +8,15 @@ tags: [web]
 ---
 
 ## 前言
-总结 web 安全相关知识点, 参考资料： <http://guides.rubyonrails.org/security.html>
+总结 web 安全相关知识点,
+
+参考资料：
+
+* <http://guides.rubyonrails.org/security.html>
+* <http://www.owasp.org.cn>
+* <https://www.aliyun.com/product/waf>
+
+
 
 ## Sessions
 http是无状态的，而用户在进行一系列web服务操作时往往需要保存之前的状态，cookies为服务器保存在客户端的状态，
