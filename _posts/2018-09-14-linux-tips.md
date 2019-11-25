@@ -51,6 +51,8 @@ ssh -L 9999:127.0.0.1:6379 root@remote_ip
 redis-cli -p 9999
 ```
 
+补充: [SSH 命令的三种代理功能（-L/-R/-D）](https://zhuanlan.zhihu.com/p/57630633)
+
 ## zsh
 
 ### profile
