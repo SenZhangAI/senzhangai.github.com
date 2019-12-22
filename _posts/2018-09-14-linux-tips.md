@@ -1,15 +1,29 @@
----
+* * *
+
 layout: post
 title: "linux tips"
 description: "常用的linux命令"
 keywords: linux tips
 category: programming
-tags: [linux]
----
+
+## tags: [linux]
 
 ## 前言
 
 整理一些有用linux命令，todo...
+
+## 查询帮忙
+
+Linux的man手册共有以下几个章节：
+
+1. Standard commands (标准命令)
+2. System calls (系统调用)
+3. Library functions (库函数)
+4. Special devices (设备说明)
+5. File formats (文件格式)
+6. Games and toys (游戏和娱乐)
+7. Miscellaneous (杂项)
+8. Administrative Commands (管理员命令)
 
 ## 常用查看监控命令
 
@@ -26,7 +40,7 @@ $ who
 $ du -ch *
 $ du -sh *
 
-# 查询未见编码格式
+# 查询常见编码格式
 $ file -I somefile
 # result: somefile: text/plain; charset=us-ascii
 ```
@@ -45,6 +59,7 @@ $ file -I somefile
 # ssh -L local_port:remote_ip:remote_port remote_user@remote_ip
 ssh -L 9999:127.0.0.1:6379 root@remote_ip
 ```
+
 然后本地测试一下是否可以访问远程原本无法访问的redis服务器：
 
 ```sh
@@ -74,8 +89,8 @@ zsh -xv
 
 Centos不重启修改hostname的方法: `hostnamectl set-hostname NewName`
 
-
 ## linux库函数
 
 ### time
+
 获取实现应该用linux的`clock_gettime()`或者macOS的`mach_absolute_time()`而不用`gettimeofday()`,因为`gettimeofday`不是单调递增的。
