@@ -42,7 +42,7 @@ tags: [software architecture]
 
 这张图应该一方面可作为商业报告书用，一方面可明确产品未来方向。应该在产品开发早期阶段绘制。
 
-![阿里云API网关应用场景]({{ '/assets/images/architecture/API-eco.jpg' }})
+![阿里云API网关应用场景](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/29468/cn_zh/1484724886634/%E5%9C%BA%E6%99%AF1%E6%8B%A5%E6%8A%B1API%E7%BB%8F%E6%B5%8E-559-287%EF%BC%882x%EF%BC%89.jpg)
 
 这些图很清晰地表面了API网关的应用场景，很不错。
 
@@ -60,7 +60,23 @@ tags: [software architecture]
 
 我认为这个系统划分，图例交代非常经典。
 
-![阿里云IoT产品架构]({{ '/assets/images/architecture/ali-IoT-arch.jpg' }})
+![阿里云IoT产品架构](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0291208751/p3364.png)
+
+----------------------------------------------------------------------
+
+<https://help.aliyun.com/document_detail/56515.html>
+
+这张CodePipeline产品架构图第一眼没看明白，因为涉及到一些术语。
+
+那么我先了解一下前文概述:
+
+> 阿里云CodePipeline是一款提供*持续集成/持续交付能力*，并完全兼容Jenkins的能力和使用习惯的SAAS化产品
+
+大致明白其用于持续集成、交付，类似于Jenkins
+
+我觉得得到CodePipeline产品用途的情况下，还是没有看懂架构图。 是因为架构图中没有表达持续集成交付的步骤(或者说时序关系)，我便不知道该系统运行的起点在哪里，然而持续集成，持续交付肯定有一个分阶段的，首先是提交。
+
+后一张图有交代，比较好。
 
 #### 时序图
 
