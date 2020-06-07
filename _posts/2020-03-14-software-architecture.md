@@ -80,6 +80,10 @@ tags: [software architecture]
 
 #### 时序图
 
+参考 <https://mermaid-js.github.io/mermaid/#/sequenceDiagram> 的不同种类的时序图
+
+关于时序图，重点是，谁对谁发送什么消息
+
 如下时序图
 
 <https://help.aliyun.com/document_detail/127674.html?spm=5176.11065259.1996646101.searchclickresult.7afd72027BsmsR>
@@ -89,4 +93,8 @@ tags: [software architecture]
 感觉不应该太细节，现在的时序图太细节了，感觉变成了泳道图。但是我觉得不用刻意遵守时序图不应写细节这样的教条。而是根据实际情况
 怎样表达清晰即可。
 
-时序图重点是，谁对谁发送什么消息
+<https://docs.open.alipay.com/20180417160701241302/dvonpk/>
+
+![支付宝预授权时序图](https://docs.open.alipay.com/20180417160701241302/dvonpk/)
+
+这里的支付宝预授权时序图我觉得很棒。
