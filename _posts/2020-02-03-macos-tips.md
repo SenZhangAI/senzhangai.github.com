@@ -41,13 +41,6 @@ sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
 sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 ```
 
-如果是当前最新的macOS Catalina，则可以遇到read-only files的问题，
-需要额外设置
-
-1. sudo打开`/etc/fstab`
-2. 输入`LABEL=YOUR_VOLUME_NAME none ntfs rw,auto,nobrowse`，其中`YOUR_VOLUME_NAME`是volume名字
-3. Finder可能找不到volume，则`Finder->Go->Go to Folder`，输入`/volume`
-
 #### 步骤5 开启系统保护
 
 和步骤3基本相同，除了第4步为
@@ -55,6 +48,10 @@ sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 ```
 csrutil enable
 ```
+
+但是对于`macOS Catalina` 如上方式暂时不能解决，出现文件不显示的现象，可以用如下的工具挂载ntfs文件：
+
+<https://github.com/undecidabot/ezntfs>
 
 ### 设置app不显示在dock中
 
