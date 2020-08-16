@@ -100,15 +100,49 @@ cd tikv
 the maximum number of open file descriptors is too small, got 256, expect greater or equal to 82920
 ```
 
+```sh
+sudo launchctl limit
+```
+```
+	cpu         unlimited      unlimited
+	filesize    unlimited      unlimited
+	data        unlimited      unlimited
+	stack       8388608        67104768
+	core        0              unlimited
+	rss         unlimited      unlimited
+	memlock     unlimited      unlimited
+	maxproc     2784           4176
+	maxfiles    256            524288
+```
+
 解决方案参见 <https://unix.stackexchange.com/questions/108174/how-to-persistently-control-maximum-system-resource-consumption-on-mac>
 
+配置 `/Library/LaunchDaemons/limit.maxfiles.plist` 并重启后：
+
+```sh
+sudo launchctl limit
+
+	cpu         unlimited      unlimited
+	filesize    unlimited      unlimited
+	data        unlimited      unlimited
+	stack       8388608        67104768
+	core        0              unlimited
+	rss         unlimited      unlimited
+	memlock     unlimited      unlimited
+	maxproc     2784           4176
+	maxfiles    262144         524288
+```
+
+问题解决。
 
 ## 2. 改写源码
 
 目标是改写后：使得 TiDB 启动事务时，能打印出一个 “hello transaction” 的 日志
 
 ### 2.1 定位代码
-事务是由底层的tikv支持，tidb其上做了一层封装
+通过关键字`Begin`、`Commit`、`Transaction` 或者 `txn` 查找到关键代码，理解其含义。
+
+可以发现事务是由底层的tikv支持，tidb在其上做了一层封装，并提供一个接口。
 
 ```go
 //file: kv/kv.go
@@ -144,7 +178,7 @@ type Storage interface {
 }
 ```
 
-这里应该是定义的支持事务的Storage接口，重点关注tikv实现接口,
+这里存储层的Storage接口包含Begin，并返回一个Transaction接口，重点关注tikv实现Storage接口,
 并在其中记录日志
 
 ```go
