@@ -17,15 +17,15 @@ tags: []
 * 3 TiKV 
 改写后：使得 TiDB 启动事务时，能打印出一个 “hello transaction” 的 日志
 
-## 源码编译步骤
+## 1. 源码编译步骤
 
 由于时间仓促，这里记录其简要步骤
 
-### 0. 环境
+### 1.1 环境
 
 本次测试机器操作为 macOS Catalina
 
-### 1. 下载源码
+### 1.2 下载源码
 
 ```sh
 git clone --depth=1 https://github.com/pingcap/tidb
@@ -33,7 +33,7 @@ git clone --depth=1 https://github.com/pingcap/pd
 git clone --depth=1 https://github.com/tikv/tikv
 ```
 
-### 2.编译源码
+### 1.3 编译源码
 
 tidb产品编译相当简单，每个项目里都有Makefile
 
@@ -50,15 +50,15 @@ brew install rust
 brew install go
 ```
 
-### 3. 运行
+### 1.4 运行
 
-#### 3.1 运行tidb
+#### 1.4.1 运行tidb
 
 ```sh
 cd tidb && ./bin/tidb-server
 ```
 
-#### 3.2 运行tidb
+#### 1.4.2 运行tidb
 
 运行pd和tikv参见 <https://tikv.org/docs/4.0/tasks/deploy/binary/>
 
@@ -73,7 +73,7 @@ cd pd
 ```
 
 
-#### 3.3 运行tikv
+#### 1.4.3 运行tikv
 
 ```sh
 cd tikv
@@ -103,8 +103,67 @@ the maximum number of open file descriptors is too small, got 256, expect greate
 解决方案参见 <https://unix.stackexchange.com/questions/108174/how-to-persistently-control-maximum-system-resource-consumption-on-mac>
 
 
-## 改写源码
+## 2. 改写源码
 
 目标是改写后：使得 TiDB 启动事务时，能打印出一个 “hello transaction” 的 日志
 
+### 2.1 定位代码
+事务是由底层的tikv支持，tidb其上做了一层封装
 
+```go
+//file: kv/kv.go
+
+// Storage defines the interface for storage.
+// Isolation should be at least SI(SNAPSHOT ISOLATION)
+type Storage interface {
+	// Begin transaction
+	Begin() (Transaction, error)
+	// BeginWithStartTS begins transaction with startTS.
+	BeginWithStartTS(startTS uint64) (Transaction, error)
+	// GetSnapshot gets a snapshot that is able to read any data which data is <= ver.
+	// if ver is MaxVersion or > current max committed version, we will use current version for this snapshot.
+	GetSnapshot(ver Version) (Snapshot, error)
+	// GetClient gets a client instance.
+	GetClient() Client
+	// Close store
+	Close() error
+	// UUID return a unique ID which represents a Storage.
+	UUID() string
+	// CurrentVersion returns current max committed version.
+	CurrentVersion() (Version, error)
+	// GetOracle gets a timestamp oracle client.
+	GetOracle() oracle.Oracle
+	// SupportDeleteRange gets the storage support delete range or not.
+	SupportDeleteRange() (supported bool)
+	// Name gets the name of the storage engine
+	Name() string
+	// Describe returns of brief introduction of the storage
+	Describe() string
+	// ShowStatus returns the specified status of the storage
+	ShowStatus(ctx context.Context, key string) (interface{}, error)
+}
+```
+
+这里应该是定义的支持事务的Storage接口，重点关注tikv实现接口,
+并在其中记录日志
+
+```go
+//file tikv/kv.go
+
+func (s *tikvStore) Begin() (kv.Transaction, error) {
+	logutil.BgLogger().Info("hello transaction")
+	txn, err := newTiKVTxn(s)
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return txn, nil
+}
+```
+
+### 2.2 重新编译运行
+
+```sh
+cd tidb && make && ./bin/tidb-server
+```
+
+即可看到有事务执行时打印 "hello transaction"
