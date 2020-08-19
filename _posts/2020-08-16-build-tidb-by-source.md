@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "源码编译实验tidb"
-description: ""
-keywords:
-category:
-tags: []
+description: "High Performance TiDB 课程"
+keywords: tidb
+category: Programming
+tags: [tidb]
 ---
 
-## 任务
+## 作业描述
+
+作业来自 [High Performance TiDB 课程](https://zhuanlan.zhihu.com/p/179245036)
 
 题目描述：
 
@@ -15,15 +17,13 @@ tags: []
 * 1 TiDB
 * 1 PD
 * 3 TiKV 
-改写后：使得 TiDB 启动事务时，能打印出一个 “hello transaction” 的 日志
+改写后：使得 TiDB 启动事务时，能打印出一个 "hello transaction" 的 日志
 
 ## 1. 源码编译步骤
 
-由于时间仓促，这里记录其简要步骤
-
 ### 1.1 环境
 
-本次测试机器操作为 macOS Catalina
+System: macOS Catalina
 
 ### 1.2 下载源码
 
@@ -39,8 +39,8 @@ tidb产品编译相当简单，每个项目里都有Makefile
 
 ```sh
 cd tidb && make
-cd pd && make && mkdir -p ./bin && cp ./target/release/tikv-server bin
-cd tikv && make
+cd pd && make
+cd tikv && make && mkdir -p ./bin && cp ./target/release/tikv-server bin
 ```
 
 其中tidb和pd是golang，而tikv是rust，通过brew可以比较方便地安装其编译器
@@ -104,15 +104,15 @@ the maximum number of open file descriptors is too small, got 256, expect greate
 sudo launchctl limit
 ```
 ```
-	cpu         unlimited      unlimited
-	filesize    unlimited      unlimited
-	data        unlimited      unlimited
-	stack       8388608        67104768
-	core        0              unlimited
-	rss         unlimited      unlimited
-	memlock     unlimited      unlimited
-	maxproc     2784           4176
-	maxfiles    256            524288
+    cpu         unlimited      unlimited
+    filesize    unlimited      unlimited
+    data        unlimited      unlimited
+    stack       8388608        67104768
+    core        0              unlimited
+    rss         unlimited      unlimited
+    memlock     unlimited      unlimited
+    maxproc     2784           4176
+    maxfiles    256            524288
 ```
 
 解决方案参见 <https://unix.stackexchange.com/questions/108174/how-to-persistently-control-maximum-system-resource-consumption-on-mac>
@@ -122,15 +122,15 @@ sudo launchctl limit
 ```sh
 sudo launchctl limit
 
-	cpu         unlimited      unlimited
-	filesize    unlimited      unlimited
-	data        unlimited      unlimited
-	stack       8388608        67104768
-	core        0              unlimited
-	rss         unlimited      unlimited
-	memlock     unlimited      unlimited
-	maxproc     2784           4176
-	maxfiles    262144         524288
+    cpu         unlimited      unlimited
+    filesize    unlimited      unlimited
+    data        unlimited      unlimited
+    stack       8388608        67104768
+    core        0              unlimited
+    rss         unlimited      unlimited
+    memlock     unlimited      unlimited
+    maxproc     2784           4176
+    maxfiles    262144         524288
 ```
 
 问题解决。
@@ -150,31 +150,31 @@ sudo launchctl limit
 // Storage defines the interface for storage.
 // Isolation should be at least SI(SNAPSHOT ISOLATION)
 type Storage interface {
-	// Begin transaction
-	Begin() (Transaction, error)
-	// BeginWithStartTS begins transaction with startTS.
-	BeginWithStartTS(startTS uint64) (Transaction, error)
-	// GetSnapshot gets a snapshot that is able to read any data which data is <= ver.
-	// if ver is MaxVersion or > current max committed version, we will use current version for this snapshot.
-	GetSnapshot(ver Version) (Snapshot, error)
-	// GetClient gets a client instance.
-	GetClient() Client
-	// Close store
-	Close() error
-	// UUID return a unique ID which represents a Storage.
-	UUID() string
-	// CurrentVersion returns current max committed version.
-	CurrentVersion() (Version, error)
-	// GetOracle gets a timestamp oracle client.
-	GetOracle() oracle.Oracle
-	// SupportDeleteRange gets the storage support delete range or not.
-	SupportDeleteRange() (supported bool)
-	// Name gets the name of the storage engine
-	Name() string
-	// Describe returns of brief introduction of the storage
-	Describe() string
-	// ShowStatus returns the specified status of the storage
-	ShowStatus(ctx context.Context, key string) (interface{}, error)
+    // Begin transaction
+    Begin() (Transaction, error)
+    // BeginWithStartTS begins transaction with startTS.
+    BeginWithStartTS(startTS uint64) (Transaction, error)
+    // GetSnapshot gets a snapshot that is able to read any data which data is <= ver.
+    // if ver is MaxVersion or > current max committed version, we will use current version for this snapshot.
+    GetSnapshot(ver Version) (Snapshot, error)
+    // GetClient gets a client instance.
+    GetClient() Client
+    // Close store
+    Close() error
+    // UUID return a unique ID which represents a Storage.
+    UUID() string
+    // CurrentVersion returns current max committed version.
+    CurrentVersion() (Version, error)
+    // GetOracle gets a timestamp oracle client.
+    GetOracle() oracle.Oracle
+    // SupportDeleteRange gets the storage support delete range or not.
+    SupportDeleteRange() (supported bool)
+    // Name gets the name of the storage engine
+    Name() string
+    // Describe returns of brief introduction of the storage
+    Describe() string
+    // ShowStatus returns the specified status of the storage
+    ShowStatus(ctx context.Context, key string) (interface{}, error)
 }
 ```
 
@@ -185,12 +185,12 @@ type Storage interface {
 //file tikv/kv.go
 
 func (s *tikvStore) Begin() (kv.Transaction, error) {
-	logutil.BgLogger().Info("hello transaction")
-	txn, err := newTiKVTxn(s)
-	if err != nil {
-		return nil, errors.Trace(err)
-	}
-	return txn, nil
+    logutil.BgLogger().Info("hello transaction")
+    txn, err := newTiKVTxn(s)
+    if err != nil {
+        return nil, errors.Trace(err)
+    }
+    return txn, nil
 }
 ```
 
