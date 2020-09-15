@@ -94,3 +94,13 @@ Centos不重启修改hostname的方法: `hostnamectl set-hostname NewName`
 ### time
 
 获取实现应该用linux的`clock_gettime()`或者macOS的`mach_absolute_time()`而不用`gettimeofday()`,因为`gettimeofday`不是单调递增的。
+
+### centos系统
+
+升级g++
+
+```sh
+sudo yum install centos-release-scl
+sudo yum install devtoolset-7
+scl enable devtoolset-7 bash
+```
