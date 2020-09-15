@@ -104,3 +104,13 @@ sudo yum install centos-release-scl
 sudo yum install devtoolset-7
 scl enable devtoolset-7 bash
 ```
+
+## 资源
+
+ENOSPC: System limit for number of file watchers reached
+
+解决办法:
+
+```sh
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
