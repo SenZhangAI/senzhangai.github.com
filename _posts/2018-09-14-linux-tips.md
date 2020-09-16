@@ -107,10 +107,27 @@ scl enable devtoolset-7 bash
 
 ## 资源
 
-ENOSPC: System limit for number of file watchers reached
+## 优化及配置
+
+
+
+修改backlog queue，作为服务器优化的手段
+
+参见 <https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/>
+
+```
+sudo sysctl -w net.core.somaxconn=4096
+```
+
+ENOSPC: System limit for number of file watchers reached，但是
 
 解决办法:
 
 ```sh
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+linux ulimit 调优
+
+<https://www.cnblogs.com/sunsky303/p/8359592.html>
+
