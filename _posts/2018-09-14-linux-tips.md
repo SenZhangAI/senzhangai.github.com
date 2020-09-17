@@ -131,3 +131,39 @@ linux ulimit 调优
 
 <https://www.cnblogs.com/sunsky303/p/8359592.html>
 
+## 安全
+
+ssh 登录黑名单，但是黑名单机制还是不如白名单
+
+<https://blog.csdn.net/z13615480737/article/details/83028304>
+
+用ssh私钥的方式最好
+
+
+Nginx 配置ssl报错
+
+NGINX SSL: error:0200100D:system library:fopen:Permission denied
+
+查看错误编码 0200100D 为权限问题，但chown, `ls -al` 查看权限都没发现问题
+
+根据 <https://serverfault.com/questions/540537/nginx-permission-denied-to-certificate-files-for-ssl-configuration>
+
+应该是selinux的原因，可能文件来自网络，需要`restorecon`
+
+
+## 常用安装
+
+### Jenkins
+按照怎么省心怎么来的原则，Jenkins yum安装比较方便
+
+参见 <https://www.jenkins.io/doc/book/installing/#red-hat-centos>
+
+```
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo yum upgrade
+sudo yum install jenkins java-1.8.0-openjdk-devel
+sudo systemctl daemon-reload
+sudo systemctl start jenkins
+```
