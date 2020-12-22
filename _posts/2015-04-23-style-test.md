@@ -50,7 +50,7 @@ summary: "测试默认风格"
 > 这是*斜体*
 > 这是code formate `#include<iostream>`
 >  >nested Blockquote
-> 这是引用[Baidu链接用"[]()"实现](www.baidu.com)
+> 这是引用[`Baidu链接用"[]()"实现`](www.baidu.com)
 
 以下是Multiple lines Code format
 
