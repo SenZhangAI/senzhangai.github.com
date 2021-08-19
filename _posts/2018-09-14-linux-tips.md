@@ -25,6 +25,14 @@ Linux的man手册共有以下几个章节：
 7. Miscellaneous (杂项)
 8. Administrative Commands (管理员命令)
 
+## 好用
+
+1. 查询目录下所有文件类型
+
+```bash
+find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+```
+
 ## 常用查看监控命令
 
 ```bash
